@@ -1,6 +1,12 @@
-# Agent Coordination Resources
+# NEURO-DIV - agentic communication scaffold (ACS)
 
-This repository makes one shared operating context discoverable by Codex, Claude Code, GitHub Copilot in VS Code, Gemini/Antigravity, Perplexity, and other instruction-aware LLM clients.
+ACS is the communications subsystem of the larger NEURO-DIV systematic architecture. It gives Codex, Claude Code, GitHub Copilot in VS Code, Gemini/Antigravity, Perplexity, and other compatible agents a shared way to exchange operational context, coordinate responsibilities, route narrative and cognitive feedback, synchronize state, and reach common tools without requiring the user to act as the integration layer.
+
+ACS is not the whole NEURO-DIV architecture. It is the communications team and connective scaffold operating across whichever ecosystem layers require agent-to-agent handoffs, context continuity, feedback routing, verification, or tool-mediated action.
+
+## Relationship to the parent architecture
+
+The current parent spine is the [NEURO-DIV Core Foundation Document v1](https://docs.google.com/document/d/1DRlYOnp6AGBwRWOYgfh03gxNWxn6kaWSjmkddPa7gdY/edit). That document is incomplete and contaminated by transcription noise. It requires a separate, multi-version reconstruction that compares surviving architecture versions, identifies missing pieces, resolves contradictions, and produces a coherent full-system architecture. ACS should be integrated into that reconstruction as a cross-layer communications subsystem, not mistaken for the parent framework.
 
 Start with [AGENTS.md](AGENTS.md). The current capability matrix and synchronization procedure live in [resources/agent-coordination.md](resources/agent-coordination.md).
 
@@ -12,4 +18,4 @@ Run the local validation with:
 
 OAuth and other credentials are intentionally excluded. Each client must authenticate to Zapier locally.
 
-The active GitHub repository is [OneManBand87/agent-coordination-system](https://github.com/OneManBand87/agent-coordination-system). The repository was safely repurposed from the earlier Neuro-DIV Bolt prototype; its former default state remains recoverable from `archive/neuro-div-bolt-prototype-2026-07-16`, and its original topic branches remain intact.
+The active GitHub repository is [OneManBand87/NEURO-DIV-agentic-communication-scaffold-ACS](https://github.com/OneManBand87/NEURO-DIV-agentic-communication-scaffold-ACS). GitHub repository names cannot preserve the spaces and parentheses in the human-facing title, so the repository uses a technically valid slug. The repository was safely repurposed from the earlier Neuro-DIV Bolt prototype; its former default state remains recoverable from `archive/neuro-div-bolt-prototype-2026-07-16`, and its original topic branches remain intact.
