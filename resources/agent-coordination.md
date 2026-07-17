@@ -1,12 +1,16 @@
-# Agent Coordination Snapshot
+# NEURO-DIV - agentic communication scaffold (ACS) - Repository Snapshot
 
 Last verified: 2026-07-16
 
-Canonical source: [Agent Coordination - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit)
+Canonical source: [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit)
+
+Parent architecture spine: [NEURO-DIV Core Foundation Document v1](https://docs.google.com/document/d/1DRlYOnp6AGBwRWOYgfh03gxNWxn6kaWSjmkddPa7gdY/edit)
 
 ## Architecture
 
-The repository is the portable discovery layer. The Google Doc is the canonical standing brief. Zapier MCP is the preferred common action layer. Client-specific instruction files point every supported LLM back to the same resources rather than duplicating independent context.
+ACS is the communications subsystem of the larger NEURO-DIV systematic architecture. It coordinates agent-to-agent handoffs, shared operational state, narrative and cognitive feedback routing, context continuity, verification, and common tool access across ecosystem layers. The repository is its portable discovery layer, the Google Doc is its canonical standing brief, and Zapier MCP is its preferred common action layer.
+
+ACS is not the whole NEURO-DIV framework. The Core Foundation Document is the current parent spine, but it is incomplete and contains transcription contamination. A separate architecture reconstruction must compare the surviving versions, identify missing components, resolve contradictions, and integrate ACS at every applicable layer.
 
 ## Capability matrix
 
@@ -22,7 +26,7 @@ The repository is the portable discovery layer. The Google Doc is the canonical 
 
 ## Available resources
 
-- Public GitHub repository: [OneManBand87/agent-coordination-system](https://github.com/OneManBand87/agent-coordination-system).
+- Public GitHub repository: [OneManBand87/NEURO-DIV-agentic-communication-scaffold-ACS](https://github.com/OneManBand87/NEURO-DIV-agentic-communication-scaffold-ACS).
 - Legacy prototype recovery branch: `archive/neuro-div-bolt-prototype-2026-07-16`.
 - Canonical standing brief in Google Drive.
 - Portable repository instructions for generic agents, Claude, Gemini, and GitHub Copilot.
