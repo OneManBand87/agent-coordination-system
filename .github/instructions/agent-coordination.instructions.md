@@ -8,4 +8,6 @@ Read [AGENTS.md](../../AGENTS.md) and [resources/agent-resources.json](../../res
 
 Enforce the mandatory QTU execution gate: state-changing work requires a directive-specific `QTU-LCB90 >= 0.90`. Missing or stale evidence blocks execution and may trigger only read-only verification.
 
+Enforce [resources/integrity-materiality-control.md](../../resources/integrity-materiality-control.md): material claims require evidence classification, contradiction handling, environment/counterpart awareness, commitment tracking, and read-back before completion.
+
 Keep the canonical Google Doc, repository snapshot, and capability manifest aligned. Do not commit authentication material or report an unverified integration as working.

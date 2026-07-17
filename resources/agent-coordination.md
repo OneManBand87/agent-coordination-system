@@ -16,6 +16,8 @@ The current theory-to-system crosswalk is documented in [theory-branch-integrati
 
 QTU is the mandatory epistemic execution gate for that chain. The normalized score is `U_norm = A_OOD * A_CF * (L_min / L(M))`. ACS may route a directive into state-changing execution only when its one-sided 90% lower confidence bound satisfies `QTU-LCB90 >= 0.90`. A point estimate alone is insufficient; missing, stale, or non-reproducible evidence blocks execution. The canonical source is [A Quantitative Theory of Understanding rev1](https://drive.google.com/file/d/1MOxQjpZ59JzOOZs9EsFEuq49DKN3TkjW).
 
+The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integrity-materiality-control.md) governs material claims and completion assertions. It is PCAOB-aligned, not a claim of PCAOB compliance. It requires fact/inference separation, supporting and contradictory evidence, proportional materiality routing, capability and counterpart awareness, durable commitment records, and read-back before claims of memory, synchronization, completion, or remediation. The QTU paper defines the understanding functional; the normalized score, confidence-bound method, and 0.90 threshold are ACS operational extensions.
+
 ## Capability matrix
 
 | Client | Repository context | Zapier MCP | Verified status |
@@ -37,6 +39,7 @@ QTU is the mandatory epistemic execution gate for that chain. The normalized sco
 - Machine-readable resource and capability manifest.
 - WIPED, branch-structured reasoning, CBAL, ACS, worker-plane, and integrity-plane crosswalk.
 - Mandatory QTU 90% lower-confidence-bound execution gate and directive-envelope schema.
+- Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.
 - A local verifier that checks required files, JSON syntax, endpoint consistency, and obvious secret-bearing files.

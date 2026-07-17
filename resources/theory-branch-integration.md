@@ -90,6 +90,7 @@ NEURO-DIV
 |   `-- Artifact governance and recovery
 `-- Cross-axis control planes
     |-- ACS communication and synchronization
+    |-- Integrity, materiality, evidence, and commitment control
     |-- Stigmergic distributed-worker coordination
     |-- Context and retrieval integrity
     |-- Garbage collection and pruning
@@ -203,6 +204,8 @@ The structural-integrity plane must provide:
 - evidence refresh requirements;
 - consolidation and archival; and
 - provenance-preserving cleanup.
+
+The response-integrity plane is defined in [integrity-materiality-control.md](integrity-materiality-control.md). It applies PCAOB-aligned principles of objectivity, due professional care, skepticism, evidence sufficiency and appropriateness, materiality, supervision, and documentation without claiming that an AI response is a PCAOB audit or PCAOB-compliant. It requires agents to separate fact, inference, analogy, proposal, and unknown; examine contradictory evidence; record environment and counterpart limitations; ledger material commitments; and verify durable implementation before claiming memory, synchronization, completion, or remediation.
 
 Positive trail strength, confidence, and priority decay unless refreshed by evidence. Otherwise an early mistake can become a permanent runaway instruction.
 

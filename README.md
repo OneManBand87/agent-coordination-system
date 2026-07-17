@@ -14,6 +14,8 @@ The integrated theory and branch hierarchy lives in [resources/theory-branch-int
 
 All participating agents are subject to the QTU pre-execution gate documented there: state-changing directives require a directive-specific one-sided 90% lower confidence bound of at least `0.90` on the normalized QTU score.
 
+Material claims and commitments are also governed by the [Integrity, Materiality, Evidence, and Commitment Control](resources/integrity-materiality-control.md). The control is PCAOB-aligned but does not claim PCAOB compliance; it requires evidence classification, contradiction handling, environment/counterpart awareness, commitment tracking, and verified read-back.
+
 Run the local validation with:
 
 ```sh

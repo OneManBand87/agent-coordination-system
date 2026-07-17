@@ -87,6 +87,64 @@
       "platform-policy"
     ]
   },
+  "integrityMaterialityControl": {
+    "status": "mandatory",
+    "frameworkBoundary": "PCAOB-aligned internal AI control; not a PCAOB audit or claim of PCAOB compliance",
+    "repositoryControl": "resources/integrity-materiality-control.md",
+    "provisionalHistoryReview": {
+      "repositorySnapshot": "resources/ai-response-integrity-review-2026-07-17.md",
+      "canonicalDriveCopy": "https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc",
+      "status": "provisional-corpus-recovery-incomplete"
+    },
+    "materialDomains": [
+      "research",
+      "software",
+      "business-strategy",
+      "philanthropic-activity",
+      "canonical-architecture",
+      "memory-and-instruction-persistence",
+      "connector-and-capability-status",
+      "external-communication",
+      "financial-legal-regulatory-security"
+    ],
+    "requiredClaimClasses": [
+      "observed-fact",
+      "sourced-fact",
+      "inference",
+      "analogy",
+      "proposal",
+      "unknown"
+    ],
+    "completionRequires": [
+      "durable-evidence",
+      "read-back",
+      "contradiction-review",
+      "recurrence-linkage-when-applicable"
+    ],
+    "installationAuthorization": {
+      "directiveId": "NDV-INT-2026-07-17-A",
+      "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
+      "oodTests": "60/60",
+      "counterfactualTests": "60/60",
+      "complexityRatio": 0.98,
+      "qtuLcb90": 0.908739,
+      "scope": "reversible control installation only; not empirical production-effectiveness evidence"
+    },
+    "standards": {
+      "current": [
+        "PCAOB AS 1000",
+        "PCAOB AS 1105",
+        "PCAOB AS 1201",
+        "PCAOB AS 1215",
+        "PCAOB AS 2105",
+        "PCAOB AS 2810"
+      ],
+      "futureEffective2026-12-15": [
+        "PCAOB QC 1000",
+        "PCAOB EI 1000"
+      ]
+    }
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",

@@ -16,6 +16,8 @@ GEMINI.md
 resources/agent-coordination.md
 resources/agent-resources.json
 resources/theory-branch-integration.md
+resources/integrity-materiality-control.md
+resources/ai-response-integrity-review-2026-07-17.md
 skills-lock.json'
 
 missing=0
@@ -25,6 +27,18 @@ for file in $required_files; do
     missing=1
   fi
 done
+
+for integrity_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md resources/agent-coordination.md resources/integrity-materiality-control.md; do
+  if ! rg -Fq 'integrity-materiality-control.md' "$integrity_file" && [ "$integrity_file" != 'resources/integrity-materiality-control.md' ]; then
+    printf 'integrity control link missing: %s\n' "$integrity_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fq 'PCAOB-aligned' resources/integrity-materiality-control.md || ! rg -Fq 'QTU-LCB90 = 0.908739' resources/integrity-materiality-control.md; then
+  printf 'integrity control invariants missing\n' >&2
+  exit 1
+fi
 
 for qtu_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md resources/agent-coordination.md resources/agent-resources.json resources/theory-branch-integration.md; do
   if ! rg -Fq 'QTU-LCB90' "$qtu_file"; then
