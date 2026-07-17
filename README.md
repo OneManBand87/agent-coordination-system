@@ -10,6 +10,8 @@ The current parent spine is the [NEURO-DIV Core Foundation Document v1](https://
 
 Start with [AGENTS.md](AGENTS.md). The current capability matrix and synchronization procedure live in [resources/agent-coordination.md](resources/agent-coordination.md).
 
+The integrated theory and branch hierarchy lives in [resources/theory-branch-integration.md](resources/theory-branch-integration.md). It connects WIPED behavioral adaptation, branch-structured reasoning, CBAL branch identity, ACS communication, distributed worker execution, and the integrity and garbage-collection control plane.
+
 Run the local validation with:
 
 ```sh

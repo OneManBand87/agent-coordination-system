@@ -28,6 +28,26 @@
       "common-tool-access"
     ]
   },
+  "theoryBranchIntegration": {
+    "snapshot": "resources/theory-branch-integration.md",
+    "architecturalChain": [
+      "wiped-behavioral-state",
+      "adaptive-branch-parameters",
+      "branch-structured-reasoning",
+      "cbal-identity-lineage-privacy-integrity",
+      "acs-routing-and-state-synchronization",
+      "stigmergic-distributed-worker-execution",
+      "verification-and-convergence",
+      "consolidation-archival-and-garbage-collection"
+    ],
+    "canonicalSources": {
+      "wipedModel": "https://docs.google.com/document/d/1Pi_qvpV6L3ME12W18gHl8rOZfUTc6AR6VNUYJcSAtiE",
+      "branchStructuredReasoning": "https://drive.google.com/file/d/1gDpdnOqq93A8YPmUKO8lRpNXCmPXISQr",
+      "architectureOntologyV2": "https://drive.google.com/file/d/1nOU3l02RZSxRhKisC-r7eBoRn5fFMBJG",
+      "cryptographicBranchAddressing": "https://drive.google.com/file/d/1tURDxNJgb7UFWo5sYCzbdVt0d94dHuG4"
+    },
+    "validationBoundary": "WIPED is a provisional simulation-based behavioral-adaptation model requiring independent empirical validation."
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",

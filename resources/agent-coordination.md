@@ -12,6 +12,8 @@ ACS is the communications subsystem of the larger NEURO-DIV systematic architect
 
 ACS is not the whole NEURO-DIV framework. The Core Foundation Document is the current parent spine, but it is incomplete and contains transcription contamination. A separate architecture reconstruction must compare the surviving versions, identify missing components, resolve contradictions, and integrate ACS at every applicable layer.
 
+The current theory-to-system crosswalk is documented in [theory-branch-integration.md](theory-branch-integration.md). Its controlling chain is: WIPED behavioral state -> adaptive branch parameters -> branch-structured reasoning -> CBAL identity and lineage -> ACS routing and synchronization -> distributed-worker execution -> verification, convergence, consolidation, and garbage collection. WIPED is a provisional behavioral-adaptation model, not the whole NEURO-DIV theory or a clinically validated universal equation.
+
 ## Capability matrix
 
 | Client | Repository context | Zapier MCP | Verified status |
@@ -31,6 +33,7 @@ ACS is not the whole NEURO-DIV framework. The Core Foundation Document is the cu
 - Canonical standing brief in Google Drive.
 - Portable repository instructions for generic agents, Claude, Gemini, and GitHub Copilot.
 - Machine-readable resource and capability manifest.
+- WIPED, branch-structured reasoning, CBAL, ACS, worker-plane, and integrity-plane crosswalk.
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.
 - A local verifier that checks required files, JSON syntax, endpoint consistency, and obvious secret-bearing files.
