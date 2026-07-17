@@ -1,4 +1,4 @@
-# Shared Agent Coordination
+# NEURO-DIV - agentic communication scaffold (ACS)
 
 These instructions apply to every AI agent working in this repository.
 
@@ -7,11 +7,14 @@ These instructions apply to every AI agent working in this repository.
 1. Read [resources/agent-coordination.md](resources/agent-coordination.md).
 2. Read [resources/agent-resources.json](resources/agent-resources.json) for machine-readable endpoints, capabilities, and status.
 3. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
-   [Agent Coordination - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit).
+   [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit).
 4. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
 
 ## Shared architecture
 
+- ACS is a communications subsystem within the larger NEURO-DIV architecture, not the entire framework.
+- Parent architecture spine: [NEURO-DIV Core Foundation Document v1](https://docs.google.com/document/d/1DRlYOnp6AGBwRWOYgfh03gxNWxn6kaWSjmkddPa7gdY/edit). Treat it as an incomplete working spine pending multi-version reconstruction.
+- ACS responsibilities include agent-to-agent handoffs, shared-state synchronization, narrative and cognitive feedback routing, context continuity, verification routing, and common tool access across ecosystem layers.
 - Participating agent surfaces: Codex, Claude Code, GitHub Copilot/VS Code, Gemini through Antigravity, and Perplexity.
 - Preferred common action layer: Zapier MCP at `https://mcp.zapier.com/api/v1/connect`.
 - Project MCP definitions are versioned in [.mcp.json](.mcp.json) and [.vscode/mcp.json](.vscode/mcp.json). Authentication is always local and must never be committed.
