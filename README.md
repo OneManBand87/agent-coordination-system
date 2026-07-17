@@ -11,3 +11,5 @@ Run the local validation with:
 ```
 
 OAuth and other credentials are intentionally excluded. Each client must authenticate to Zapier locally.
+
+The active GitHub repository is [OneManBand87/agent-coordination-system](https://github.com/OneManBand87/agent-coordination-system). The repository was safely repurposed from the earlier Neuro-DIV Bolt prototype; its former default state remains recoverable from `archive/neuro-div-bolt-prototype-2026-07-16`, and its original topic branches remain intact.

@@ -22,6 +22,8 @@ The repository is the portable discovery layer. The Google Doc is the canonical 
 
 ## Available resources
 
+- Public GitHub repository: [OneManBand87/agent-coordination-system](https://github.com/OneManBand87/agent-coordination-system).
+- Legacy prototype recovery branch: `archive/neuro-div-bolt-prototype-2026-07-16`.
 - Canonical standing brief in Google Drive.
 - Portable repository instructions for generic agents, Claude, Gemini, and GitHub Copilot.
 - Machine-readable resource and capability manifest.

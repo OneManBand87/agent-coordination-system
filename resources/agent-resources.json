@@ -7,6 +7,12 @@
     "documentId": "1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q",
     "role": "source-of-truth"
   },
+  "repository": {
+    "url": "https://github.com/OneManBand87/agent-coordination-system",
+    "visibility": "public",
+    "defaultBranch": "main",
+    "legacyArchiveBranch": "archive/neuro-div-bolt-prototype-2026-07-16"
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",
