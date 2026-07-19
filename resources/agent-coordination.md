@@ -44,8 +44,17 @@ The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integri
 - Mandatory administrative and logistical safe-harbor scope amendment with non-exhaustive examples and a reproducible authorization record.
 - Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
 - Project-scoped MCP configuration for VS Code and Claude Code.
+- Project-local Codex context reminder hooks in `.codex/hooks.json` and `.codex/hooks/ndv_context_hook.py`.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.
 - A local verifier that checks required files, JSON syntax, endpoint consistency, and obvious secret-bearing files.
+
+## Codex project hooks
+
+Codex has a narrow project-local hook layer for this repository. The hook configuration lives at `.codex/hooks.json` and calls `.codex/hooks/ndv_context_hook.py` for `SessionStart`, `UserPromptSubmit`, and `PostCompact`.
+
+The hook is intentionally read-only. When the active `cwd` is inside `/Users/dinamargelovich/Documents/General`, it emits a compact context reminder to read the repository snapshot and controls before material claims or state-changing work unless canonical Drive access has been directly verified. Outside this workspace it emits nothing. It does not log prompts, write to Drive, block tools, communicate externally, or handle credentials.
+
+Directive `NDV-HOOKS-2026-07-19-A` authorized this reversible hook installation and synchronization. The dry-run protocol passed 60 of 60 OOD context-routing cases and 60 of 60 counterfactual/non-leakage cases. Using independent uniform `Beta(1,1)` component priors, exact one-sided 90% component lower credible bounds of `0.962956`, and `L_min/L = 1.0`, the conservative `QTU-LCB90` is `0.927285`. This is authorization for the narrow hook layer only, not evidence of production effectiveness.
 
 ## Synchronization rule
 

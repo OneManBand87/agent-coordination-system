@@ -192,6 +192,33 @@
     ".mcp.json",
     ".vscode/mcp.json"
   ],
+  "codexProjectHooks": {
+    "status": "installed",
+    "configurationFile": ".codex/hooks.json",
+    "script": ".codex/hooks/ndv_context_hook.py",
+    "scope": "read-only project-local context reminders for the General workspace",
+    "events": [
+      "SessionStart",
+      "UserPromptSubmit",
+      "PostCompact"
+    ],
+    "nonGoals": [
+      "prompt logging",
+      "Drive writes",
+      "tool blocking",
+      "external communication",
+      "credential handling"
+    ],
+    "authorization": {
+      "directiveId": "NDV-HOOKS-2026-07-19-A",
+      "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
+      "oodTests": "60/60",
+      "counterfactualTests": "60/60",
+      "complexityRatio": 1.0,
+      "qtuLcb90": 0.927285,
+      "scope": "reversible read-only project-local hook installation and repository/canonical synchronization only; not production-effectiveness evidence"
+    }
+  },
   "skillResources": {
     "lockFile": "skills-lock.json",
     "directory": ".agents/skills",
