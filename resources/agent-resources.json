@@ -70,20 +70,13 @@
     "administrativeLogisticalSafeHarbor": {
       "status": "mandatory-scope-amendment",
       "repositoryControl": "resources/qtu-administrative-logistical-safe-harbor.md",
-      "decisionRule": "safe-harbor-only-for-local-personal-desktop-or-browser-presentation-and-convenience-settings-when-all-protected-dimensions-are-absent-and-all-safe-harbor-conditions-pass",
-      "eligibleDomain": "local-personal-desktop-or-browser-presentation-accessibility-input-window-tab-or-reading-convenience-only",
-      "decisionFactors": [
-        "eligible-local-personal-desktop-or-browser-setting",
-        "substantive-content",
-        "work-product-or-artifact-relationship",
-        "documentation-governance-policy-instruction-skill-template-methodology-or-status",
-        "software-code-extension-dependency-configuration-automation-testing-or-workflow",
-        "security-privacy-credentials-authentication-permissions-sharing-sync-or-site-access",
-        "external-communication-publication-deployment-purchase-or-external-state",
-        "destructive-or-not-readily-reversible",
-        "canonical-shared-committed-pushed-uploaded-or-published-state",
-        "evidence-provenance-verification-validation-reproduction-approval-or-completion-status"
+      "decisionRule": "project-work-product-effect-governs-then-all-safe-harbor-conditions-must-pass",
+      "primaryCriterion": "whether-the-action-affects-a-project-work-product-or-anything-used-to-define-produce-document-govern-configure-test-verify-reproduce-approve-publish-or-communicate-it",
+      "decisionStages": [
+        "determine-project-or-work-product-effect",
+        "if-none-test-all-administrative-logistical-safe-harbor-conditions-and-independent-hard-gates"
       ],
+      "desktopBrowserSettingsRole": "illustrative-examples-not-eligibility-definition",
       "protectedDimensions": [
         "substantive-content",
         "artifact-relationship",
@@ -99,14 +92,15 @@
       "examplesAre": "illustrative-non-comprehensive-non-exhaustive-non-exclusive-and-not-representative-of-all-possible-activities-settings-purposes-dependencies-or-effects",
       "uncertaintyRule": "qtu-applies",
       "authorization": {
-        "directiveId": "NDV-QTU-SH-2026-07-19-B",
-        "directiveHash": "d04934858c5e5a0dc776d6b643174e55641657368ccc77accc46826754ae035d",
+        "directiveId": "NDV-QTU-SH-2026-07-19-C",
+        "directiveHash": "48b04bc06d2a7ee84ef9f14b41a32b1b8171d06512be8fca438e68c04f3f6784",
         "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
         "oodTests": "60/60",
         "counterfactualTests": "60/60",
         "complexityRatio": 1.0,
         "qtuLcb90": 0.927284744,
-        "scope": "reversible desktop-browser-only safe-harbor refinement and canonical-repository synchronization only; not production-effectiveness evidence"
+        "scope": "reversible correction restoring project-work-product effect as the governing criterion while preserving desktop-browser examples; canonical-repository synchronization only; not production-effectiveness evidence",
+        "supersedes": "commit-a81174c-and-directive-B-only-on-desktop-browser-eligibility-point"
       }
     },
     "preAuthorizationOperations": [

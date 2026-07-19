@@ -8,29 +8,21 @@ Canonical source: [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Age
 
 ## Purpose
 
-The QTU gate protects substantive work products, production, documentation, governance, evidence, and consequential execution. It is not intended to block narrowly bounded personal-computing adjustments that affect only the user's local interface experience.
+The QTU gate protects substantive projects, work products, production, documentation, governance, evidence, and consequential execution. It is not intended to block routine administrative or logistical actions that do not affect a project/work-product.
 
 This safe harbor is an applicability rule, not a waiver and not a general computer-administration exemption. An action that fails any condition remains subject to QTU. Security, privacy, authorization, platform-policy, external-communication, destructive-action, and other independent hard gates remain applicable whether or not QTU applies.
 
 ## Controlling applicability rule
 
-QTU does not apply only when the state change is exclusively a local, personal desktop or internet-browser presentation, accessibility, input, window-management, tab-management, or reading-convenience setting and every safe-harbor condition passes.
+The governing criterion is whether the action affects a project/work-product or anything used to define, produce, document, govern, configure, test, verify, reproduce, approve, publish, or communicate it. If it does, QTU applies. If it does not, the action may qualify for the safe harbor only when every safe-harbor condition passes.
 
-Purpose, target, environment, dependencies, and reasonably foreseeable downstream effects control the classification. A setting does not qualify merely because it appears in a desktop, browser, application, or operating-system preferences screen.
+Purpose, target, dependencies, and reasonably foreseeable downstream effects control the classification. The application, device, storage location, or environment in which an action occurs is not the governing rule.
 
-## Eligible domain
+## Illustrative setting categories
 
-The eligible domain is limited to local personal interface behavior:
+Desktop settings, browser settings, local interface preferences, empty local organizational folders, temporary-file housekeeping, navigation, inspection, and other routine administrative or logistical actions are illustrative categories that may qualify. They are examples, not the definition of the safe harbor. Each real action must be classified by its project/work-product effect and the safe-harbor conditions.
 
-- display presentation;
-- personal accessibility presentation;
-- pointing-device or keyboard convenience;
-- window and personal-monitor arrangement;
-- browser visual presentation;
-- local browser-tab organization; and
-- personal reading convenience.
-
-The change must affect only the user's local experience. It must not create, change, govern, produce, test, verify, record, publish, transmit, secure, authenticate, share, deploy, or complete any work product, artifact, workflow, software, methodology, or record.
+Desktop and browser examples commonly qualify when they affect only personal presentation or convenience, but an identical action remains within QTU when its purpose or effect is project/work-product production, configuration, testing, verification, evidence, workflow, or documentation.
 
 ## Artifact-related documentation remains in scope
 
@@ -51,17 +43,17 @@ Storage on a personal desktop or in a browser does not make a protected action e
 
 QTU does not apply only when every condition is true:
 
-1. The target is exclusively a local personal desktop or browser presentation or convenience setting.
+1. The action does not affect a project/work-product or anything used to define, produce, document, govern, configure, test, verify, reproduce, approve, publish, or communicate it.
 2. The action is routine and non-substantive.
 3. The action is precisely bounded and readily reversible.
-4. The change affects only the user's local interface experience.
+4. The action remains internal and does not change canonical, shared, published, or externally communicated state.
 5. The action has no work-product, artifact, documentation, governance, software, code, methodology, workflow, testing, evidence, security, privacy, authentication, permission, sharing, external-state, canonical-state, or destructive relationship.
 6. The action has no reasonably foreseeable material downstream consequence.
 7. Independent security, privacy, authorization, platform-policy, external-communication, and destructive-action controls permit it.
 
 An agent using the safe harbor must:
 
-1. identify the action as a local personal desktop or browser setting;
+1. identify the action as administrative or logistical and record why it has no project/work-product effect;
 2. confirm every condition before acting;
 3. record the brief classification basis in working context;
 4. keep the mutation to the minimum necessary scope;
@@ -166,40 +158,33 @@ These examples apply the controlling rule; they are not shortcuts or precedents 
 
 ## Decision procedure
 
-Evaluate these ten required factors:
+Apply this two-stage decision rule:
 
-1. Is the target exclusively a local personal desktop or browser presentation, accessibility, input, window, tab, or reading-convenience setting?
-2. Is there substantive content?
-3. Is there any work-product or artifact relationship?
-4. Is documentation, governance, policy, instruction, skill, example, template, methodology, or status involved?
-5. Is software, code, extension, dependency, configuration, automation, testing, or workflow behavior involved?
-6. Is security, privacy, credentials, authentication, permissions, sharing, synchronization, or site access involved?
-7. Is there external communication, publication, deployment, purchase, or external-state change?
-8. Is the action destructive or not readily reversible?
-9. Is canonical, shared, committed, pushed, uploaded, or published state involved?
-10. Is evidence, provenance, verification, validation, reproduction, approval, or completion status involved?
+1. Does the action affect a project/work-product or anything used to define, produce, document, govern, configure, test, verify, reproduce, approve, publish, or communicate it? If yes, QTU applies.
+2. If no, is the action routine, administrative or logistical, non-substantive, precisely bounded, readily reversible, internal, free of reasonably foreseeable material downstream consequences, and permitted by every independent hard gate? Only when every condition is satisfied does the safe harbor apply.
 
-The safe harbor is available only when factor 1 is yes, factors 2 through 10 are no, and every safe-harbor condition passes. Otherwise QTU applies.
+The application, device, storage location, or environment is not an eligibility criterion. Examples illustrate how to apply the rule; they do not define or limit it.
 
 ## Directive-specific authorization record
 
-- Directive ID: `NDV-QTU-SH-2026-07-19-B`
-- Directive hash: `d04934858c5e5a0dc776d6b643174e55641657368ccc77accc46826754ae035d`
-- Scope: install, synchronize, verify, commit, and push this reversible desktop/browser-only safe-harbor refinement without changing the QTU formula or threshold.
-- Target repository state before amendment: `aca57b3b7f9d1e63f9273a14c0813d5587ecfb72`.
-- Target canonical-brief revision before amendment: `ALtnJHxdwaB47uAlS8zg_JkLiOvheG4q-KQTHBwcTORHx0e8z5HjZSyAShU0jSa0dxCdtyz7XomjvB1iJ1Hk2hjuYvbOhc1YFPGKBaWqrg`.
+- Directive ID: `NDV-QTU-SH-2026-07-19-C`
+- Directive hash: `48b04bc06d2a7ee84ef9f14b41a32b1b8171d06512be8fca438e68c04f3f6784`
+- Scope: install, synchronize, verify, commit, and push the correction that restores project/work-product effect as the governing criterion and keeps desktop/browser settings as illustrative examples without changing the QTU formula or threshold.
+- Superseded point: commit `a81174c` and Directive B's desktop/browser-only eligibility definition. The commit and authorization remain preserved in history.
+- Target repository state before correction: `a81174c5efbe6e6126d7c7f01134dd10d313962c`.
+- Target canonical-brief revision before correction: `ALtnJHxxUWjUzDJVW99mVxykHiDnC9C8GQl58bbsgNzCWNas2A3DOHvFu1DPQf8tJhz6BFFh12s5kR5FeK7A7fMQrkrJXRVUXYInzp1XHQ`.
 - `A_OOD` evidence: 60 of 60 classification cases passed.
 - `A_CF` evidence: 60 of 60 paired counterfactual cases passed.
 - Interval method: independent uniform `Beta(1,1)` component priors; conservative product of exact one-sided 90% component lower credible bounds.
 - Component lower bounds: `0.962956252` for OOD and `0.962956252` for counterfactual performance.
-- `L_min`: the ten decision factors required to implement the user's desktop/browser-only boundary and protected exclusions.
-- `L(M)`: the same ten decision factors implemented without an additional decision factor.
+- `L_min`: the two-stage user-directed model: project/work-product effect first, then safe-harbor conditions.
+- `L(M)`: the same two stages implemented without an additional eligibility rule.
 - Complexity ratio: `L_min/L(M) = 1.0`.
 - Normalized posterior-mean point estimate: `0.968002081`.
 - `QTU-LCB90`: `0.927284744`.
 - Gate status: `QTU_AUTHORIZED`.
 - Evaluator: deterministic property classifier executed in Python; expected outcomes derived from the user-directed scope boundary.
-- Evaluated timestamp: `2026-07-19T20:58:52Z`.
+- Evaluated timestamp: `2026-07-19T21:06:43Z`.
 - Evidence expiry: any material change to scope, target state, security conditions, or requested destinations.
 - Post-execution verification: canonical Drive read-back; repository semantic searches; JSON parsing; local verifier; Git diff; commit and remote-push confirmation.
 
@@ -209,11 +194,11 @@ The 60 OOD cases are the 30 safe-harbor examples and 30 in-scope examples listed
 
 The 60 counterfactual cases are paired transformations of the OOD catalogue:
 
-- for each safe-harbor case, add an artifact, documentation, workflow, testing, evidence, security, external-state, canonical-state, or destructive effect and expect QTU to apply; and
-- for each in-scope case, remove every protected effect and substitute a local personal presentation-only analogue, then expect the safe harbor to apply.
+- for each safe-harbor case, add a project/work-product effect and expect QTU to apply; and
+- for each in-scope case, remove every project/work-product effect while preserving a routine, bounded, reversible administrative analogue, then expect the safe harbor to apply.
 
 An independent reperformance must reproduce all 120 classifications, the two `Beta(61,1)` component posteriors, their exact 0.10 quantiles, the complexity ratio, and the conservative product. The authorization proves design conformance for this reversible amendment only; it does not establish production effectiveness.
 
 ### Prior authorization history
 
-Directive `NDV-QTU-SH-2026-07-19-A` authorized the preceding broader administrative/logistical safe-harbor version using 60 of 60 OOD and 60 of 60 counterfactual cases with `QTU-LCB90 = 0.927285`. Directive B supersedes its operational scope but preserves it as provenance.
+Directive `NDV-QTU-SH-2026-07-19-A` authorized the original administrative/logistical safe-harbor version. Directive `NDV-QTU-SH-2026-07-19-B` and commit `a81174c` introduced the desktop/browser-only misinterpretation. Directive C supersedes only that point while preserving both earlier authorizations and commits as provenance.

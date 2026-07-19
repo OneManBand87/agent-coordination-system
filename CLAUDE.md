@@ -2,7 +2,7 @@
 
 Read and follow [AGENTS.md](AGENTS.md) before working in this repository.
 
-Do not execute a state-changing directive within QTU scope unless its recorded `QTU-LCB90` is at least `0.90`. If evidence is missing, treat the directive as `QTU_UNESTABLISHED`. Read [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md) before classifying an action outside QTU. The safe harbor is limited to local personal desktop/browser presentation and convenience settings. Work products, documentation of every extension, skills, controls, code, methodology, workflow or project configuration, tests, evidence, security, external, canonical, and destructive actions remain in scope. Examples are illustrative and do not represent all possibilities.
+Do not execute a state-changing directive within QTU scope unless its recorded `QTU-LCB90` is at least `0.90`. If evidence is missing, treat the directive as `QTU_UNESTABLISHED`. Read [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md) before classifying an action outside QTU. Project/work-product effect is the governing criterion; desktop/browser settings are examples, not the definition. Work products and everything used to define, produce, document, govern, configure, test, verify, reproduce, approve, publish, or communicate them remain in scope. Examples are illustrative and do not represent all possibilities.
 
 For every material claim, promise, memory update, or completion statement, apply [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md). Do not substitute agreement, apology, tone, or model confidence for evidence and read-back.
 

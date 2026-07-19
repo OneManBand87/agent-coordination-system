@@ -57,6 +57,8 @@ done
 
 if ! rg -Fq 'not comprehensive, exhaustive, exclusive, or automatic precedents' resources/qtu-administrative-logistical-safe-harbor.md ||
    ! rg -Fq 'Artifact-related documentation remains in scope' resources/qtu-administrative-logistical-safe-harbor.md ||
+   ! rg -Fq 'The governing criterion is whether the action affects a project/work-product' resources/qtu-administrative-logistical-safe-harbor.md ||
+   ! rg -Fq 'They are examples, not the definition of the safe harbor' resources/qtu-administrative-logistical-safe-harbor.md ||
    ! rg -Fq 'do not represent every possible activity, setting, environment, purpose, dependency, or downstream effect' resources/qtu-administrative-logistical-safe-harbor.md ||
    ! rg -Fq 'QTU-LCB90`: `0.927284744' resources/qtu-administrative-logistical-safe-harbor.md; then
   printf 'QTU safe-harbor invariants missing\n' >&2
@@ -71,8 +73,8 @@ if [ "$safe_example_count" -ne 30 ] || [ "$qtu_example_count" -ne 30 ] || [ "$bo
   exit 1
 fi
 
-if ! jq -e '.qtuExecutionGate.administrativeLogisticalSafeHarbor.decisionFactors | length == 10' resources/agent-resources.json >/dev/null; then
-  printf 'QTU safe-harbor decision-factor count mismatch\n' >&2
+if ! jq -e '.qtuExecutionGate.administrativeLogisticalSafeHarbor | (.decisionStages | length == 2) and (.desktopBrowserSettingsRole == "illustrative-examples-not-eligibility-definition") and (.authorization.directiveId == "NDV-QTU-SH-2026-07-19-C")' resources/agent-resources.json >/dev/null; then
+  printf 'QTU safe-harbor governing-rule metadata mismatch\n' >&2
   exit 1
 fi
 
