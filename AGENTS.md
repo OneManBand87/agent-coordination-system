@@ -7,10 +7,11 @@ These instructions apply to every AI agent working in this repository.
 1. Read [resources/agent-coordination.md](resources/agent-coordination.md).
 2. Read [resources/agent-resources.json](resources/agent-resources.json) for machine-readable endpoints, capabilities, and status.
 3. Read [resources/theory-branch-integration.md](resources/theory-branch-integration.md), including the mandatory QTU execution gate.
-4. Read [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md) before making a material claim, commitment, or completion statement.
-5. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
+4. Read [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md) before deciding whether a routine state change is outside QTU scope.
+5. Read [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md) before making a material claim, commitment, or completion statement.
+6. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
    [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit).
-6. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
+7. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
 
 ## Shared architecture
 
@@ -24,7 +25,10 @@ These instructions apply to every AI agent working in this repository.
 
 ## Operating rules
 
-- Mandatory QTU gate: no AI agent may execute a state-changing directive unless the directive-specific normalized Quantitative Theory of Understanding score has a one-sided 90% lower confidence bound of at least `0.90` (`QTU-LCB90 >= 0.90`). Missing evidence is `QTU_UNESTABLISHED` and blocks execution. Model self-confidence is not evidence. Before authorization, agents may perform only non-state-changing investigation, clarification, calculation, simulation, dry runs, and verification needed to establish the bound. Security, privacy, scope, authentication, external-communication approval, and platform policy remain independent hard gates.
+- Mandatory QTU gate: no AI agent may execute a state-changing directive within QTU scope unless the directive-specific normalized Quantitative Theory of Understanding score has a one-sided 90% lower confidence bound of at least `0.90` (`QTU-LCB90 >= 0.90`). Missing evidence is `QTU_UNESTABLISHED` and blocks in-scope execution. Model self-confidence is not evidence. Before authorization, agents may perform only non-state-changing investigation, clarification, calculation, simulation, dry runs, and verification needed to establish the bound.
+- Administrative and logistical safe harbor: QTU does not apply only when a routine action satisfies every condition in [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md). The action must be non-substantive, precisely bounded, readily reversible, internal, and unrelated to artifacts or artifact-related documentation, production, methodology, workflow behavior, code, shared or production configuration, governance, evidence, provenance, verification, completion status, security, privacy, credentials, authentication, permissions, sharing, external communication, publication, deployment, purchases, commits, pushes, or destructive effects. If applicability remains uncertain, QTU applies. Examples are illustrative and non-exhaustive.
+- Artifact-related documentation remains within QTU scope, including Google Drive documents, memoranda, narratives, README files, manifests, registries, indexes, metadata, schemas, provenance and evidence records, implementation and status records, skills, agent instructions, control narratives, examples, templates, acceptance criteria, production criteria, methodology, workflows, and tests.
+- Security, privacy, scope, authentication, external-communication approval, destructive-action controls, and platform policy remain independent hard gates whether or not QTU applies.
 - Mandatory integrity and materiality control: for material matters, distinguish observed fact, sourced fact, inference, analogy, proposal, and unknown; evaluate supporting and contradictory evidence; record environment and counterpart limitations; and require durable evidence plus read-back before claiming memory, synchronization, completion, or remediation. An apology, agreement, or future promise is not corrective action.
 - Do not create a competing source of truth. Update the canonical brief and then refresh the repository snapshot.
 - Do not claim that a connector works unless a real read-only call has been verified.

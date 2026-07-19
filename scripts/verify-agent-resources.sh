@@ -16,6 +16,7 @@ GEMINI.md
 resources/agent-coordination.md
 resources/agent-resources.json
 resources/theory-branch-integration.md
+resources/qtu-administrative-logistical-safe-harbor.md
 resources/integrity-materiality-control.md
 resources/ai-response-integrity-review-2026-07-17.md
 skills-lock.json'
@@ -46,6 +47,32 @@ for qtu_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .g
     exit 1
   fi
 done
+
+for safe_harbor_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md README.md resources/agent-coordination.md resources/theory-branch-integration.md resources/integrity-materiality-control.md; do
+  if ! rg -Fq 'qtu-administrative-logistical-safe-harbor.md' "$safe_harbor_file"; then
+    printf 'QTU safe-harbor link missing: %s\n' "$safe_harbor_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fq 'not comprehensive, exhaustive, exclusive, or automatic precedents' resources/qtu-administrative-logistical-safe-harbor.md ||
+   ! rg -Fq 'Artifact-related documentation remains in scope' resources/qtu-administrative-logistical-safe-harbor.md ||
+   ! rg -Fq 'QTU-LCB90`: `0.927285' resources/qtu-administrative-logistical-safe-harbor.md; then
+  printf 'QTU safe-harbor invariants missing\n' >&2
+  exit 1
+fi
+
+safe_example_count=$(awk '/^### Illustrative examples where QTU does not apply/{active=1; next} /^### Illustrative examples where QTU applies/{active=0} active && /^- /{count++} END{print count+0}' resources/qtu-administrative-logistical-safe-harbor.md)
+qtu_example_count=$(awk '/^### Illustrative examples where QTU applies/{active=1; next} /^## Boundary examples/{active=0} active && /^- /{count++} END{print count+0}' resources/qtu-administrative-logistical-safe-harbor.md)
+if [ "$safe_example_count" -ne 30 ] || [ "$qtu_example_count" -ne 30 ]; then
+  printf 'QTU safe-harbor reperformance catalogue mismatch: safe=%s qtu=%s\n' "$safe_example_count" "$qtu_example_count" >&2
+  exit 1
+fi
+
+if ! jq -e '.qtuExecutionGate.administrativeLogisticalSafeHarbor.protectedDimensions | length == 9' resources/agent-resources.json >/dev/null; then
+  printf 'QTU safe-harbor protected-dimension count mismatch\n' >&2
+  exit 1
+fi
 
 if [ "$missing" -ne 0 ]; then
   exit 1

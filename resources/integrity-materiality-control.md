@@ -2,7 +2,7 @@
 
 Status: Mandatory cross-axis control plane
 
-Last verified: 2026-07-17
+Last verified: 2026-07-19
 
 ## Standards boundary
 
@@ -18,7 +18,7 @@ For every material claim or action, an agent must:
 2. evaluate supporting and contradictory evidence;
 3. prefer direct observation and primary authoritative sources;
 4. record the active environment, tools, authentication, permissions, target-system state, counterpart reach, and limitations;
-5. apply the QTU gate before state-changing execution;
+5. apply the QTU gate before state-changing execution within QTU scope, using [qtu-administrative-logistical-safe-harbor.md](qtu-administrative-logistical-safe-harbor.md) only for qualifying non-substantive administrative or logistical actions;
 6. convert every material promise into a durable commitment record;
 7. require read-back evidence before claiming memory persistence, synchronization, completion, or remediation; and
 8. reopen a matter when recurrence contradicts a prior completion claim.
@@ -98,6 +98,8 @@ The QTU paper defines `U(M) = A_OOD * A_CF / L(M)`. The normalized score, confid
 
 Directive `NDV-INT-2026-07-17-A` authorized this reversible control installation. The declared protocol used uniform `Beta(1,1)` component priors; 60 of 60 OOD design-conformance cases; 60 of 60 counterfactual-routing cases; exact one-sided 90% component lower credible bounds of `0.962956`; `L_min/L = 0.98`; point estimate `0.948642`; and conservative product `QTU-LCB90 = 0.908739`. The record authorizes installation only. It is not evidence that the control is effective in production.
 
+Directive `NDV-QTU-SH-2026-07-19-A` authorized the reversible [administrative and logistical safe-harbor amendment](qtu-administrative-logistical-safe-harbor.md). Its declared protocol used uniform `Beta(1,1)` component priors; 60 of 60 OOD classification cases; 60 of 60 counterfactual cases; exact one-sided 90% component lower credible bounds of `0.962956`; `L_min/L = 1.0`; normalized posterior-mean point estimate `0.968002`; and conservative `QTU-LCB90 = 0.927285`. The amendment excludes only non-substantive administrative or logistical actions satisfying every safe-harbor condition. It does not exclude artifacts or artifact-related documents, memos, narratives, manifests, skills, controls, code, production configuration, governance, evidence, security, or external actions, and it is not evidence of production effectiveness.
+
 ## Remediation lifecycle
 
 ```text
@@ -126,4 +128,3 @@ No material corrective commitment closes on an apology, draft, unverified write,
 - [PCAOB AS 2810](https://pcaobus.org/oversight/standards/auditing-standards/details/AS2810)
 - [PCAOB QC 1000](https://pcaobus.org/oversight/standards/qc-standards/details/qc-1000--a-firms-system-of-quality-control)
 - [PCAOB ethics and independence standards](https://pcaobus.org/oversight/standards/ethics-independence-rules/details)
-

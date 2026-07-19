@@ -1,6 +1,6 @@
 # NEURO-DIV - agentic communication scaffold (ACS) - Repository Snapshot
 
-Last verified: 2026-07-17
+Last verified: 2026-07-19
 
 Canonical source: [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit)
 
@@ -14,7 +14,9 @@ ACS is not the whole NEURO-DIV framework. The Core Foundation Document is the cu
 
 The current theory-to-system crosswalk is documented in [theory-branch-integration.md](theory-branch-integration.md). Its controlling chain is: WIPED behavioral state -> adaptive branch parameters -> branch-structured reasoning -> CBAL identity and lineage -> ACS routing and synchronization -> distributed-worker execution -> verification, convergence, consolidation, and garbage collection. WIPED is a provisional behavioral-adaptation model, not the whole NEURO-DIV theory or a clinically validated universal equation.
 
-QTU is the mandatory epistemic execution gate for that chain. The normalized score is `U_norm = A_OOD * A_CF * (L_min / L(M))`. ACS may route a directive into state-changing execution only when its one-sided 90% lower confidence bound satisfies `QTU-LCB90 >= 0.90`. A point estimate alone is insufficient; missing, stale, or non-reproducible evidence blocks execution. The canonical source is [A Quantitative Theory of Understanding rev1](https://drive.google.com/file/d/1MOxQjpZ59JzOOZs9EsFEuq49DKN3TkjW).
+QTU is the mandatory epistemic execution gate for state-changing directives within QTU scope. The normalized score is `U_norm = A_OOD * A_CF * (L_min / L(M))`. ACS may route an in-scope directive into execution only when its one-sided 90% lower confidence bound satisfies `QTU-LCB90 >= 0.90`. A point estimate alone is insufficient; missing, stale, or non-reproducible evidence blocks in-scope execution. The canonical source is [A Quantitative Theory of Understanding rev1](https://drive.google.com/file/d/1MOxQjpZ59JzOOZs9EsFEuq49DKN3TkjW).
+
+The mandatory [QTU Administrative and Logistical Safe Harbor](qtu-administrative-logistical-safe-harbor.md) excludes only routine, non-substantive, precisely bounded, readily reversible actions with no effect on artifacts or artifact-related documentation, production, methodology, workflow behavior, code, shared or production configuration, governance, evidence, provenance, verification, completion status, security, privacy, credentials, authentication, permissions, sharing, external communication, publication, deployment, purchases, commits, pushes, or destructive state. Documents, memoranda, narratives, README files, manifests, registries, indexes, metadata, schemas, provenance and evidence records, implementation and status records, skills, instructions, control narratives, examples, templates, acceptance criteria, production criteria, methodology, workflows, and tests remain within QTU scope whenever artifact-related. Its examples are illustrative and non-exhaustive; uncertainty returns the action to QTU.
 
 The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integrity-materiality-control.md) governs material claims and completion assertions. It is PCAOB-aligned, not a claim of PCAOB compliance. It requires fact/inference separation, supporting and contradictory evidence, proportional materiality routing, capability and counterpart awareness, durable commitment records, and read-back before claims of memory, synchronization, completion, or remediation. The QTU paper defines the understanding functional; the normalized score, confidence-bound method, and 0.90 threshold are ACS operational extensions.
 
@@ -39,6 +41,7 @@ The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integri
 - Machine-readable resource and capability manifest.
 - WIPED, branch-structured reasoning, CBAL, ACS, worker-plane, and integrity-plane crosswalk.
 - Mandatory QTU 90% lower-confidence-bound execution gate and directive-envelope schema.
+- Mandatory administrative and logistical safe-harbor scope amendment with non-exhaustive examples and a reproducible authorization record.
 - Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.

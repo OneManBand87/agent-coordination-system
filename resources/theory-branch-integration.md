@@ -2,7 +2,7 @@
 
 Status: Canonical crosswalk snapshot
 
-Last verified: 2026-07-17
+Last verified: 2026-07-19
 
 This document records how the WIPED behavioral model, branch-structured reasoning, the Cryptographic Branch Addressing Layer (CBAL), the Agentic Communication Scaffold (ACS), the distributed worker plane, and the structural-integrity control plane fit into the larger NEURO-DIV architecture.
 
@@ -48,7 +48,7 @@ U_norm(M) = A_OOD(M) * A_CF(M) * (L_min / L(M))
 
 The task class must define `L_min` and its evaluation protocol before scoring. All terms are bounded so `U_norm` lies in `[0,1]`.
 
-No AI agent may execute a state-changing directive unless:
+No AI agent may execute a state-changing directive within QTU scope unless:
 
 ```text
 QTU-LCB90(U_norm) >= 0.90
@@ -56,7 +56,15 @@ QTU-LCB90(U_norm) >= 0.90
 
 `QTU-LCB90` is the one-sided 90% lower confidence bound, calculated using a declared reproducible method such as a bootstrap confidence bound or Bayesian lower credible bound. A point estimate of `0.90` does not pass when its lower bound is below `0.90`. Missing evidence is `QTU_UNESTABLISHED`, never an invitation to guess. Model fluency, consensus, and self-reported confidence do not count as evidence.
 
-Before authorization, agents may perform only non-state-changing epistemic work needed to establish the bound: read-only retrieval, inspection, clarification, calculation, comparison, threat analysis, simulation, validation, and non-mutating dry runs. State-changing file edits, commits, pushes, external messages, workflow activation, permission changes, purchases, destructive commands, and similar actions remain blocked.
+Before authorization, agents may perform only non-state-changing epistemic work needed to establish the bound: read-only retrieval, inspection, clarification, calculation, comparison, threat analysis, simulation, validation, and non-mutating dry runs. In-scope file edits, commits, pushes, external messages, workflow activation, permission changes, purchases, destructive commands, and similar actions remain blocked.
+
+### Administrative and logistical safe harbor
+
+The [QTU Administrative and Logistical Safe Harbor](qtu-administrative-logistical-safe-harbor.md) excludes only a routine action that is non-substantive, precisely bounded, readily reversible, internal, and free of effects on artifacts or artifact-related documentation, production, methodology, workflow behavior, code, shared or production configuration, governance, evidence, provenance, verification, completion status, security, privacy, credentials, authentication, permissions, sharing, external communication, publication, deployment, purchases, commits, pushes, destructive state, or other material downstream consequences.
+
+Artifact-related documents, memoranda, narratives, README files, manifests, registries, inventories, indexes, metadata, schemas, provenance and evidence records, implementation and status records, skills, agent instructions, control narratives, examples, templates, acceptance criteria, production criteria, accessibility requirements, methodology, workflows, tests, and code remain within QTU scope regardless of location or format.
+
+Safe-harbor examples are illustrative, non-comprehensive, non-exhaustive, and non-exclusive. Similarity to an example does not override the controlling criteria. If applicability remains genuinely uncertain, QTU applies. Security, privacy, authorization, platform-policy, external-communication, and destructive-action controls remain independent hard gates whether or not QTU applies.
 
 Every directive record must preserve: directive identity; target and scope; `A_OOD`; `A_CF`; `L(M)`; predefined `L_min`; `U_norm`; interval method; `QTU-LCB90`; evidence references; unresolved assumptions; evaluator; timestamp; evidence expiry or target-state version; gate status; and post-execution verification requirement.
 
