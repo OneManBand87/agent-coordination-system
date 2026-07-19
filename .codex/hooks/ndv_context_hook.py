@@ -11,6 +11,8 @@ REQUIRED_FILES = [
     "resources/theory-branch-integration.md",
     "resources/qtu-administrative-logistical-safe-harbor.md",
     "resources/integrity-materiality-control.md",
+    "resources/maximal-progression-user-attention-control.md",
+    "resources/automation-cost-cadence-proportionality-control.md",
 ]
 
 
@@ -41,7 +43,8 @@ def main() -> int:
         message = (
             "NEURO-DIV context check: before material claims or state-changing work, use the "
             "repository snapshot unless canonical Drive access has been directly verified; read "
-            "agent coordination, resource manifest, QTU gate, safe harbor, and integrity control. "
+            "agent coordination, resource manifest, QTU gate, safe harbor, integrity control, "
+            "maximal-progression control, and automation cost/cadence control. "
             "Hook event: "
             + event
             + "."

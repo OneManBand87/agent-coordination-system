@@ -19,7 +19,9 @@ resources/theory-branch-integration.md
 resources/qtu-administrative-logistical-safe-harbor.md
 resources/integrity-materiality-control.md
 resources/maximal-progression-user-attention-control.md
+resources/automation-cost-cadence-proportionality-control.md
 resources/ai-response-integrity-review-2026-07-17.md
+scripts/verify-automation-cost-control.mjs
 skills-lock.json'
 
 missing=0
@@ -29,6 +31,35 @@ for file in $required_files; do
     missing=1
   fi
 done
+
+for automation_cost_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md README.md resources/agent-coordination.md resources/theory-branch-integration.md; do
+  if ! rg -Fq 'automation-cost-cadence-proportionality-control.md' "$automation_cost_file"; then
+    printf 'Automation cost control link missing: %s\n' "$automation_cost_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fq 'Unknown or unbounded cost is not zero' resources/automation-cost-cadence-proportionality-control.md ||
+   ! rg -Fq 'automatic pause after two consecutive system errors' resources/automation-cost-cadence-proportionality-control.md ||
+   ! rg -Fq 'automatic pause after three consecutive no-op runs' resources/automation-cost-cadence-proportionality-control.md ||
+   ! rg -Fq 'NDV-COST-2026-07-19-A' resources/automation-cost-cadence-proportionality-control.md ||
+   ! rg -Fq 'QTU-LCB90`: `0.927284744' resources/automation-cost-cadence-proportionality-control.md; then
+  printf 'Automation cost control invariants missing\n' >&2
+  exit 1
+fi
+
+if ! jq -e '.automationCostCadenceProportionalityControl | (.status == "mandatory") and (.tripwires.consecutiveSystemErrors == 2) and (.tripwires.consecutiveNoOpRuns == 3) and (.affectedAutomation.status == "paused") and (.authorization.directiveId == "NDV-COST-2026-07-19-A") and (.authorization.qtuLcb90 >= 0.90)' resources/agent-resources.json >/dev/null; then
+  printf 'Automation cost control metadata mismatch\n' >&2
+  exit 1
+fi
+
+if ! rg -Fq 'automation-cost-cadence-proportionality-control.md' .codex/hooks/ndv_context_hook.py ||
+   ! rg -Fq 'automation cost/cadence control' .codex/hooks/ndv_context_hook.py; then
+  printf 'Codex context hook automation cost reminder missing\n' >&2
+  exit 1
+fi
+
+node scripts/verify-automation-cost-control.mjs >/dev/null
 
 for attention_control_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md README.md resources/agent-coordination.md resources/theory-branch-integration.md resources/integrity-materiality-control.md; do
   if ! rg -Fq 'maximal-progression-user-attention-control.md' "$attention_control_file"; then

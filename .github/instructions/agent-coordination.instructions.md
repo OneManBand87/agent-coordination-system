@@ -14,4 +14,6 @@ Enforce [resources/integrity-materiality-control.md](../../resources/integrity-m
 
 Enforce [resources/maximal-progression-user-attention-control.md](../../resources/maximal-progression-user-attention-control.md): retain agent ownership, exhaust safe preparation, present one unmistakable irreducible user action, and resume automatically after the user acts.
 
+Enforce [resources/automation-cost-cadence-proportionality-control.md](../../resources/automation-cost-cadence-proportionality-control.md): before recurring or background work is created, enabled, reactivated, or materially changed, bound runs, expiry, total cost, model/reasoning level, task churn, and tripwires; prefer event-driven and least-cost adequate execution; block unknown or disproportionate cost.
+
 Keep the canonical Google Doc, repository snapshot, and capability manifest aligned. Do not commit authentication material or report an unverified integration as working.

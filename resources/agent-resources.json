@@ -223,6 +223,70 @@
       "scope": "reversible control installation and application to pending GitHub authentication and push only; not production-effectiveness evidence"
     }
   },
+  "automationCostCadenceProportionalityControl": {
+    "status": "mandatory",
+    "repositoryControl": "resources/automation-cost-cadence-proportionality-control.md",
+    "appliesTo": [
+      "recurring-automations",
+      "scheduled-work",
+      "polling",
+      "monitoring",
+      "retries",
+      "background-work",
+      "reactivation-and-material-design-changes"
+    ],
+    "decisionRule": {
+      "importanceRanks": {
+        "low": 1,
+        "normal": 2,
+        "high": 3,
+        "critical": 4
+      },
+      "costRanks": {
+        "low": 1,
+        "medium": 2,
+        "high": 3,
+        "extreme-or-unbounded": 4
+      },
+      "costAdjustments": [
+        "more-than-four-runs-per-day",
+        "new-user-visible-task-per-run",
+        "frontier-model-or-high-reasoning"
+      ],
+      "activation": "importance-must-exceed-adjusted-cost; equality-requires-explicit-cost-approval; unbounded-cost-blocks"
+    },
+    "mandatoryBounds": [
+      "maximum-run-count",
+      "expiry",
+      "terminal-success-condition",
+      "whole-window-cost-bound",
+      "cadence",
+      "model-and-reasoning-level",
+      "prompt-context-and-tool-burden",
+      "task-and-notification-churn",
+      "rollback-or-pause-path"
+    ],
+    "tripwires": {
+      "consecutiveSystemErrors": 2,
+      "consecutiveNoOpRuns": 3,
+      "userCostOrTaskChurnComplaint": "immediate-pause"
+    },
+    "affectedAutomation": {
+      "id": "neuro-div-chatgpt-export-recovery-and-gap-intake",
+      "status": "paused",
+      "reactivation": "blocked-until-compliant-redesign-and-required-approval"
+    },
+    "authorization": {
+      "directiveId": "NDV-COST-2026-07-19-A",
+      "directiveHash": "59440be80776be0f83b9b381a62ee1d46a3aec36c8dd49d25d6908d902e9183b",
+      "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
+      "oodTests": "60/60",
+      "counterfactualTests": "60/60",
+      "complexityRatio": 1.0,
+      "qtuLcb90": 0.927284744,
+      "scope": "reversible control installation, synchronization, verification, intended commit/push, and continued pause of the affected automation; not production-effectiveness evidence"
+    }
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",

@@ -22,6 +22,8 @@ The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integri
 
 The mandatory [Maximal Progression and User-Attention Escalation Control](maximal-progression-user-attention-control.md) keeps task ownership with the agent. Before escalating, agents must complete all safe authorized preparation, verify the blocker, reduce the user's role to one irreducible approval or credential step, and present one prominent `🚨 ACTION REQUIRED FROM YOU` block with exact steps, completed work, consequences, and the agent-owned resume action. After the user acts, the agent resumes automatically and verifies closure; the user is not required to remember to request continuation.
 
+The mandatory [Automation Cost, Cadence, and Proportionality Control](automation-cost-cadence-proportionality-control.md) governs recurring, scheduled, polling, monitoring, retry, and background work. It requires a whole-window cost-versus-importance preflight; event-driven and least-cost adequate execution; bounded runs, expiry, cost, model/reasoning level, task creation, and tripwires; and automatic pause after two consecutive system errors, three consecutive no-op runs, or a user cost complaint. Unknown, unbounded, or disproportionate cost blocks activation.
+
 ## Capability matrix
 
 | Client | Repository context | Zapier MCP | Verified status |
@@ -46,6 +48,7 @@ The mandatory [Maximal Progression and User-Attention Escalation Control](maxima
 - Mandatory project/work-product-effect administrative and logistical safe-harbor control with non-exhaustive in-scope, out-of-scope, and borderline examples plus a reproducible authorization record.
 - Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
 - Mandatory maximal-progression, agent-ownership, and prominent user-attention escalation control.
+- Mandatory automation cost, cadence, task-churn, budget, and proportionality control.
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Project-local Codex context reminder hooks in `.codex/hooks.json` and `.codex/hooks/ndv_context_hook.py`.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.

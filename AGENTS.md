@@ -10,9 +10,10 @@ These instructions apply to every AI agent working in this repository.
 4. Read [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md) before deciding whether a routine state change is outside QTU scope.
 5. Read [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md) before making a material claim, commitment, or completion statement.
 6. Read [resources/maximal-progression-user-attention-control.md](resources/maximal-progression-user-attention-control.md) before escalating a user-dependent blocker or transferring any action to the user.
-7. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
+7. Read [resources/automation-cost-cadence-proportionality-control.md](resources/automation-cost-cadence-proportionality-control.md) before creating, enabling, reactivating, or materially changing recurring, scheduled, polling, monitoring, retry, or background work.
+8. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
    [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit).
-8. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
+9. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
 
 ## Shared architecture
 
@@ -32,6 +33,7 @@ These instructions apply to every AI agent working in this repository.
 - Security, privacy, scope, authentication, external-communication approval, destructive-action controls, and platform policy remain independent hard gates whether or not QTU applies.
 - Mandatory integrity and materiality control: for material matters, distinguish observed fact, sourced fact, inference, analogy, proposal, and unknown; evaluate supporting and contradictory evidence; record environment and counterpart limitations; and require durable evidence plus read-back before claiming memory, synchronization, completion, or remediation. An apology, agreement, or future promise is not corrective action.
 - Mandatory maximal-progression and user-attention control: agents retain task ownership, complete every safe and authorized preparatory step, reduce a genuine user dependency to one irreducible action, present it in an unmistakable `🚨 ACTION REQUIRED FROM YOU` block with exact steps and consequences, and resume automatically after the user acts. The user is an approver, credential holder, identity confirmer, signer, purchaser, or decision maker for the blocked step—not the workflow owner. Never ask the user to remember to request continuation.
+- Mandatory automation cost, cadence, and proportionality control: before recurring or background work is created, enabled, reactivated, expanded, or materially changed, agents must apply [resources/automation-cost-cadence-proportionality-control.md](resources/automation-cost-cadence-proportionality-control.md). Bound total runs, expiry, cost, task creation, model/reasoning level, and tripwires; prefer event-driven and least-cost adequate execution; block unknown or disproportionate cost; and weigh the whole planned burden against importance and urgency.
 - Do not create a competing source of truth. Update the canonical brief and then refresh the repository snapshot.
 - Do not claim that a connector works unless a real read-only call has been verified.
 - Never commit OAuth tokens, API keys, cookies, callback codes, credential files, or exported browser data.

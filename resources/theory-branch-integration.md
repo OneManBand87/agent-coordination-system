@@ -221,6 +221,8 @@ Positive trail strength, confidence, and priority decay unless refreshed by evid
 
 The [Maximal Progression and User-Attention Escalation Control](maximal-progression-user-attention-control.md) prevents a user-dependent approval, credential, identity confirmation, or personal judgment from transferring ownership of an entire branch back to the user. The responsible agent completes every safe authorized preparatory step, preserves evidence and recovery paths, reduces the dependency to one irreducible action, and presents it prominently with exact steps and consequences. The branch remains agent-owned and automatically resumes after the user acts.
 
+The [Automation Cost, Cadence, and Proportionality Control](automation-cost-cadence-proportionality-control.md) constrains recurring worker activation. Before a polling, monitoring, retry, scheduled, or background branch is created, enabled, reactivated, or materially changed, ACS must bound the whole-window usage and user-attention burden, compare it with importance and urgency, prefer event-driven and least-cost adequate execution, prevent task churn, and install automatic error and no-op tripwires. Unknown or disproportionate cost blocks the branch before execution.
+
 ## Functional biological analogy
 
 The analogy is functional, not literal:

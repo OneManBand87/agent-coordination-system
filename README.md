@@ -18,6 +18,8 @@ Material claims and commitments are also governed by the [Integrity, Materiality
 
 The [Maximal Progression and User-Attention Escalation Control](resources/maximal-progression-user-attention-control.md) keeps workflow ownership with the agent. Agents must complete safe preparation, reduce a genuine user dependency to one prominent action request, and resume automatically after approval or authentication.
 
+The mandatory [Automation Cost, Cadence, and Proportionality Control](resources/automation-cost-cadence-proportionality-control.md) requires every recurring or background workflow to weigh total usage and attention cost against importance and urgency, prefer event-driven and least-cost adequate execution, cap runs and task churn, and pause automatically on repeated errors or no-op polls.
+
 Run the local validation with:
 
 ```sh
