@@ -104,6 +104,8 @@ Directive `NDV-QTU-SH-2026-07-19-B` supersedes Directive A's operational boundar
 
 Directive `NDV-QTU-SH-2026-07-19-C` supersedes Directive B and commit `a81174c` only on the desktop/browser-only eligibility point, while preserving both in history. Project/work-product effect is restored as the governing criterion; desktop/browser settings remain examples. The deterministic protocol passed 60 of 60 OOD and 60 of 60 paired counterfactual cases; exact one-sided 90% component lower credible bounds were `0.962956252`; the two-stage governing-rule-and-safe-harbor-conditions model has `L_min/L = 1.0`; the normalized posterior-mean point estimate was `0.968002081`; and conservative `QTU-LCB90 = 0.927284744`. This authorizes the exact reversible correction and synchronization only, not production effectiveness.
 
+Directive `NDV-ATTN-2026-07-19-A` authorized the reversible [Maximal Progression and User-Attention Escalation Control](maximal-progression-user-attention-control.md) and its application to pending GitHub authentication and synchronization. The protocol passed 60 of 60 operational cases and 60 of 60 paired counterfactual cases; exact one-sided 90% component lower credible bounds were `0.962956252`; `L_min/L = 1.0` across eight required escalation elements; the normalized posterior-mean point estimate was `0.968002081`; and conservative `QTU-LCB90 = 0.927284744`. This authorizes the exact reversible control installation and intended GitHub sequence only, not production effectiveness.
+
 ## Remediation lifecycle
 
 ```text

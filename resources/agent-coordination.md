@@ -20,6 +20,8 @@ The mandatory [QTU Administrative and Logistical Safe Harbor](qtu-administrative
 
 The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integrity-materiality-control.md) governs material claims and completion assertions. It is PCAOB-aligned, not a claim of PCAOB compliance. It requires fact/inference separation, supporting and contradictory evidence, proportional materiality routing, capability and counterpart awareness, durable commitment records, and read-back before claims of memory, synchronization, completion, or remediation. The QTU paper defines the understanding functional; the normalized score, confidence-bound method, and 0.90 threshold are ACS operational extensions.
 
+The mandatory [Maximal Progression and User-Attention Escalation Control](maximal-progression-user-attention-control.md) keeps task ownership with the agent. Before escalating, agents must complete all safe authorized preparation, verify the blocker, reduce the user's role to one irreducible approval or credential step, and present one prominent `🚨 ACTION REQUIRED FROM YOU` block with exact steps, completed work, consequences, and the agent-owned resume action. After the user acts, the agent resumes automatically and verifies closure; the user is not required to remember to request continuation.
+
 ## Capability matrix
 
 | Client | Repository context | Zapier MCP | Verified status |
@@ -43,6 +45,7 @@ The mandatory [Integrity, Materiality, Evidence, and Commitment Control](integri
 - Mandatory QTU 90% lower-confidence-bound execution gate and directive-envelope schema.
 - Mandatory project/work-product-effect administrative and logistical safe-harbor control with non-exhaustive in-scope, out-of-scope, and borderline examples plus a reproducible authorization record.
 - Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
+- Mandatory maximal-progression, agent-ownership, and prominent user-attention escalation control.
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Project-local Codex context reminder hooks in `.codex/hooks.json` and `.codex/hooks/ndv_context_hook.py`.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.

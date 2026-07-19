@@ -181,6 +181,48 @@
       ]
     }
   },
+  "maximalProgressionUserAttentionControl": {
+    "status": "mandatory",
+    "repositoryControl": "resources/maximal-progression-user-attention-control.md",
+    "taskOwner": "agent-or-designated-workflow-owner",
+    "userRoles": [
+      "approver",
+      "credential-holder",
+      "identity-confirmer",
+      "signer",
+      "purchaser",
+      "decision-maker"
+    ],
+    "requiredBehavior": [
+      "complete-all-safe-authorized-preparation",
+      "verify-current-blocker",
+      "reduce-to-one-irreducible-user-action",
+      "use-prominent-action-required-block",
+      "state-exact-steps-and-consequence",
+      "retain-agent-owned-resume-action",
+      "resume-automatically-after-user-action",
+      "close-only-after-read-back"
+    ],
+    "attentionTemplateHeader": "🚨 ACTION REQUIRED FROM YOU",
+    "memoryBurdenRule": "user-must-not-be-required-to-remember-to-request-continuation",
+    "currentAttentionItem": {
+      "id": "ATTN-003",
+      "owner": "codex",
+      "userOnlyAction": "complete-provider-hosted-github-authentication",
+      "agentResumeAction": "verify-authentication-push-intended-commits-verify-remote-head-close-item",
+      "status": "user-action-required"
+    },
+    "authorization": {
+      "directiveId": "NDV-ATTN-2026-07-19-A",
+      "directiveHash": "27aad3cbfe9632f42ad677d5797dcd8bab3f95bbd48d70cc8108aa9ff4895268",
+      "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
+      "oodTests": "60/60",
+      "counterfactualTests": "60/60",
+      "complexityRatio": 1.0,
+      "qtuLcb90": 0.927284744,
+      "scope": "reversible control installation and application to pending GitHub authentication and push only; not production-effectiveness evidence"
+    }
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",

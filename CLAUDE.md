@@ -6,6 +6,8 @@ Do not execute a state-changing directive within QTU scope unless its recorded `
 
 For every material claim, promise, memory update, or completion statement, apply [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md). Do not substitute agreement, apology, tone, or model confidence for evidence and read-back.
 
+Before escalating a user-dependent blocker, apply [resources/maximal-progression-user-attention-control.md](resources/maximal-progression-user-attention-control.md). Retain task ownership, complete every safe authorized preparatory step, request only the irreducible user action in one prominent alert, and resume automatically afterward.
+
 The shared Zapier MCP server is declared in [.mcp.json](.mcp.json). Use `/mcp` to authenticate locally if needed. Never add authentication material to the repository.
 
 Use [resources/agent-coordination.md](resources/agent-coordination.md) as the repository snapshot and the canonical Google Doc linked there as the source of truth.

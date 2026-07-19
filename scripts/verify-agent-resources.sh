@@ -18,6 +18,7 @@ resources/agent-resources.json
 resources/theory-branch-integration.md
 resources/qtu-administrative-logistical-safe-harbor.md
 resources/integrity-materiality-control.md
+resources/maximal-progression-user-attention-control.md
 resources/ai-response-integrity-review-2026-07-17.md
 skills-lock.json'
 
@@ -28,6 +29,22 @@ for file in $required_files; do
     missing=1
   fi
 done
+
+for attention_control_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md README.md resources/agent-coordination.md resources/theory-branch-integration.md resources/integrity-materiality-control.md; do
+  if ! rg -Fq 'maximal-progression-user-attention-control.md' "$attention_control_file"; then
+    printf 'Maximal-progression control link missing: %s\n' "$attention_control_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fq '🚨 ACTION REQUIRED FROM YOU' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'The agent remains the task owner' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'must not be required to remember to request continuation' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'NDV-ATTN-2026-07-19-A' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'QTU-LCB90`: `0.927284744' resources/maximal-progression-user-attention-control.md; then
+  printf 'Maximal-progression control invariants missing\n' >&2
+  exit 1
+fi
 
 for integrity_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md resources/agent-coordination.md resources/integrity-materiality-control.md; do
   if ! rg -Fq 'integrity-materiality-control.md' "$integrity_file" && [ "$integrity_file" != 'resources/integrity-materiality-control.md' ]; then

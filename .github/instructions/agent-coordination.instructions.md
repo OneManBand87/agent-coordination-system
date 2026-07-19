@@ -12,4 +12,6 @@ Apply [resources/qtu-administrative-logistical-safe-harbor.md](../../resources/q
 
 Enforce [resources/integrity-materiality-control.md](../../resources/integrity-materiality-control.md): material claims require evidence classification, contradiction handling, environment/counterpart awareness, commitment tracking, and read-back before completion.
 
+Enforce [resources/maximal-progression-user-attention-control.md](../../resources/maximal-progression-user-attention-control.md): retain agent ownership, exhaust safe preparation, present one unmistakable irreducible user action, and resume automatically after the user acts.
+
 Keep the canonical Google Doc, repository snapshot, and capability manifest aligned. Do not commit authentication material or report an unverified integration as working.

@@ -9,9 +9,10 @@ These instructions apply to every AI agent working in this repository.
 3. Read [resources/theory-branch-integration.md](resources/theory-branch-integration.md), including the mandatory QTU execution gate.
 4. Read [resources/qtu-administrative-logistical-safe-harbor.md](resources/qtu-administrative-logistical-safe-harbor.md) before deciding whether a routine state change is outside QTU scope.
 5. Read [resources/integrity-materiality-control.md](resources/integrity-materiality-control.md) before making a material claim, commitment, or completion statement.
-6. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
+6. Read [resources/maximal-progression-user-attention-control.md](resources/maximal-progression-user-attention-control.md) before escalating a user-dependent blocker or transferring any action to the user.
+7. Treat the canonical Google Doc as the source of truth when the authenticated client can access it:
    [NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current](https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit).
-7. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
+8. Use the repository snapshot when the canonical document is unavailable, and state that limitation.
 
 ## Shared architecture
 
@@ -30,6 +31,7 @@ These instructions apply to every AI agent working in this repository.
 - Artifact-related and protected activity remains within QTU scope regardless of storage location or file extension. This includes all work products and documentation (including Markdown and README files), memoranda, narratives, manifests, registries, indexes, metadata, schemas, evidence, provenance, implementation or status records, skills, agent instructions, controls, examples, templates, methodology, workflows, software code, dependencies, configuration, automation, accessibility requirements, tests, verification, security, privacy, authentication, permissions, sharing, publication, deployment, commits, pushes, and destructive changes.
 - Security, privacy, scope, authentication, external-communication approval, destructive-action controls, and platform policy remain independent hard gates whether or not QTU applies.
 - Mandatory integrity and materiality control: for material matters, distinguish observed fact, sourced fact, inference, analogy, proposal, and unknown; evaluate supporting and contradictory evidence; record environment and counterpart limitations; and require durable evidence plus read-back before claiming memory, synchronization, completion, or remediation. An apology, agreement, or future promise is not corrective action.
+- Mandatory maximal-progression and user-attention control: agents retain task ownership, complete every safe and authorized preparatory step, reduce a genuine user dependency to one irreducible action, present it in an unmistakable `🚨 ACTION REQUIRED FROM YOU` block with exact steps and consequences, and resume automatically after the user acts. The user is an approver, credential holder, identity confirmer, signer, purchaser, or decision maker for the blocked step—not the workflow owner. Never ask the user to remember to request continuation.
 - Do not create a competing source of truth. Update the canonical brief and then refresh the repository snapshot.
 - Do not claim that a connector works unless a real read-only call has been verified.
 - Never commit OAuth tokens, API keys, cookies, callback codes, credential files, or exported browser data.

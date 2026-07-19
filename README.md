@@ -16,6 +16,8 @@ All participating agents are subject to the QTU pre-execution gate documented th
 
 Material claims and commitments are also governed by the [Integrity, Materiality, Evidence, and Commitment Control](resources/integrity-materiality-control.md). The control is PCAOB-aligned but does not claim PCAOB compliance; it requires evidence classification, contradiction handling, environment/counterpart awareness, commitment tracking, and verified read-back.
 
+The [Maximal Progression and User-Attention Escalation Control](resources/maximal-progression-user-attention-control.md) keeps workflow ownership with the agent. Agents must complete safe preparation, reduce a genuine user dependency to one prominent action request, and resume automatically after approval or authentication.
+
 Run the local validation with:
 
 ```sh
