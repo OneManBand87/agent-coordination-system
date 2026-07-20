@@ -57,6 +57,8 @@ The native reminder and notification routing rule requires ordinary one-time or 
 - Zapier SDK and durable-workflow skills under `.agents/skills`.
 - A local verifier that checks required files, JSON syntax, endpoint consistency, and obvious secret-bearing files.
 
+GitHub synchronization attention item `ATTN-003` is resolved. Provider-hosted device authentication succeeded for account `OneManBand87`; all eight intended local commits were pushed to `origin/main`, and the remote head advanced from `ed63d9f` to `edf1430` before the closure-record update.
+
 ## Codex project hooks
 
 Codex has a narrow project-local hook layer for this repository. The hook configuration lives at `.codex/hooks.json` and calls `.codex/hooks/ndv_context_hook.py` for `SessionStart`, `UserPromptSubmit`, and `PostCompact`.

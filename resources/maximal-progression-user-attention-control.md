@@ -126,13 +126,11 @@ After the user completes the requested step, the agent must:
 
 ## Current application — GitHub synchronization
 
-`ATTN-003` remains agent-owned.
+`ATTN-003` is resolved.
 
-- Current blocker: GitHub CLI authentication is absent in the local environment.
-- Prepared state: repository checks pass; intended commits are local; remote and branch are known.
-- User-only action: complete the provider-hosted GitHub authentication flow.
-- Agent resume action: verify `gh auth status`, push the intended branch, verify the remote head, and close `ATTN-003`.
-- The user is not responsible for remembering to request the push again.
+- User-only action completed: provider-hosted GitHub device authentication succeeded for account `OneManBand87`.
+- Agent-owned completion: verified `gh auth status`, pushed all eight intended commits to `origin/main`, and verified that the remote head advanced from `ed63d9f` to `edf1430`.
+- Closure evidence: Git operations use HTTPS; the push completed successfully; no user action remains for this attention item.
 
 ## Directive-specific authorization record
 
