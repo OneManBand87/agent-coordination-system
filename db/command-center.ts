@@ -162,6 +162,11 @@ export async function ensureCommandCenterDatabase() {
 const asString = (row: D1Row, key: string) => String(row[key] ?? "");
 const asNullableString = (row: D1Row, key: string) => (row[key] == null ? null : String(row[key]));
 
+async function sha256(value: string) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
 export async function loadCommandCenterState(): Promise<CommandCenterState> {
   await ensureCommandCenterDatabase();
   const db = database();
@@ -255,7 +260,15 @@ export async function resolveApproval(id: string, payloadHash: string, decision:
   if (!existing) throw new Error("Approval item not found");
   if (existing.status !== "pending") return;
   if (existing.payload_hash !== payloadHash) throw new Error("Approval payload changed; review the current payload before approving");
-  await database().prepare("UPDATE approvals SET status = ?, updated_at = ? WHERE id = ? AND payload_hash = ?").bind(decision, new Date().toISOString(), id, payloadHash).run();
+  const db = database();
+  const now = new Date().toISOString();
+  await db.batch([
+    db.prepare("UPDATE approvals SET status = ?, updated_at = ? WHERE id = ? AND payload_hash = ?").bind(decision, now, id, payloadHash),
+    db.prepare("UPDATE communications SET status = ? WHERE approval_id = ?").bind(
+      decision === "approved" ? "approved-to-send" : decision,
+      id,
+    ),
+  ]);
 }
 
 export async function ingestRecruiterMessage(input: {
@@ -274,7 +287,46 @@ export async function ingestRecruiterMessage(input: {
   const critical = new Date(received.getTime() + 180 * 60_000);
   const hard = new Date(received);
   hard.setHours(23, 59, 59, 999);
-  const id = `comm-${crypto.randomUUID()}`;
+  const current = await db.prepare("SELECT id, approval_id FROM communications WHERE source_id = ?")
+    .bind(input.sourceId)
+    .first<{ id: string; approval_id: string | null }>();
+  const id = current?.id ?? `comm-${crypto.randomUUID()}`;
+  let approvalId = current?.approval_id ?? null;
+
+  if (input.draftResponse && !approvalId) {
+    approvalId = `approval-${crypto.randomUUID()}`;
+    const now = new Date().toISOString();
+    const payloadJson = JSON.stringify({
+      action: "send-linkedin-reply-manually",
+      channel: input.channel,
+      recipient: input.sender,
+      subject: input.subject,
+      draftResponse: input.draftResponse,
+      sourceId: input.sourceId,
+    });
+    const payloadHash = await sha256(payloadJson);
+    await db.prepare(
+      `INSERT INTO approvals
+        (id,project_id,title,recipient,payload_json,payload_hash,why_required,risk_level,
+         recommended_action,deadline,status,created_at,updated_at)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+    ).bind(
+      approvalId,
+      "jobs-work",
+      `Approve recruiter reply — ${input.sender}`,
+      input.sender,
+      payloadJson,
+      payloadHash,
+      "An external message will represent you. Approve only this exact draft; approval does not send it automatically.",
+      "medium",
+      "Approve the draft, then use Copy reply and Open notification to send it through LinkedIn.",
+      hard.toISOString(),
+      "pending",
+      now,
+      now,
+    ).run();
+  }
+
   await db.prepare(
     `INSERT INTO communications
       (id,source_id,project_id,channel,sender,subject,received_at,response_target_at,response_critical_at,
@@ -284,6 +336,6 @@ export async function ingestRecruiterMessage(input: {
   ).bind(
     id, input.sourceId, "jobs-work", input.channel, input.sender, input.subject, received.toISOString(),
     target.toISOString(), critical.toISOString(), hard.toISOString(), "response-needed", input.summary,
-    input.draftResponse ?? null, null,
+    input.draftResponse ?? null, approvalId,
   ).run();
 }

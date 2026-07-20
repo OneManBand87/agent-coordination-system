@@ -229,7 +229,14 @@ export function CommandCenter({ initialState }: { initialState: CommandCenterSta
           <div className="message-list">
             {recruiterMessages.map((message) => {
               const urgency = recruiterUrgency(message);
-              return <article className={`message-card ${urgency}`} key={message.id}><div><span>{message.channel}</span><h3>{message.sender}</h3><p>{message.subject}</p></div><div><strong>{urgency.replace("-", " ")}</strong><span>Target {formatDate(message.responseTargetAt)}</span></div></article>;
+              return <article className={`message-card ${urgency}`} key={message.id}>
+                <div className="message-main"><span>{message.channel}</span><h3>{message.sender}</h3><p>{message.subject}</p><small>{message.summary}</small></div>
+                <div className="message-status"><strong>{message.status === "approved-to-send" ? "approved draft" : urgency.replace("-", " ")}</strong><span>Target {formatDate(message.responseTargetAt)}</span></div>
+                {message.draftResponse ? <div className="message-draft"><strong>Prepared reply</strong><p>{message.draftResponse}</p><div className="button-row">
+                  <button className="button primary" type="button" onClick={() => navigator.clipboard.writeText(message.draftResponse ?? "")}>Copy reply</button>
+                  <a className="button secondary" href={`https://mail.google.com/mail/#all/${message.sourceId}`} target="_blank" rel="noreferrer">Open notification</a>
+                </div><small>{message.status === "approved-to-send" ? "Approved for manual sending through LinkedIn." : "Review and approve the exact draft in the approval queue first."}</small></div> : null}
+              </article>;
             })}
           </div>
         )}
@@ -287,7 +294,7 @@ function ApprovalCard({ approval, busy, onDecision }: { approval: ApprovalRecord
       <div className="meta-row"><span className={`priority ${approval.riskLevel === "high" ? "critical" : "high"}`}>{approval.riskLevel} risk</span><span>{formatDate(approval.deadline)}</span></div>
       <h3>{approval.title}</h3><p>{approval.whyRequired}</p><pre>{payload}</pre><strong className="recommendation">Recommended: {approval.recommendedAction}</strong>
       <div className="button-row">
-        <button className="button primary" disabled={busy !== null} onClick={() => onDecision({ action: "resolve-approval", id: approval.id, payloadHash: approval.payloadHash, decision: "approved" }, "Approval")}>Approve & continue</button>
+        <button className="button primary" disabled={busy !== null} onClick={() => onDecision({ action: "resolve-approval", id: approval.id, payloadHash: approval.payloadHash, decision: "approved" }, "Approval")}>Approve exact draft</button>
         <button className="button secondary" disabled={busy !== null} onClick={() => onDecision({ action: "resolve-approval", id: approval.id, payloadHash: approval.payloadHash, decision: "deferred" }, "Approval deferral")}>Defer</button>
         <button className="button ghost" disabled={busy !== null} onClick={() => onDecision({ action: "resolve-approval", id: approval.id, payloadHash: approval.payloadHash, decision: "declined" }, "Approval decline")}>Decline</button>
       </div>
