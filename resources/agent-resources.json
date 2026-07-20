@@ -29,16 +29,24 @@
     ]
   },
   "commandCenter": {
-    "status": "production-v0.3-owner-only-universal-intake-verified-macos",
+    "status": "production-v0.4-owner-only-universal-intake-attachments-verified",
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
     "sourceDirectory": "apps/acs-command-center",
     "role": "adhd-friendly-central-management-interface",
     "canonicalStorage": "google-drive",
     "operationalIndex": "sites-d1",
-    "codexRouting": {
+    "aiRouting": {
       "status": "mandatory",
-      "scope": "all-neuro-div-work-with-codex-participation",
+      "scope": "all-substantive-ai-assisted-neuro-div-work",
       "ccsRole": "orchestration-and-visibility-layer",
+      "coveredParticipants": "any-acs-member-or-other-ai-system",
+      "triggerConditions": [
+        "determinative",
+        "potentially-determinative",
+        "action-producing",
+        "decision-shaping",
+        "material-downstream-effect-capable"
+      ],
       "requiredCoverage": [
         "requests",
         "actions",
@@ -47,19 +55,24 @@
         "state-changes",
         "blockers",
         "outputs",
+        "handoffs",
         "completion-evidence"
       ],
       "executionTransportsAreSubordinate": [
-        "chatgpt-remote",
-        "iphone-mirroring",
+        "remote-control-surfaces",
+        "local-applications",
         "shortcuts",
         "mobile-device-management",
         "connectors",
         "local-tools"
       ],
+      "transientExclusion": "only-no-retained-state-action-decision-artifact-commitment-or-reasonably-foreseeable-downstream-effect",
+      "uncertaintyRule": "route-through-ccs",
       "missingCapabilityFallback": "record-need-and-current-state-in-ccs-without-silent-bypass",
-      "canonicalBriefRevision": "ALtnJHzSSCzYPOt6ef5Qk_sbUmYApd8rAvhsC82uP8J72gxVuN7HYWenZuIMI73L73KC4ybHc0arNn3N5Nq5n7PE0D6AOSs0VAmbI-leIg",
-      "productionIntakeId": "intake-c823b88f-982d-4ee6-abd9-e476b9f84d8f"
+      "supersedesCodexOnlyRule": true,
+      "supersededProductionIntakeId": "intake-c823b88f-982d-4ee6-abd9-e476b9f84d8f",
+      "canonicalBriefRevision": "ALtnJHwByA3GYOSswljG2dxDehqzjgnVFM-3iNoRvUhC7A-zu1YJn4Pe1AkkBYsbrpGpY06fFj2k69IzBCboXrnePQwK7Lhz3bGrL66gQA",
+      "productionIntakeId": "intake-292e315f-ba35-4bc3-9a0c-a063a3538509"
     },
     "driveProject": {
       "folderUrl": "https://drive.google.com/drive/folders/1Eya9De0przu_CcyvphlUuRetCPTO4u5-",
@@ -100,7 +113,7 @@
       }
     },
     "universalIntake": {
-      "status": "production-deployed-end-to-end-verified-macos-ios-sync-pending",
+      "status": "production-v0.4-verified-macos-and-browser-attachments-ios-blocked-by-full-icloud",
       "acceptedKinds": ["screenshot", "screen-recording", "file", "url", "text", "media"],
       "macCaptureDestinationConfigured": true,
       "macLaunchAgentInstalled": true,
@@ -109,6 +122,19 @@
       "macProductionCaptureVerified": true,
       "productionMetadataReadBackVerified": true,
       "iosShortcutSyncVerified": false,
+      "iosIcloudSyncEnabled": true,
+      "iosShareSheetObserved": false,
+      "iosSyncBlocker": "zero-icloud-storage-shortcut-absent-from-ios-library",
+      "browserAttachments": {
+        "status": "production-verified",
+        "storage": "sites-r2-private",
+        "metadataIndex": "sites-d1",
+        "maximumFilesPerRequest": 5,
+        "maximumBytesPerFile": 20971520,
+        "maximumCombinedBytes": 41943040,
+        "authenticatedDownload": true,
+        "byteIdenticalRoundTripVerified": true
+      },
       "trigger": "event-driven-filesystem-notification",
       "aiRunsPerCapture": 0,
       "deduplication": "sha256-source-id",
@@ -130,7 +156,8 @@
       "mcpInitialization": "passed-local-runtime",
       "mcpToolsDiscovered": 7,
       "driveReadBack": "passed",
-      "privateDeployment": "succeeded-sites-version-4-owner-only",
+      "privateDeployment": "succeeded-sites-version-5-owner-only",
+      "browserAttachmentRoundTrip": "passed-r2-d1-sha256-byte-identical",
       "securityHardening": "passed-live-and-source-verification",
       "productionDependencyAudit": "passed-zero-vulnerabilities",
       "crossOriginMutationRejection": "passed-http-403",

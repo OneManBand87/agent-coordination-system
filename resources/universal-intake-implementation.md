@@ -1,6 +1,6 @@
 # ACS Universal Intake
 
-Status: Production-deployed and end-to-end verified on macOS; iOS synchronization verification pending
+Status: Production v0.4 verified for macOS routing and private browser attachments; iOS shortcut installation blocked by full iCloud storage
 
 ## Objective
 
@@ -14,6 +14,7 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 4. Raw inputs are retained in device-synced Apple intake storage. Routed work products remain canonical in the ACS Command Center Google Drive project.
 5. The router submits bounded metadata to the owner-only Command Center through Sites access plus a separate device token stored in macOS Keychain.
 6. D1 stores the operational queue, provenance, hash, type, source, device, timestamps, and routing status. SHA-256 source IDs suppress duplicate intake records.
+7. The Command Center capture box accepts optional private attachments alongside an inquiry. Browser attachment bytes are stored in the Sites R2 binding, while D1 stores their bounded metadata and intake/work-item relationship.
 
 ## Automation preflight
 
@@ -35,18 +36,22 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 - The production site remains owner-only.
 - The device route requires the Sites dispatch authorization and a separate application device token.
 - Both secrets are stored in macOS Keychain and are not committed or written into project artifacts.
-- Only metadata is transmitted to the Command Center. Raw file bytes remain in device-synced intake storage until governed routing determines their canonical destination.
+- Native Mac and Share Sheet routing transmits only metadata; raw native-intake bytes remain in device-synced Apple storage until governed routing determines their canonical destination.
+- Files deliberately attached in the Command Center are transmitted to its private Sites R2 storage. The route accepts no more than five files, 20 MB per file, and 40 MB combined; download responses force attachment disposition, disable caching, apply a sandbox content policy, and do not render the original MIME type inline.
 - Intake is preservation and triage, not permission to publish, send, execute, or otherwise act on captured content.
 
 ## Current evidence and limitations
 
-- Observed: source build, lint, MCP type-check, and four contract tests pass.
+- Observed: source build, lint, MCP type-check, and five contract tests pass.
 - Observed: screenshot destination points to the managed pending folder.
 - Observed: the LaunchAgent is installed, enabled, event-driven, and uses a five-second launch throttle.
 - Observed: macOS Shortcuts sharing is enabled; `Send to NEURO-DIV` is configured for the Share Sheet; and `Process NEURO-DIV Intake` provides the privacy-compatible Mac processor.
-- Observed: owner-only Sites v0.3 is deployed in production and a live metadata write/read-back succeeded.
+- Observed: owner-only Sites v0.4 (Sites version 5) is deployed in production and a live metadata write/read-back succeeded.
+- Observed: the browser capture box exposes `Add attachment`; a live Markdown file was uploaded to R2, linked to its D1 intake record, downloaded through the authenticated attachment route, and verified byte-identical by SHA-256.
 - Observed: a real screenshot was automatically archived and appeared in the production queue as `screenshot`, `captured`, with device and SHA-256 provenance.
 - Observed: a real file passed through `Send to NEURO-DIV`, the processor shortcut, the router, and production deduplication.
 - Sourced: Apple documents that Share Sheet shortcuts can receive content from other apps and can sync to iOS/iPadOS when iCloud Shortcuts sync is enabled.
-- Pending: confirmation on a physical iOS device that the shortcut has synchronized and is visible in the Share Sheet.
+- Observed: iPhone Mirroring connected at a physical distance of approximately 3–4 feet. iOS Spotlight indexed `Send to NEURO-DIV`, but the shortcut did not appear in the iPhone Shortcuts Library or the complete Photo Share Sheet action list.
+- Observed: iPhone Shortcuts iCloud Sync is enabled, while Finder reports zero iCloud bytes available and the signed shortcut export remains `Waiting to Update`. The evidence supports full iCloud storage as the current synchronization blocker; it does not establish iOS Share Sheet operation.
+- Pending: install the already configured shortcut on iPhone after iCloud capacity is restored or by a direct private device transfer, then repeat the physical Share Sheet test.
 - Unknown until tested: how each third-party app converts proprietary objects into a Shortcuts-compatible file, URL, or text representation.
