@@ -28,6 +28,19 @@
       "common-tool-access"
     ]
   },
+  "externalTerminologyControl": {
+    "status": "mandatory",
+    "firstUseOutsideEstablishedContext": "Agentic Communication Scaffold (ACS) with plain-language explanation",
+    "preferredAppleFacingLabel": "NEURO-DIV Command Center",
+    "bareAcsAllowedAfterContextEstablished": true,
+    "coveredSurfaces": [
+      "apple-shortcuts",
+      "share-sheet-actions",
+      "file-dialogs",
+      "notifications",
+      "general-purpose-device-surfaces"
+    ]
+  },
   "commandCenter": {
     "status": "production-v0.4-owner-only-universal-intake-attachments-verified",
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
