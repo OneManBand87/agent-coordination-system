@@ -33,16 +33,16 @@ for file in $required_files; do
   fi
 done
 
-for codex_ccs_file in AGENTS.md resources/agent-coordination.md; do
-  if ! rg -Fq 'Mandatory Codex routing through CCS' "$codex_ccs_file" &&
-     ! rg -Fq 'mandatory orchestration and visibility layer for all NEURO-DIV work in which Codex participates' "$codex_ccs_file"; then
-    printf 'Mandatory Codex-to-CCS routing rule missing: %s\n' "$codex_ccs_file" >&2
+for ai_ccs_file in AGENTS.md resources/agent-coordination.md; do
+  if ! rg -Fq 'Mandatory AI routing through CCS' "$ai_ccs_file" &&
+     ! rg -Fq 'mandatory orchestration and visibility layer for all substantive AI-assisted work across NEURO-DIV' "$ai_ccs_file"; then
+    printf 'Mandatory AI-to-CCS routing rule missing: %s\n' "$ai_ccs_file" >&2
     exit 1
   fi
 done
 
-if ! jq -e '.commandCenter.codexRouting | (.status == "mandatory") and (.scope == "all-neuro-div-work-with-codex-participation") and (.ccsRole == "orchestration-and-visibility-layer") and (.requiredCoverage | index("device-control-paths") != null) and (.executionTransportsAreSubordinate | index("iphone-mirroring") != null) and (.productionIntakeId | startswith("intake-"))' resources/agent-resources.json >/dev/null; then
-  printf 'Mandatory Codex-to-CCS routing metadata mismatch\n' >&2
+if ! jq -e '.commandCenter.aiRouting | (.status == "mandatory") and (.scope == "all-substantive-ai-assisted-neuro-div-work") and (.ccsRole == "orchestration-and-visibility-layer") and (.coveredParticipants == "any-acs-member-or-other-ai-system") and (.triggerConditions | index("potentially-determinative") != null) and (.requiredCoverage | index("device-control-paths") != null) and (.requiredCoverage | index("handoffs") != null) and (.uncertaintyRule == "route-through-ccs") and (.supersedesCodexOnlyRule == true) and (.productionIntakeId | startswith("intake-"))' resources/agent-resources.json >/dev/null; then
+  printf 'Mandatory AI-to-CCS routing metadata mismatch\n' >&2
   exit 1
 fi
 
