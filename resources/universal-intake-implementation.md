@@ -43,17 +43,19 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 ## Siri and spoken-word capture boundary
 
 - The iPhone Action Button and a spoken activation phrase are equivalent entrances to the same dedicated open-line recording Shortcut; neither creates a separate capture workflow.
-- Prefer an on-device Vocal Shortcut with a short distinctive phrase when device testing proves it can launch the recorder directly without entering Siri's conversational interface. If direct routing is unavailable, Siri may run the recorder Shortcut by name as a trigger-only fallback.
+- Voice activation must use an on-device Vocal Shortcut or another confirmed silent trigger that launches the recorder directly without invoking Siri at any point.
+- Siri is prohibited from this workflow, including as a fallback. The user must never receive a Siri response, clarification, confirmation, interpretation, error message, or `I don't understand` prompt.
+- If Siri-free voice activation cannot be guaranteed, voice activation remains unavailable and the Action Button remains the supported trigger. The workflow must never degrade to Siri.
 - Vocal Shortcuts' continuous microphone-listening state must be visible and tested for privacy, battery, false-trigger, and interference costs before adoption.
 - Either trigger starts or opens the recording surface; it does not authorize transcription, interpretation, submission, or downstream action.
-- Siri is secretary-only. It may initiate a separate audio recorder but must not interpret the user's thought, control the conversational turn, infer completion from silence, or submit a standardized Siri response as the user's request.
+- Siri has no role in capture or activation.
 - Spoken-word intake must use a real open-line audio recording rather than Siri dictation or a speech-to-text prompt box.
 - Recording continues until the user explicitly stops and finalizes it through the recorder control. Long pauses, topic changes, self-correction, repetition, and nonlinear ADHD speech do not constitute completion.
 - The recorder must support pause and resume without finalizing or routing the item.
 - The original audio is the primary source and must be preserved before transcription, summarization, classification, or routing. Transcripts are linked derivative aids that may contain errors and must not silently replace the audio.
 - No capture surface may interrupt with clarifying questions, suggestions, confirmations, summaries, or conclusions while the user is thinking aloud.
 - After explicit completion, the recording may enter CCS intake for downstream transcription and interpretation. Any proposed task, decision, state change, or external action remains subject to normal CCS verification and approval controls.
-- If the available Siri or Shortcut route cannot guarantee explicit-stop recording and original-audio preservation, use a button, recorder control, or another open-line capture surface instead.
+- If the available spoken-trigger or Shortcut route cannot guarantee explicit-stop recording, original-audio preservation, and complete avoidance of Siri, use the Action Button, recorder control, or another Siri-free open-line capture surface instead.
 
 ## Current evidence and limitations
 
