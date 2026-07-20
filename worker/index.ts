@@ -40,7 +40,16 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    const appResponse = await handler.fetch(request, env, ctx);
+    const headers = new Headers(appResponse.headers);
+    headers.set("X-Content-Type-Options", "nosniff");
+    headers.set("Referrer-Policy", "no-referrer");
+    headers.set("Permissions-Policy", "camera=(), geolocation=(), microphone=(self)");
+    return new Response(appResponse.body, {
+      status: appResponse.status,
+      statusText: appResponse.statusText,
+      headers,
+    });
   },
 };
 

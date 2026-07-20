@@ -282,7 +282,7 @@ export function CommandCenter({ initialState }: { initialState: CommandCenterSta
         </button>
       </section>
 
-      <footer className="page-footer"><strong>ACS Command Center v0.1</strong><span>Observed facts, sourced facts, proposals, and unknowns remain explicitly separated.</span></footer>
+      <footer className="page-footer"><strong>ACS Command Center v0.2</strong><span>Observed facts, sourced facts, proposals, and unknowns remain explicitly separated.</span></footer>
     </main>
   );
 }

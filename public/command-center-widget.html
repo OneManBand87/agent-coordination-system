@@ -40,12 +40,22 @@
       document.querySelector("#approval-count").textContent = String(approvals.length);
       document.querySelector("#recruiter-count").textContent = String(recruiters.length);
       document.querySelector("#status").textContent = state.settings?.background_ai_paused === "false" ? "Guarded" : "AI paused";
-      document.querySelector("#focus-list").innerHTML = focus.map((item) => `<div class="focus"><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.owner)} · ${escapeHtml(item.status)}</p></div>`).join("");
+      const focusNodes = focus.map((item) => {
+        const container = document.createElement("div");
+        container.className = "focus";
+        const title = document.createElement("strong");
+        title.textContent = String(item.title ?? "Untitled item");
+        const detail = document.createElement("p");
+        detail.textContent = `${String(item.owner ?? "Unassigned")} · ${String(item.status ?? "Unknown")}`;
+        container.append(title, detail);
+        return container;
+      });
+      document.querySelector("#focus-list").replaceChildren(...focusNodes);
     };
-    const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
     render(window.openai?.toolOutput);
+    const parentOrigin = (() => { try { return new URL(document.referrer).origin; } catch { return null; } })();
     window.addEventListener("message", (event) => {
-      if (event.source !== window.parent) return;
+      if (event.source !== window.parent || !parentOrigin || event.origin !== parentOrigin) return;
       const message = event.data;
       if (message?.jsonrpc === "2.0" && message.method === "ui/notifications/tool-result") render(message.params?.structuredContent);
     }, { passive:true });

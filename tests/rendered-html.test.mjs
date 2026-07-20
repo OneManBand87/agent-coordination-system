@@ -36,3 +36,15 @@ test("keeps the product and safety controls explicit", async () => {
   assert.match(layout, /title:\s*"ACS Command Center"/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });
+
+test("keeps state mutations bounded and widget rendering injection-safe", async () => {
+  const route = await readFile(new URL("../app/api/state/route.ts", import.meta.url), "utf8");
+  const widget = await readFile(new URL("../public/command-center-widget.html", import.meta.url), "utf8");
+
+  assert.match(route, /z\.discriminatedUnion/);
+  assert.match(route, /private, no-store/);
+  assert.match(route, /Cross-origin state changes are not allowed/);
+  assert.doesNotMatch(widget, /\.innerHTML\s*=/);
+  assert.match(widget, /replaceChildren/);
+  assert.match(widget, /event\.origin !== parentOrigin/);
+});
