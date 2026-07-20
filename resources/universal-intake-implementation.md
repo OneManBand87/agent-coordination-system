@@ -58,6 +58,17 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 - After explicit completion, the recording may enter CCS intake for downstream transcription and interpretation. Any proposed task, decision, state change, or external action remains subject to normal CCS verification and approval controls.
 - If the available spoken-trigger or Shortcut route cannot guarantee explicit-stop recording, original-audio preservation, and complete avoidance of Siri and Alexa, use the Action Button, recorder control, or another assistant-free open-line capture surface instead.
 
+## Implemented iPhone Action Button route
+
+- Observed configuration: `NEURO-DIV Voice Intake` is installed in the iPhone Shortcuts Library and selected in Settings > Action Button > Shortcut.
+- The Shortcut starts Record Audio immediately and stops only when the user taps to finish.
+- It renames the recording to `NEURO-DIV Voice Intake - [six-digit random number].m4a`, using the range 100000–999999.
+- It saves automatically to the Mac router's watched `iCloud Drive / Shortcuts / NEURO-DIV Intake / Pending` folder; `Ask Where To Save` is disabled, overwrite is disabled, and save access is set to `Always Allow`.
+- Observed verification: the Shortcuts Library and Action Button settings read back the exact shortcut name; a mirrored test produced the expected randomized filename and increased the watched Pending queue from zero to one item; the Files picker reported the queue as synced with iCloud.
+- CCS visibility: the implementation and its validation boundary were mirrored to production intake item `intake-9e324b1f-6643-449c-8a3e-1b8c11d863e0` and read back from the production state API. The canonical brief read-back revision is `ALtnJHwDfd2q0HhSluN5VWwil9X3oY1JgeIbVFKWiWLVq3bBdMHt2zIxeIHDnyJtrJMTGTJYHLt9b7DoALISGUFyhqIEs3NvXUROEHOuQg`.
+- Validation limitation: iPhone Mirroring cannot supply the iPhone microphone. The mirrored test verifies execution, naming, permission, destination, and iCloud queue routing, but it does not verify usable audio. One physical Action Button recording remains required before real-audio capture is declared validated.
+- No exported-shortcut signature is required because the Shortcut was created locally and runs on the same iPhone. The relevant assignment control is the verified Action Button selection.
+
 ## Apple Intelligence selective-adoption boundary
 
 - Apple Intelligence is not included in NEURO-DIV scope merely because it is available.
@@ -79,7 +90,7 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 - Observed: a real screenshot was automatically archived and appeared in the production queue as `screenshot`, `captured`, with device and SHA-256 provenance.
 - Observed: a real file passed through `Send to NEURO-DIV`, the processor shortcut, the router, and production deduplication.
 - Sourced: Apple documents that Share Sheet shortcuts can receive content from other apps and can sync to iOS/iPadOS when iCloud Shortcuts sync is enabled.
-- Observed: iPhone Mirroring connected at a physical distance of approximately 3–4 feet. iOS Spotlight indexed `Send to NEURO-DIV`, but the shortcut did not appear in the iPhone Shortcuts Library or the complete Photo Share Sheet action list.
-- Observed: iPhone Shortcuts iCloud Sync is enabled, while Finder reports zero iCloud bytes available and the signed shortcut export remains `Waiting to Update`. The evidence supports full iCloud storage as the current synchronization blocker; it does not establish iOS Share Sheet operation.
-- Pending: install the already configured shortcut on iPhone after iCloud capacity is restored or by a direct private device transfer, then repeat the physical Share Sheet test.
+- Superseded observation: the earlier missing-Shortcut/zero-capacity condition no longer blocks voice intake. `NEURO-DIV Voice Intake` is now installed directly on the iPhone and assigned to the Action Button.
+- Observed: the iPhone `Pending` queue accepted the mirrored test item and reported `Synced with iCloud`; complete Photo Share Sheet operation remains a separate unverified path.
+- Pending: make one recording from the physical iPhone Action Button, speak a short test phrase, tap to finish, and verify that the resulting file contains usable audio and continues through downstream CCS processing.
 - Unknown until tested: how each third-party app converts proprietary objects into a Shortcuts-compatible file, URL, or text representation.
