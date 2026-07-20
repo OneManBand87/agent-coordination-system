@@ -199,7 +199,7 @@ function buildServer() {
       description: "Use this for a materially new cross-source finding, connector result, status change, or action candidate. Duplicate and no-change events do not invoke synthesis. Slack is excluded.",
       inputSchema: {
         sourceId: z.string().min(8).max(300), projectId: z.string().min(1).max(100).default("general"),
-        source: z.enum(["claude", "codex", "gmail", "google-workspace", "supabase", "github", "notion", "tapdat", "manual", "other"]),
+        source: z.enum(["claude", "codex", "gmail", "google-workspace", "google-drive", "supabase", "github", "notion", "zapier", "base44", "tapdat", "manual", "other"]),
         kind: z.enum(["finding", "connector-health", "action-candidate", "status-change", "no-op"]),
         title: z.string().min(1).max(500), summary: z.string().min(1).max(5000),
         severity: z.enum(["critical", "high", "normal", "low"]),
