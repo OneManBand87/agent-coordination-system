@@ -122,7 +122,7 @@ export type IntakeAttachmentRecord = {
   downloadUrl: string;
 };
 
-export type SignalSource = "claude" | "codex" | "gmail" | "google-workspace" | "supabase" | "github" | "notion" | "tapdat" | "manual" | "other";
+export type SignalSource = "claude" | "codex" | "gmail" | "google-workspace" | "google-drive" | "supabase" | "github" | "notion" | "zapier" | "base44" | "tapdat" | "manual" | "other";
 
 export type SignalRecord = {
   id: string;
