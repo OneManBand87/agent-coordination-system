@@ -247,8 +247,8 @@
       "controlRecord": "resources/universal-intake-implementation.md"
     },
     "voiceCaptureBoundary": {
-      "status": "standing-project-instruction",
-      "activationModel": "dual-equivalent-triggers-one-recorder-workflow",
+      "status": "standing-project-instruction-user-amended-dual-path",
+      "activationModel": "user-choice-direct-text-dictation-or-open-line-recorder",
       "physicalTrigger": "iphone-action-button",
       "physicalTriggerAssignmentVerified": true,
       "shortcutName": "NEURO-DIV Voice Intake",
@@ -256,6 +256,19 @@
       "recordingFinish": "explicit-user-tap",
       "pauseResumeControlObserved": false,
       "pauseResumeRequirementStatus": "unmet-requires-recorder-refinement",
+      "directTextDictation": {
+        "permitted": true,
+        "surfaces": ["ccs-quick-capture", "other-neuro-div-text-entry"],
+        "inputMechanisms": ["macos-voice-control", "iphone-voice-control", "system-dictation"],
+        "bestFor": ["fast-ordinary-prompts", "hands-free-text-entry"],
+        "sourceOfTruth": "exact-explicitly-submitted-text",
+        "originalAudioImplied": false,
+        "audioVerifiedTranscriptImplied": false,
+        "recognitionErrorsRemainVisibleAndCorrectable": true,
+        "explicitSubmissionRequired": true,
+        "silenceOrPauseSubmits": false,
+        "nearbySpeechMayBeCaptured": true
+      },
       "semanticInterpretation": {
         "status": "mac-on-device-processor-and-ccs-production-verified-automatic-trigger-permission-pending",
         "originalAudioAuthoritative": true,
@@ -327,7 +340,7 @@
       "degradeToSiriWhenVoiceTriggerUnavailable": false,
       "vocalShortcutsContinuousMicrophoneListening": true,
       "vocalShortcutsRequiresPrivacyBatteryFalseTriggerInterferenceTest": true,
-      "capturePrimitive": "open-line-audio-recording",
+      "capturePrimitive": "user-choice-direct-text-dictation-or-open-line-audio-recording",
       "triggerStartsRecorderOnly": true,
       "triggerAuthorizesProcessingOrSubmission": false,
       "completionSignal": "explicit-user-stop-only",
@@ -335,6 +348,8 @@
       "supportsPauseResume": true,
       "preserveOriginalAudio": true,
       "transcriptRole": "linked-derivative-aid-may-contain-errors",
+      "conversationalSiriRole": "prohibited",
+      "operatingSystemSpeechRecognitionRole": "permitted-subordinate-text-input-without-assistant-dialogue-or-independent-interpretation",
       "siriMayInterpret": false,
       "siriMayInterrupt": false,
       "siriMayInferAction": false,
@@ -344,8 +359,10 @@
       "degradeToAlexaWhenVoiceTriggerUnavailable": false,
       "alexaCompatibleHardwareRole": "none",
       "alexaIndependentNonEcosystemUses": ["music-playback", "optional-room-light-control"],
-      "downstreamRoute": "ccs-after-explicit-completion",
+      "downstreamRoute": "ccs-after-explicit-text-submission-or-recording-completion",
       "fallbackWhenGuaranteesUnavailable": "button-recorder-control-or-other-open-line-capture",
+      "dualPathPolicyCanonicalBriefRevisionId": "AIroW36I9smuxEdKDmDYXir7Sg7bRmOQM7q4-6E3b6zdeBatVWK-iBbvEhQaxxl9TKD34M-KalMxAr-dwpgwdIFZ5aDYdXk552HazBqLeg",
+      "dualPathPolicyCanonicalBriefReadBackVerified": true,
       "controlRecord": "resources/universal-intake-implementation.md"
     },
     "appleIntelligenceBoundary": {

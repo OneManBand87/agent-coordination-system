@@ -42,20 +42,23 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 
 ## Voice-assistant and spoken-word capture boundary
 
-- The iPhone Action Button and a spoken activation phrase are equivalent entrances to the same dedicated open-line recording Shortcut; neither creates a separate capture workflow.
-- Voice activation must use an on-device Vocal Shortcut or another confirmed silent trigger that launches the recorder directly without invoking Siri or Alexa at any point.
-- Siri and Alexa are prohibited from spoken intake, voice activation, interpretation, and user-facing responses, including as fallbacks. The user must never receive their clarification, confirmation, interpretation, error message, or `I don't understand` prompt.
-- If assistant-free voice activation cannot be guaranteed, voice activation remains unavailable and the Action Button remains the supported trigger. The workflow must never degrade to Siri or Alexa.
+- The user may choose direct text dictation or the dedicated open-line recorder; neither path is mandatory for every spoken prompt.
+- Direct dictation through macOS or iPhone Voice Control or system Dictation into the CCS Quick Capture box or another NEURO-DIV text-entry surface is permitted for fast, ordinary prompting.
+- The exact text explicitly submitted by the user is the source record for direct dictation. No original-audio record or audio-verified transcript is implied, and recognition errors, typos, omissions, or accidentally captured nearby speech remain visible and correctable.
+- Listening may remain hands free, but direct text enters CCS only through an explicit user submission command or action. Silence, pauses, and topic changes never submit automatically.
+- The iPhone Action Button and an assistant-free Vocal Shortcut remain permitted entrances to the same dedicated open-line recorder.
+- Use the recorder for long or nonlinear thought capture, tolerance for extended pauses and self-correction, higher-fidelity review, or original-audio preservation.
+- Recorder voice activation must use an on-device Vocal Shortcut or another confirmed silent trigger that launches the recorder directly without invoking Siri or Alexa at any point.
+- Conversational Siri and Alexa assistant surfaces are prohibited from activation, intake, interpretation, confirmation, error handling, and user-facing responses, including as fallbacks.
+- Operating-system speech-recognition services used by Voice Control or Dictation are permitted only as subordinate text-input mechanisms that do not invoke assistant dialogue or independent interpretation.
+- If assistant-free recorder activation cannot be guaranteed, the Action Button remains the supported recorder trigger. The workflow must never degrade to conversational Siri or Alexa.
 - Any future use of Alexa-compatible hardware as a silent physical-environment endpoint requires separate validation and must not require the user to speak to, hear from, or otherwise deal with Alexa.
-- A continuously listening voice trigger's microphone state must be visible and tested for privacy, battery, false-trigger, and interference costs before adoption.
-- Either trigger starts or opens the recording surface; it does not authorize transcription, interpretation, submission, or downstream action.
-- Siri and Alexa have no role in capture or activation.
-- Spoken-word intake must use a real open-line audio recording rather than assistant dictation or a speech-to-text prompt box.
+- A continuously listening recorder trigger or dictation state must be visible and tested for privacy, battery, false-trigger, and interference costs before adoption.
 - Recording continues until the user explicitly stops and finalizes it through the recorder control. Long pauses, topic changes, self-correction, repetition, and nonlinear ADHD speech do not constitute completion.
 - The recorder must support pause and resume without finalizing or routing the item.
 - The original audio is the primary source and must be preserved before transcription, summarization, classification, or routing. Transcripts are linked derivative aids that may contain errors and must not silently replace the audio.
 - No capture surface may interrupt with clarifying questions, suggestions, confirmations, summaries, or conclusions while the user is thinking aloud.
-- After explicit completion, the recording may enter CCS intake for downstream transcription and interpretation. Any proposed task, decision, state change, or external action remains subject to normal CCS verification and approval controls.
+- After explicit completion, the recording may enter CCS intake for downstream transcription and interpretation. Directly dictated text may enter CCS after explicit submission. Any proposed task, decision, state change, or external action from either path remains subject to normal CCS verification and approval controls.
 - If the available spoken-trigger or Shortcut route cannot guarantee explicit-stop recording, original-audio preservation, and complete avoidance of Siri and Alexa, use the Action Button, recorder control, or another assistant-free open-line capture surface instead.
 
 ## Implemented iPhone Action Button route
