@@ -287,6 +287,42 @@
       "scope": "reversible control installation, synchronization, verification, intended commit/push, and continued pause of the affected automation; not production-effectiveness evidence"
     }
   },
+  "nativeReminderNotificationRoutingControl": {
+    "status": "mandatory",
+    "repositoryControl": "resources/automation-cost-cadence-proportionality-control.md",
+    "default": "cheapest-adequate-device-native-or-product-native-no-model-mechanism",
+    "preferredMechanisms": [
+      "apple-reminders",
+      "calendar-reminders",
+      "local-os-notifications",
+      "target-product-native-notification-scheduler"
+    ],
+    "prohibitedCodexUses": [
+      "waiting",
+      "polling-only",
+      "time-checking-only",
+      "simple-reminder-delivery",
+      "task-per-occurrence-reminder-churn"
+    ],
+    "codexAutomationAllowedOnlyWhen": "execution-time-work-genuinely-requires-reasoning-or-tool-actions-and-automation-cost-control-passes",
+    "recurrencePreference": "native-recurring-reminder-over-recurring-agent-run",
+    "crossDeviceFallback": "least-cost-already-authorized-reachable-native-channel-with-explicit-reachability-disclosure-and-smallest-sync-or-authentication-step",
+    "codexNativeNotificationScope": [
+      "meaningful-codex-work-completion",
+      "genuine-user-only-blocker"
+    ],
+    "taskOwnership": "agent-retains-ownership-user-not-required-to-remember-to-return",
+    "authorization": {
+      "directiveId": "NDV-NOTIFY-2026-07-19-A",
+      "directiveHash": "5b6c80324c80b0f27cd556982b275972d92ffd5b7d3658fd0cdde59d896f0b4b",
+      "intervalMethod": "Beta(1,1) component posteriors; conservative product of one-sided 90% lower credible bounds",
+      "oodTests": "60/60",
+      "counterfactualTests": "60/60",
+      "complexityRatio": 1.0,
+      "qtuLcb90": 0.927284744,
+      "scope": "durable native-first reminder and notification instruction, canonical/repository synchronization, verification, intended commit/push, and no creation or enablement of recurring automation; not production-effectiveness or cross-device-reachability evidence"
+    }
+  },
   "mcpServers": {
     "zapier": {
       "transport": "http",

@@ -61,6 +61,25 @@ fi
 
 node scripts/verify-automation-cost-control.mjs >/dev/null
 
+for native_reminder_file in AGENTS.md resources/agent-coordination.md resources/automation-cost-cadence-proportionality-control.md; do
+  if ! rg -Fq 'cheapest adequate device-native or product-native mechanism' "$native_reminder_file" ||
+     ! rg -Fq 'Never create a Codex or other LLM automation merely to wait, poll, check' "$native_reminder_file"; then
+    printf 'Native reminder routing control missing: %s\n' "$native_reminder_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fq 'NDV-NOTIFY-2026-07-19-A' resources/automation-cost-cadence-proportionality-control.md ||
+   ! rg -Fq 'QTU-LCB90`: `0.927284744' resources/automation-cost-cadence-proportionality-control.md; then
+  printf 'Native reminder routing authorization missing\n' >&2
+  exit 1
+fi
+
+if ! jq -e '.nativeReminderNotificationRoutingControl | (.status == "mandatory") and (.authorization.directiveId == "NDV-NOTIFY-2026-07-19-A") and (.authorization.qtuLcb90 >= 0.90) and (.recurrencePreference == "native-recurring-reminder-over-recurring-agent-run")' resources/agent-resources.json >/dev/null; then
+  printf 'Native reminder routing metadata mismatch\n' >&2
+  exit 1
+fi
+
 for attention_control_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-instructions.md .github/instructions/agent-coordination.instructions.md README.md resources/agent-coordination.md resources/theory-branch-integration.md resources/integrity-materiality-control.md; do
   if ! rg -Fq 'maximal-progression-user-attention-control.md' "$attention_control_file"; then
     printf 'Maximal-progression control link missing: %s\n' "$attention_control_file" >&2

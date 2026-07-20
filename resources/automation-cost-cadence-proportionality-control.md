@@ -25,6 +25,14 @@ This control applies to:
 
 QTU, privacy, security, authentication, scope, external-communication approval, destructive-action, and platform-policy gates remain independent. This control never waives them.
 
+## Native reminder and notification routing
+
+For ordinary one-time or recurring reminders and notifications, default to the cheapest adequate device-native or product-native mechanism that invokes no AI model. Preferred routes include Apple Reminders, Calendar reminders, local operating-system notifications, and the target product's native notification scheduler. Prefer native recurring reminders over recurring agent runs.
+
+Never create a Codex or other LLM automation merely to wait, poll, check the time, or deliver a reminder. A simple reminder must not consume Codex runs or reasoning tokens, create a task per occurrence, or repeatedly poll. Use Codex automation only when execution-time work genuinely requires Codex reasoning or tool actions; when it is unavoidable, apply this entire control, including event-driven execution first, the cheapest adequate model, bounded runs and expiry, consolidated state, no-op suppression, and the required error, no-op, and user-cost tripwires.
+
+If native cross-device delivery is unavailable because sync or authentication is disabled, use the least-cost already-authorized reachable native channel, clearly disclose the reachability limitation, and reduce the user dependency to the smallest authentication or sync step. Never silently substitute an expensive Codex automation. Codex native notifications remain appropriate for meaningful Codex work completion or a genuine user-only blocker, not generic clock-based reminders. Preserve task ownership and never require the user to remember to return.
+
 ## Mandatory decision record
 
 The preflight record must state:
@@ -156,3 +164,27 @@ The affected automation may not be reactivated until it is redesigned and author
 - Post-execution verification: canonical Google Doc read-back, repository semantic checks, JSON parsing, local verifier, automation-status read-back, task-state read-back, Git diff, commit, authentication check, push, and remote-head confirmation where authentication permits.
 
 This authorization proves design conformance for the exact reversible installation and synchronization scope only. It does not prove real-world cost savings or sustained effectiveness.
+
+## Native reminder routing authorization record
+
+- Directive ID: `NDV-NOTIFY-2026-07-19-A`
+- Directive hash: `5b6c80324c80b0f27cd556982b275972d92ffd5b7d3658fd0cdde59d896f0b4b`
+- Scope: install, synchronize, verify, commit, and push the durable native-first reminder and notification instruction; do not create or enable any recurring automation.
+- Target repository state before installation: `fb009d19a32620bd60acf510fab54c5aebb69237`.
+- Target canonical revision before installation: `ALtnJHzSOSPLxmn3s_xBtcHV-AvLHmrfWtA2brmDsG6IBm5CxY1pVL3QiVGEl8Pyl_Yodl3y5v_2GCROjL2DjpOc1r1N1zq8Aw0AN6OuTg`.
+- OOD design-conformance evidence: 60 of 60 cases passed.
+- Paired counterfactual-routing evidence: 60 of 60 cases passed.
+- Interval method: independent uniform `Beta(1,1)` component priors; conservative product of exact one-sided 90% lower credible bounds.
+- Component lower bounds: `0.962956252` and `0.962956252`.
+- `L_min`: eight required routing elements: native no-model default, no Codex waiting or reminder polling, Codex only for genuine reasoning or tool work, native recurrence preference, least-cost disclosed fallback, restricted Codex notifications, preserved task ownership, and no recurring automation created by this directive.
+- `L(M)`: the same eight elements implemented without an additional decision requirement; `L_min/L(M) = 1.0`.
+- Normalized posterior-mean point estimate: `0.968002081`.
+- `QTU-LCB90`: `0.927284744`.
+- Gate status: `QTU_AUTHORIZED`.
+- Evaluator: deterministic JavaScript property classifier and paired counterfactual catalogue.
+- Evaluated: `2026-07-20T01:51:48Z`.
+- Unresolved assumption: native cross-device sync and authentication availability varies by product and device; the rule requires explicit limitation disclosure and the cheapest reachable native fallback.
+- Evidence expiry: any material change to rule scope, destination documents, automation permissions, cost-control logic, or security conditions.
+- Post-execution verification: canonical Google Doc read-back, global and repository `AGENTS.md` read-back, repository semantic checks, JSON parsing, local verifier, Git diff, commit, authentication check, push, and remote-head confirmation where authentication permits.
+
+This authorization proves design conformance for the exact reversible instruction installation and synchronization only. It does not establish production effectiveness, cross-device reachability, or permission state.

@@ -24,6 +24,8 @@ The mandatory [Maximal Progression and User-Attention Escalation Control](maxima
 
 The mandatory [Automation Cost, Cadence, and Proportionality Control](automation-cost-cadence-proportionality-control.md) governs recurring, scheduled, polling, monitoring, retry, and background work. It requires a whole-window cost-versus-importance preflight; event-driven and least-cost adequate execution; bounded runs, expiry, cost, model/reasoning level, task creation, and tripwires; and automatic pause after two consecutive system errors, three consecutive no-op runs, or a user cost complaint. Unknown, unbounded, or disproportionate cost blocks activation.
 
+The native reminder and notification routing rule requires ordinary one-time or recurring reminders to use the cheapest adequate device-native or product-native mechanism that invokes no AI model, including Apple Reminders, Calendar reminders, local operating-system notifications, or the target product's native scheduler. Never create a Codex or other LLM automation merely to wait, poll, check time, or deliver a reminder. Codex automation is reserved for execution-time work that genuinely requires reasoning or tool actions and still must pass the automation cost control. Native recurring reminders are preferred over recurring agent runs. If native cross-device delivery is unavailable, agents must disclose the reachability limitation and use the least-cost already-authorized reachable native channel rather than silently substituting an expensive Codex automation. Codex native notifications are reserved for meaningful Codex completion or a genuine user-only blocker, while task ownership remains with the agent.
+
 ## Capability matrix
 
 | Client | Repository context | Zapier MCP | Verified status |
@@ -49,6 +51,7 @@ The mandatory [Automation Cost, Cadence, and Proportionality Control](automation
 - Mandatory PCAOB-aligned integrity, materiality, evidence, capability-awareness, and commitment controls, plus a [provisional cross-platform response-integrity baseline](https://docs.google.com/document/d/1_IDPhh_j5sIROhqpGFtEpEtFq03QHUdU594yTWfgJvc).
 - Mandatory maximal-progression, agent-ownership, and prominent user-attention escalation control.
 - Mandatory automation cost, cadence, task-churn, budget, and proportionality control.
+- Mandatory native, no-model-first reminder and notification routing with Codex automation prohibited for simple waiting, polling, time checks, or reminder delivery.
 - Project-scoped MCP configuration for VS Code and Claude Code.
 - Project-local Codex context reminder hooks in `.codex/hooks.json` and `.codex/hooks/ndv_context_hook.py`.
 - Zapier SDK and durable-workflow skills under `.agents/skills`.
