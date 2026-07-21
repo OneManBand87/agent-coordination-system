@@ -127,12 +127,20 @@ for attention_control_file in AGENTS.md CLAUDE.md GEMINI.md .github/copilot-inst
   fi
 done
 
-if ! rg -Fq '🚨 ACTION REQUIRED FROM YOU' resources/maximal-progression-user-attention-control.md ||
+if ! rg -Fq '🚨 **ACTION REQUIRED FROM YOU — [ONE SHORT ACTION]**' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'bare or unbolded `🚨 ACTION REQUIRED FROM YOU` heading' resources/maximal-progression-user-attention-control.md ||
+   ! rg -Fq 'NDV-ATTN-INC-2026-07-20-A' resources/agent-resources.json ||
+   ! rg -Fq '🚨 **ACTION REQUIRED FROM YOU — [SHORT ACTION]**' AGENTS.md ||
    ! rg -Fq 'The agent remains the task owner' resources/maximal-progression-user-attention-control.md ||
    ! rg -Fq 'must not be required to remember to request continuation' resources/maximal-progression-user-attention-control.md ||
    ! rg -Fq 'NDV-ATTN-2026-07-19-A' resources/maximal-progression-user-attention-control.md ||
    ! rg -Fq 'QTU-LCB90`: `0.927284744' resources/maximal-progression-user-attention-control.md; then
   printf 'Maximal-progression control invariants missing\n' >&2
+  exit 1
+fi
+
+if ! jq -e '.maximalProgressionUserAttentionControl | (.attentionTemplateHeader == "🚨 ACTION REQUIRED FROM YOU — [SHORT ACTION]") and (.attentionTemplateHeaderMarkdown == "🚨 **ACTION REQUIRED FROM YOU — [SHORT ACTION]**") and (.headingMustBeBold == true) and (.shortActionSuffixRequired == true) and (.standaloneVisualSeparationRequired == true) and (.exactActionAndEssentialControlsMustBeBold == true) and (.fontSizeRelianceProhibited == true) and (.bareHeadingIsNoncompliant == true) and (.controlApplicationIncident.id == "NDV-ATTN-INC-2026-07-20-A") and (.controlApplicationIncident.materiality == "M2") and (.controlApplicationIncident.chronologyConclusion == "noncompliant-response-followed-directive-and-global-persistence") and (.controlApplicationIncident.concurrencyDisposition == "mechanism-not-exception") and (.controlApplicationIncident.status == "corrective-control-installed-sustained-effectiveness-open") and (.controlApplicationIncident.productionCcsIntakeId | startswith("intake-")) and (.controlApplicationIncident.productionCcsReadBackStatus == "captured") and (.controlApplicationIncident.canonicalBriefRevision | length > 20)' resources/agent-resources.json >/dev/null; then
+  printf 'ADHD-salient user-action presentation control mismatch\n' >&2
   exit 1
 fi
 

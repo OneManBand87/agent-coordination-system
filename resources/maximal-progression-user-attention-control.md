@@ -41,10 +41,10 @@ An agent must not stop at phrases such as `authentication required`, `please pus
 
 Treat user attention like audit staff seeking a time-constrained partner's sign-off: staff work is complete, the issue is decision-ready, and the required action is impossible to miss.
 
-Use exactly one prominent block for the current irreducible action:
+Use exactly one prominent block for the current irreducible action. In Markdown-capable interfaces, use this exact heading syntax so the entire heading is bold:
 
 ```text
-🚨 ACTION REQUIRED FROM YOU — [ONE SHORT ACTION]
+🚨 **ACTION REQUIRED FROM YOU — [ONE SHORT ACTION]**
 
 Why only you can do this: [credential, identity, approval, signature, purchase, or judgment boundary]
 
@@ -60,6 +60,8 @@ Then: reply “done” or complete the presented flow. The agent retains ownersh
 ```
 
 The escalation must be concise, specific, and visually distinct. It must not bury the required action inside a routine status report, general recommendations, background narrative, or a list of optional items.
+
+The heading, exact action, and essential controls must be bold. The block must be standalone, separated from routine text with whitespace, and visually distinct when the interface supports block styling. Do not rely on font-size changes because clients may not preserve them. A bare or unbolded `🚨 ACTION REQUIRED FROM YOU` heading, a heading without the short-action suffix, or an action request embedded in ordinary status text is noncompliant.
 
 ## Required escalation fields
 
@@ -123,6 +125,17 @@ After the user completes the requested step, the agent must:
 - Closing a task as blocked without presenting the exact user-only action.
 - Requiring the user to restate the original task after authentication or approval.
 - Treating a user-dependent step as transfer of ownership for the entire workflow.
+
+## Control application failure — 2026-07-20
+
+- **Observed fact:** the user directed that genuine user-only actions be made unmistakably prominent at 3:35:14 PM EDT in the `Keep MacBook awake when closed` task.
+- **Observed fact:** the exact standing preference was persisted globally by 3:39:29 PM EDT.
+- **Observed fact:** the later voice-integration turn began at 5:55:41 PM EDT and completed at 6:49:26 PM EDT with a bare `🚨 ACTION REQUIRED FROM YOU` heading and no short-action suffix.
+- **Conclusion:** the response did not precede the directive. This is an M2 control failure affecting ADHD accessibility, user attention, and workflow continuity; concurrency is not an exception.
+- **Root-cause inference:** the active execution task applied stale response-format behavior after a cross-task durable-instruction update.
+- **Corrective action:** make the exact bold heading pattern, short-action suffix, block separation, bold action/control requirements, and negative bare-heading rule machine-readable and test them in the repository verifier.
+- **Effectiveness boundary:** durable text and deterministic repository checks prove installation, not universal client rendering or sustained behavioral effectiveness. Any recurrence reopens this incident.
+- **CCS evidence:** production intake item `intake-b781abc8-c1cf-42ba-9b81-8350d9ea1773` was created and read back with status `captured`.
 
 ## Current application — GitHub synchronization
 
