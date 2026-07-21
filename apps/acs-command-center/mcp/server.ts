@@ -8,6 +8,7 @@ import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from "@model
 import { z } from "zod";
 import { initialCommandCenterState } from "../lib/seed-state";
 import { evaluateUsagePreflight } from "../lib/usage-policy";
+import { estimateTaskUsage } from "../lib/usage-estimator";
 import type { CommandCenterState } from "../lib/types";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -213,6 +214,30 @@ function buildServer() {
     async (signal) => {
       const result = await ingestSignal(signal);
       return { content: [{ type: "text", text: result.duplicate ? "Duplicate signal suppressed; no task or model run was created." : `Signal recorded in CCS. Action candidate: ${result.actionCandidateCreated ? "created" : "not needed"}. Model run: ${result.modelRunSuppressed ? "suppressed" : "eligible for a bounded low-cost synthesis"}.` }], structuredContent: result };
+    },
+  );
+
+  server.registerTool(
+    "estimate_task_usage",
+    {
+      title: "Estimate task usage before execution",
+      description: "Deterministically estimate Codex credits or Claude API-equivalent overage and gate low-utility work before substantive execution.",
+      inputSchema: {
+        platform: z.enum(["codex", "claude"]),
+        taskClass: z.enum(["quick-response", "bounded-documentation", "connector-administration", "architecture-review", "code-implementation", "large-corpus-analysis", "control-remediation"]),
+        importanceRank: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]),
+        scope: z.enum(["small", "medium", "large"]),
+        contextState: z.enum(["fresh", "established", "long", "saturated"]),
+        reasoningLevel: z.enum(["low", "medium", "high", "xhigh"]),
+        completionPasses: z.number().int().min(1).max(8),
+        model: z.string().min(1).max(100).optional(),
+        explicitCostApproval: z.boolean().optional(),
+      },
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    },
+    async (input) => {
+      const estimate = estimateTaskUsage(input as Parameters<typeof estimateTaskUsage>[0]);
+      return { content: [{ type: "text", text: JSON.stringify(estimate) }], structuredContent: estimate };
     },
   );
 

@@ -21,6 +21,7 @@
 html { scroll-behavior: smooth; background: var(--paper); }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-geist-sans), system-ui, sans-serif; }
 button, textarea { font: inherit; }
+select, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
 
@@ -185,6 +186,25 @@ h1 { margin-bottom: 10px; font-size: clamp(2.3rem, 6vw, 4.9rem); max-width: 760p
 .usage-summary span { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
 .usage-summary strong { font-size: 1.25rem; }
 .usage-summary small { font-size: .7rem; }
+.usage-estimator { margin-top: 12px; padding: 17px; background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.14); border-radius: 17px; }
+.usage-estimator-heading { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
+.usage-estimator-heading > div { display: flex; flex-direction: column; gap: 3px; }
+.usage-estimator-heading span, .usage-estimator-heading p { color: #afc1b9; font-size: .72rem; }
+.usage-estimator-heading p { max-width: 470px; margin: 0; line-height: 1.45; }
+.usage-estimator-form { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-top: 14px; }
+.usage-estimator-form label { display: flex; min-width: 0; flex-direction: column; gap: 5px; color: #c8d5cf; font-size: .68rem; }
+.usage-estimator-form select, .usage-estimator-form input { width: 100%; min-height: 42px; padding: 8px 10px; color: var(--ink); background: #fffdf8; border: 1px solid #a9bbb2; border-radius: 10px; }
+.usage-estimator-form button { min-height: 42px; align-self: end; padding: 9px 12px; color: #153328; background: #9ed4b8; border: 0; border-radius: 10px; font-weight: 780; cursor: pointer; }
+.usage-estimator-form button:disabled { opacity: .55; cursor: wait; }
+.usage-estimate-result { display: grid; grid-template-columns: 1.1fr .7fr 1fr 1fr; gap: 10px; margin-top: 12px; padding: 13px; color: #dce8e2; background: rgba(255,255,255,.06); border-left: 5px solid #7ec29e; border-radius: 12px; }
+.usage-estimate-result.approval-required { border-left-color: var(--amber); }
+.usage-estimate-result.block { border-left-color: #d77b6e; }
+.usage-estimate-result > div { display: flex; flex-direction: column; gap: 3px; }
+.usage-estimate-result span, .usage-estimate-result small { color: #afc1b9; font-size: .66rem; }
+.usage-estimate-result span { text-transform: uppercase; letter-spacing: .07em; }
+.usage-estimate-result ul { margin: 0; padding-left: 17px; color: #bdccc5; font-size: .7rem; line-height: 1.42; }
+.usage-estimator-error { margin: 10px 0 0; color: #ffd0c9; }
+.usage-estimator-note { display: block; margin-top: 10px; color: #9eb1a8; line-height: 1.45; }
 .usage-policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
 .usage-policy-grid article { padding: 16px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.12); border-radius: 15px; }
 .usage-policy-grid article > div, .usage-policy-grid footer { display: flex; justify-content: space-between; gap: 10px; color: #b2c6bc; font-size: .68rem; }
@@ -221,7 +241,7 @@ h1 { margin-bottom: 10px; font-size: clamp(2.3rem, 6vw, 4.9rem); max-width: 760p
   .signal-status { align-items: flex-start; text-align: left; }
   .intake-status { grid-column: 2; align-items: flex-start; flex-direction: row; }
   .section-heading { flex-direction: column; margin-bottom: 16px; }
-  .focus-grid, .project-grid, .usage-summary, .usage-policy-grid { grid-template-columns: 1fr; }
+  .focus-grid, .project-grid, .usage-summary, .usage-policy-grid, .usage-estimator-form, .usage-estimate-result { grid-template-columns: 1fr; }
   .focus-card, .project-card { min-height: auto; }
   .project-card > p, .usage-policy-grid p { min-height: 0; }
   .lane-strip { grid-template-columns: repeat(5, minmax(58px, 1fr)); overflow-x: auto; }

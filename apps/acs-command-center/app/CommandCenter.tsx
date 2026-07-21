@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ApprovalRecord, CommandCenterState, CommunicationRecord, IntakeItemRecord, SignalRecord, WorkItemRecord } from "../lib/types";
+import { UsageEstimator } from "./UsageEstimator";
 
 type SpeechRecognitionEventLike = { results: ArrayLike<{ 0: { transcript: string } }> };
 type SpeechRecognitionLike = {
@@ -359,6 +360,7 @@ export function CommandCenter({ initialState }: { initialState: CommandCenterSta
           <div><span>Active bounded work</span><strong>{state.usagePreflights.filter((item) => item.status.includes("active")).length}</strong><small>No task-per-run churn</small></div>
           <div><span>Recruiter monitoring</span><strong>Event-driven</strong><small>One run per message</small></div>
         </div>
+        <UsageEstimator />
         <div className="usage-policy-grid">
           {state.usagePreflights.map((preflight) => (
             <article key={preflight.id}><div><span>{preflight.status}</span><strong>{preflight.estimatedCostBand} cost</strong></div><h3>{preflight.activity}</h3><p>{preflight.rationale}</p><footer><span>Max {preflight.maximumRuns} run{preflight.maximumRuns === 1 ? "" : "s"}</span><span>{preflight.eventDriven ? "Event-driven" : "Scheduled"}</span></footer></article>

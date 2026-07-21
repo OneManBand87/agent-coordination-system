@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-07-20",
+  "lastVerified": "2026-07-21",
   "canonicalBrief": {
     "name": "NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current",
     "url": "https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit",
@@ -650,6 +650,62 @@
       "qtuLcb90": 0.927284744,
       "scope": "reversible control installation and application to pending GitHub authentication and push only; not production-effectiveness evidence"
     }
+  },
+  "oneOffAiUsagePreflightControl": {
+    "status": "mandatory-implemented-local-verification-complete-production-deployment-pending",
+    "repositoryControl": "resources/one-off-ai-usage-preflight-control.md",
+    "platforms": [
+      "codex",
+      "claude"
+    ],
+    "executionMode": "deterministic-no-model",
+    "requiredOutputs": [
+      "p50",
+      "p80",
+      "p95",
+      "calibration-confidence",
+      "cost-rank",
+      "utility-score",
+      "utility-cost-ratio",
+      "decision",
+      "lower-cost-alternatives"
+    ],
+    "decisionRule": {
+      "blockWhenCostExceedsImportance": true,
+      "blockBelowUtilityCostRatio": 20,
+      "boundedCostDecisionBelowRatio": 40,
+      "highOrExtremeCostRequiresBoundedDecision": true,
+      "unknownOrUnboundedBlocks": true
+    },
+    "codexCreditBands": {
+      "lowMaximum": 20,
+      "mediumMaximum": 100,
+      "highMaximum": 400,
+      "aboveHigh": "extreme"
+    },
+    "claudeApiEquivalentUsdBands": {
+      "lowMaximum": 0.25,
+      "mediumMaximum": 0.75,
+      "highMaximum": 2,
+      "aboveHigh": "extreme"
+    },
+    "initialCalibration": {
+      "codexNonForkTasks": 74,
+      "claudeTasks": 4,
+      "forkedSnapshotsExcluded": true,
+      "calibratedAt": "2026-07-21"
+    },
+    "implementation": {
+      "form": "apps/acs-command-center/app/UsageEstimator.tsx",
+      "api": "apps/acs-command-center/app/api/usage/estimate/route.ts",
+      "estimator": "apps/acs-command-center/lib/usage-estimator.ts",
+      "calibration": "apps/acs-command-center/lib/usage-calibration.ts",
+      "agentTool": "estimate_task_usage",
+      "tests": "apps/acs-command-center/tests/usage-estimator.test.mjs"
+    },
+    "analysisDocumentId": "1SS04mfOXWlPKo4dv-MSOtAWLzv_h8kDzpI10xEjE7K8",
+    "analysisDocumentUrl": "https://docs.google.com/document/d/1SS04mfOXWlPKo4dv-MSOtAWLzv_h8kDzpI10xEjE7K8/edit",
+    "canonicalBriefRevision": "ALtnJHyGKA8q5qKHg2ezrOp_-59ncgbt0fYVjaIZ3wuf5VOj1H-rmPl6-oVcmS45HIkujru8iAq6hZToB10zdIk5GZ2mXFpWDQkvaUQqTg"
   },
   "automationCostCadenceProportionalityControl": {
     "status": "mandatory",

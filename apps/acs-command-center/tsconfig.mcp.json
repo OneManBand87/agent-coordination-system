@@ -8,7 +8,9 @@
     "mcp/**/*.ts",
     "lib/seed-state.ts",
     "lib/types.ts",
-    "lib/usage-policy.ts"
+    "lib/usage-policy.ts",
+    "lib/usage-calibration.ts",
+    "lib/usage-estimator.ts"
   ],
   "exclude": ["node_modules"]
 }

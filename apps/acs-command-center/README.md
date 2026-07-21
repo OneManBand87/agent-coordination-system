@@ -27,7 +27,7 @@ The web interface runs at `http://localhost:3000`. The MCP server runs at
 
 - `app/` contains the responsive dashboard and API routes.
 - `db/` contains the durable D1 schema, runtime initialization, and state access.
-- `lib/` contains typed seed state and the usage preflight policy.
+- `lib/` contains typed seed state, the recurring-work policy, and the calibrated Codex/Claude one-off usage estimator.
 - `mcp/` exposes standard `search` and `fetch` tools plus dashboard, capture,
   recruiter-ingestion, approval, and usage-preflight tools.
 - `public/command-center-widget.html` is the MCP Apps/ChatGPT widget.
@@ -100,7 +100,7 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 - Recruiter response target at two hours, critical threshold at three hours,
   and a same-day hard deadline.
 - Event-driven recruiter design with no recurring AI polling.
-- Global background-AI pause and bounded usage preflight policy.
+- Global background-AI pause, bounded recurring-work preflight, and a deterministic Codex/Claude completion-cost estimator with utility-to-usage gates.
 - Native/no-model reminder preference.
 
 ## Universal intake (v0.3)
