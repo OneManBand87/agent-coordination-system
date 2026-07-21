@@ -99,7 +99,7 @@
     },
     "acsAct002": "unexecuted-pending-canonical-reconciliation",
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
-    "sitesVersion": 7,
+    "sitesVersion": 8,
     "productionVerification": {
       "signalCount": 9,
       "actionCandidateCount": 4,
@@ -110,7 +110,7 @@
     "approvedArchitectureRevision": "AIroW37Fss-O6jJl0a-QFeF9IpZbjw-1OvzYFO73kT7cmpP51JffeJwr0VGOsgbZcwf-7SqaEXU2qQeoiMULibTkMWGrD71x1r1Vycshhw"
   },
   "commandCenter": {
-    "status": "production-v0.4-owner-only-universal-intake-attachments-verified",
+    "status": "production-v0.5-owner-only-usage-preflight-deployed",
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
     "sourceDirectory": "apps/acs-command-center",
     "role": "adhd-friendly-central-management-interface",
@@ -652,7 +652,7 @@
     }
   },
   "oneOffAiUsagePreflightControl": {
-    "status": "mandatory-implemented-local-verification-complete-production-deployment-pending",
+    "status": "mandatory-production-v0.5-owner-only-deployed",
     "repositoryControl": "resources/one-off-ai-usage-preflight-control.md",
     "platforms": [
       "codex",
@@ -705,7 +705,10 @@
     },
     "analysisDocumentId": "1SS04mfOXWlPKo4dv-MSOtAWLzv_h8kDzpI10xEjE7K8",
     "analysisDocumentUrl": "https://docs.google.com/document/d/1SS04mfOXWlPKo4dv-MSOtAWLzv_h8kDzpI10xEjE7K8/edit",
-    "canonicalBriefRevision": "ALtnJHyGKA8q5qKHg2ezrOp_-59ncgbt0fYVjaIZ3wuf5VOj1H-rmPl6-oVcmS45HIkujru8iAq6hZToB10zdIk5GZ2mXFpWDQkvaUQqTg"
+    "sitesVersion": 8,
+    "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
+    "productionDeploymentVerified": true,
+    "canonicalBriefRevision": "ALtnJHzQDU4a1enw6W5kdVrT6zDtWq2fO1AanXG3DpdN68shpXx5PGs1mRdE-s3yZGlKzEoOj51dAiwAYK3TqnAGL9Cp2AHpAAWgqdy21w"
   },
   "automationCostCadenceProportionalityControl": {
     "status": "mandatory",
