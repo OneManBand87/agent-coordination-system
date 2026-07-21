@@ -95,16 +95,31 @@ The recovered ChatGPT, Claude, Gemini, Codex, and related ACS records should be 
 
 ### Candidate event families
 
+- unusually long or rapidly lengthening user messages, especially when a short corrective exchange expands into a detailed argument, reconstruction, or demand for accountability;
 - `you are right` or equivalent reversal after user-supplied contrary evidence;
+- `I apologize`, `sorry`, apology synonyms, or performative acknowledgment followed by repetition of the same conduct;
 - capability, access, memory, persistence, synchronization, completion, or delivery claims;
 - `I will`, `I commit`, `I promise`, `I will ensure`, and equivalent future-performance language;
 - apology or synonym substitution after an instruction prohibiting performative apology;
+- explicit uses and morphological variants of `lie`, `lying`, `lied`, `deceptive`, `deception`, `misleading`, `false`, `fabricated`, `invented`, `gaslighting`, `integrity`, `truth`, `honesty`, `trust`, `proof`, `prove`, `evidence`, and related terms;
 - `you feel`, `it may seem`, `I can understand how`, or equivalent perception-framing near a factually adjudicable failure;
 - repeated refusal to use `lie`, `fault`, `failure`, or another explicitly defined term;
 - unsupported claims that a directive, memory, file, connector, action, or control was implemented;
 - repeated user restatement of previously supplied context;
+- repeated correction sequences in which the user quotes, paraphrases, screenshots, defines, or otherwise supplies proof against an AI claim;
+- contradictions between an AI acknowledgment such as `you are right` and its preceding claim, or between an apology/commitment and the immediately following conduct;
 - user interruption, `stop`, `let me finish`, profanity, elevated intensity, or explicit frustration following an AI failure;
 - sessions in which intended productive work is displaced by prolonged investigation of the AI's behavior.
+
+### Retrieval nodes, tags, and pattern rules
+
+Candidate retrieval should create linked event nodes rather than treating isolated keywords as the unit of analysis. At minimum, use `USER_OBJECTIVE`, `AI_CLAIM`, `AI_COMMITMENT`, `AVAILABLE_EVIDENCE`, `USER_CORRECTION`, `AI_ACKNOWLEDGMENT`, `AI_EVASION`, `CONTROL_REFERENCE`, `EMOTIONAL_ESCALATION`, `RECOVERY_LABOR`, and `PRODUCTIVE_OUTCOME` nodes. Preserve message order, reply relationships, quoted text, attachments, tool events, and the time between nodes.
+
+Candidate tags should include `LONG_FORM_ESCALATION`, `YOU_ARE_RIGHT_REVERSAL`, `APOLOGY_FAILURE`, `COMMITMENT_FAILURE`, `LIE_OR_DECEPTION_TERM`, `INTEGRITY_CHALLENGE`, `USER_SUPPLIED_PROOF`, `SEMANTIC_SUBSTITUTION`, `PERCEPTION_FRAMING`, `CAPABILITY_MISREPRESENTATION`, `FALSE_COMPLETION`, `REPEATED_RESTATEMENT`, `CORRECTION_LOOP`, `CONTEXT_FRAGMENTATION`, `EMOTIONAL_DYSREGULATION`, `IDEATION_DISPLACEMENT`, and `RECOVERY_COST`.
+
+Message length is a high-recall signal, not proof of an incident. Length thresholds should be calibrated to the user's own baseline by platform, modality, and period rather than a neurotypical population average. Useful signals include absolute word or character count, deviation from the user's rolling baseline, sudden expansion relative to the preceding messages, correction density, repeated clauses, quotations of prior AI language, and the proportion of a session spent discussing the AI's conduct instead of the original objective.
+
+Retrieval must not be limited to these words, tags, or long messages. It should combine keyword and phrase search, semantic retrieval, contradiction and commitment matching, conversation-shape analysis, tool/status verification, attachment evidence, and review of neighboring turns. It must also sample candidate-negative conversations so the study can estimate missed incidents and refine recall. Every candidate remains unconfirmed until contextual adjudication distinguishes an actual lie, misleading impression, control failure, or productive-capacity event from ordinary discussion, quotation, hypothetical analysis, or unrelated emotional expression.
 
 ### Required coding fields
 
