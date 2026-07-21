@@ -176,6 +176,15 @@ Lightning Bottle is a productive-flow preservation layer, not merely text-to-spe
 - The spoken response preserves the substantive content of the normal CCS/Codex response while condensing only process-status narration.
 - During longer work, brief status audio may report that research, planning, or execution is underway without narrating hidden reasoning or making an unsupported completion-time promise.
 - Pending tool actions should be paused, cancelled, or steered when safely possible after an interruption; completed external actions require factual status reporting rather than implied reversal.
+- Lightning Bottle must include live screen sharing as a first-class conversational input, so the user can speak while showing the CCS, another application, a browser tab, or an entire display and the AI can ground its response in the visible state.
+- Screen sharing must be explicitly user-started and user-stopped, display an unmistakable persistent capture indicator, and provide immediate pause, resume, source-switch, and stop controls without ending the voice conversation.
+- The user must be able to select a single window or application, a browser tab where supported, or a full display; the system must show which source is active and must not silently expand the capture scope.
+- User speech retains floor supremacy during screen sharing. Barge-in must stop AI playback immediately while the visual stream remains available unless the user pauses or ends it.
+- Screen frames are transient model context by default, not a canonical recording. Saving a screenshot, clip, or screen recording requires an explicit user command or action and must preserve source, timestamp, capture scope, and linkage to the relevant CCS turn.
+- Visual interpretation is a derivative aid and must remain distinguishable from the captured pixels. Unreadable, occluded, stale, rapidly changing, or out-of-scope content must be reported as uncertain rather than inferred as seen.
+- Screen sharing never authorizes clicking, typing, submission, purchase, deletion, external communication, or another downstream action. Any action remains subject to normal CCS authorization, verification, and exact-payload controls.
+- Privacy controls must support rapid blanking or pause, exclude protected or system-designated content where required, minimize unnecessary frame transmission, and prevent background retention beyond the disclosed session and evidence policy.
+- Audio, visual frames, text context, tool state, interruptions, and resulting actions must remain synchronized to one CCS conversational timeline so another agent or later session can determine what was visible, what was said, and what was actually acted upon.
 
 ## Control amendments proposed for independent review
 
@@ -224,7 +233,8 @@ Known limitations include single-user selection, incomplete exports, changing mo
 - Work performed in this pass: incident preservation, research scaffold, historical-review criteria, Lightning Bottle requirements, proposed control amendments, CCS signal, and Drive synchronization.
 - Canonical Drive working copy: https://drive.google.com/file/d/1hyTdy78E3HOO0t25jE0aLF8I_mOAVdeM/view
 - Canonical integrity-review revision: `ALtnJHwoS0NdnwirCvJLl9wNjBUz8k3nI2XoPJdH4y4CpRd3eKIoy7Hu_iBa3KOHni5N1pWB9xRcjnElnYMu71xyCUIE_zeJCsz7D_EabA`.
-- Canonical shared-brief revision: `ALtnJHyiBkZ7h8CUOq9F_OUkjyyXyf21-X-UqCABdWt5JUXuq1zZcpTTPti8v7bORxySj1JOYaa2gd5i3VU-M7niYbECKKjBSCd1T6Stlw`.
+- Canonical shared-brief revision: `ALtnJHzGA1xGH6ypXOOddase6w4IfB-psSoInKlgVTGnG57sPnVXqouxAVL5B6AxB2NwIeyL5Eh7x37-KLW6xVhDIlJAf_PMXXbP-YDkRQ`.
 - Production CCS signals: `signal-a714de78-e113-4621-aa93-c885f857d63f` and `signal-7230b835-a003-44e4-a603-bb1d824a4840`, read back as source-verified and open.
+- Lightning Bottle screen-sharing requirement signal: `signal-e6d8c2ca-7d2b-495b-8ea3-d668bd35f840`, read back as source-verified, open, and synthesis-not-needed.
 - Work excluded: full historical corpus analysis, audio processing, Gemini/Claude export recovery, statistical claims, publication, investor materials, production code, and deployment.
 - Deterministic usage preflight: Codex bounded-documentation, importance 3, small scope, saturated context, low reasoning, one pass; p50 27.3 credits, p80 60.8, p95 129.1, cost rank 2, utility-to-usage ratio 55.5, status `allow`, calibration 2026-07-21.

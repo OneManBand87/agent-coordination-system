@@ -365,6 +365,56 @@
       "dualPathPolicyCanonicalBriefReadBackVerified": true,
       "controlRecord": "resources/universal-intake-implementation.md"
     },
+    "lightningBottle": {
+      "status": "required-not-yet-implemented-or-verified",
+      "role": "ccs-conversational-voice-and-live-visual-context-layer",
+      "screenShareRequired": true,
+      "shareableSources": [
+        "single-window-or-application",
+        "supported-browser-tab",
+        "full-display"
+      ],
+      "controls": {
+        "explicitUserStartRequired": true,
+        "explicitUserStopRequired": true,
+        "persistentCaptureIndicatorRequired": true,
+        "pauseResumeRequired": true,
+        "sourceSwitchRequired": true,
+        "silentScopeExpansionProhibited": true,
+        "rapidBlankingRequired": true
+      },
+      "conversation": {
+        "voiceContinuesDuringShare": true,
+        "userFloorSupremacy": true,
+        "bargeInStopsPlayback": true,
+        "bargeInEndsScreenShare": false,
+        "singleCcsTimelineRequired": true
+      },
+      "dataBoundary": {
+        "screenFramesDefault": "transient-model-context",
+        "retentionRequiresExplicitUserCapture": true,
+        "retainedSourceProvenanceRequired": true,
+        "visualInterpretationRole": "linked-derivative-aid",
+        "uncertaintyDisclosureRequired": true,
+        "backgroundRetentionProhibitedUnlessDisclosedAndAuthorized": true
+      },
+      "authorityBoundary": {
+        "screenShareAuthorizesActions": false,
+        "downstreamActionsUseNormalCcsControls": true,
+        "prohibitedImplicitAuthority": [
+          "click",
+          "type",
+          "submit",
+          "purchase",
+          "delete",
+          "external-communication"
+        ]
+      },
+      "productionCcsSignalId": "signal-e6d8c2ca-7d2b-495b-8ea3-d668bd35f840",
+      "productionCcsReadBackStatus": "source-verified-open-synthesis-not-needed",
+      "canonicalBriefRevision": "ALtnJHzGA1xGH6ypXOOddase6w4IfB-psSoInKlgVTGnG57sPnVXqouxAVL5B6AxB2NwIeyL5Eh7x37-KLW6xVhDIlJAf_PMXXbP-YDkRQ",
+      "canonicalRequirementRecord": "resources/integrity-based-ai-collaboration-research-scaffold-2026-07-21.md"
+    },
     "appleIntelligenceBoundary": {
       "status": "standing-project-instruction",
       "adoptionModel": "selective-value-gated-not-default-scope",
@@ -541,7 +591,7 @@
       "anchorTaskId": "019f8024-3056-7fd3-98cd-a598df44bdd7",
       "productionCcsSignalId": "signal-a714de78-e113-4621-aa93-c885f857d63f",
       "productionCcsReadBackStatus": "source-verified-open",
-      "canonicalBriefRevision": "ALtnJHyiBkZ7h8CUOq9F_OUkjyyXyf21-X-UqCABdWt5JUXuq1zZcpTTPti8v7bORxySj1JOYaa2gd5i3VU-M7niYbECKKjBSCd1T6Stlw",
+      "canonicalBriefRevision": "ALtnJHzGA1xGH6ypXOOddase6w4IfB-psSoInKlgVTGnG57sPnVXqouxAVL5B6AxB2NwIeyL5Eh7x37-KLW6xVhDIlJAf_PMXXbP-YDkRQ",
       "controlAmendmentStatus": "proposed-pending-independent-review",
       "publicationStatus": "not-authorized-not-peer-reviewed"
     },
@@ -636,7 +686,7 @@
         "ccsSignalId": "signal-7230b835-a003-44e4-a603-bb1d824a4840",
         "ccsReadBackStatus": "source-verified-open",
         "canonicalIntegrityReviewRevision": "ALtnJHwoS0NdnwirCvJLl9wNjBUz8k3nI2XoPJdH4y4CpRd3eKIoy7Hu_iBa3KOHni5N1pWB9xRcjnElnYMu71xyCUIE_zeJCsz7D_EabA",
-        "canonicalBriefRevision": "ALtnJHyiBkZ7h8CUOq9F_OUkjyyXyf21-X-UqCABdWt5JUXuq1zZcpTTPti8v7bORxySj1JOYaa2gd5i3VU-M7niYbECKKjBSCd1T6Stlw",
+        "canonicalBriefRevision": "ALtnJHzGA1xGH6ypXOOddase6w4IfB-psSoInKlgVTGnG57sPnVXqouxAVL5B6AxB2NwIeyL5Eh7x37-KLW6xVhDIlJAf_PMXXbP-YDkRQ",
         "hiddenProviderMotiveFinding": false
       }
     },
