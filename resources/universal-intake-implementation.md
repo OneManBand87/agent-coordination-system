@@ -1,6 +1,6 @@
 # ACS Universal Intake
 
-Status: Production v0.5 verified for native Mac launch, Finder service routing, automatic Mac capture routing, and private browser attachments; iOS Share Sheet Shortcut prepared but awaiting Apple-required import confirmation and device read-back
+Status: Production v0.5 verified for native Mac launch, Finder service routing, automatic Mac capture routing, private browser attachments, and Mac Share Sheet registration; physical iPhone synchronization and routing remain unverified
 
 ## Objective
 
@@ -24,7 +24,7 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 - The same native application registers a macOS service named `Send to NEURO-DIV` for file URLs, URLs, and plain text. Files are completed in a private staging directory, moved atomically into the local intake queue, and the existing LaunchAgent is explicitly kicked once; there is no polling or model use.
 - Observed macOS evidence: Launch Services read back application identifier `org.neuro-div.command-center` and service `Send to NEURO-DIV`; a service invocation returned success; the pending and staging queues emptied after acknowledgment; the source was archived; and production CCS item `intake-e21601a6-4369-4924-afa1-ba3441e38b8a` read back as `captured` with source `apple-share-and-capture` and SHA-256 provenance.
 - Contrary production evidence: the user-provided Finder and iPhone screenshots show that the previously documented `Send to NEURO-DIV` Shortcut was absent. Read-only inspection of the Mac Shortcuts database confirmed that no shortcut with that name was installed. The earlier claim that its Share Sheet configuration was observed is superseded and classified as a documentation/control failure.
-- A signed cross-device Shortcut named `Send to NEURO-DIV` has now been prepared from a versioned source. It accepts files, folders, images, audiovisual media, PDFs, URLs, text, and other common Share Sheet content and saves into the existing iCloud Shortcuts pending route. Apple still requires local `Add Shortcut` confirmation before installation; macOS and iOS Share Sheet visibility remain unverified until that confirmation, iCloud synchronization, and device read-back complete.
+- A signed cross-device Shortcut named `Send to NEURO-DIV` has now been imported after Apple's required local `Add Shortcut` confirmation. The Mac Shortcuts library read back the installed name and workflow ID, and `ShareSheetState.plist` read back the same workflow with broad accepted input classes. Physical iPhone synchronization, iPhone Share Sheet visibility, and end-to-end iPhone source routing remain unverified because iPhone Mirroring reported `iPhone Not Found` during the validation attempt.
 
 ## Automation preflight
 
@@ -126,7 +126,7 @@ Provide one low-friction route into the ACS Command Center for screenshots, scre
 - Observed: source build, lint, MCP type-check, and five contract tests pass.
 - Observed: screenshot destination points to the managed pending folder.
 - Observed: the event-driven LaunchAgent and five-second throttle are installed and enabled. Live automatic events routed one screenshot and one screen recording; the local pending queue emptied only after successful indexing, the originals appeared in the iCloud processed archive, error and no-op counters remained zero, and production CCS read-back confirmed `intake-0343035d-398d-4e2e-b5b1-87ed8114700a` as `screenshot` and `intake-b93ca066-da5c-4861-a354-0246fd265c15` as `screen-recording`, both `captured` with Mac device and SHA-256 provenance. The canonical shared-agent brief was updated and read back at revision `AIroW36SCt_uc8APm-92XRaUB8mkGX_s3FQUuPYthepq_UEqynaLmZ8Ung5eep5wJinUggkC5txzOkdMEQpIdnjmlflUNyh2hsC3G43itw`.
-- Superseded claim: the earlier record said macOS Shortcuts sharing was enabled and `Send to NEURO-DIV` was configured for the Share Sheet. User screenshots and database inspection prove that the named Shortcut was not installed. The native Finder service is now verified; the signed cross-device Shortcut awaits Apple-required import confirmation and device read-back.
+- Superseded claim: the earlier record said macOS Shortcuts sharing was enabled and `Send to NEURO-DIV` was configured for the Share Sheet. User screenshots and database inspection proved that the named Shortcut was not installed at that time. The native Finder service is now verified; the signed cross-device Shortcut is now imported and registered in the Mac Share Sheet, while physical iPhone synchronization and routing still await device read-back.
 - Observed: owner-only Sites v0.4 (Sites version 5) is deployed in production and a live metadata write/read-back succeeded.
 - Observed: the browser capture box exposes `Add attachment`; a live Markdown file was uploaded to R2, linked to its D1 intake record, downloaded through the authenticated attachment route, and verified byte-identical by SHA-256.
 - Observed: a real screenshot was automatically archived and appeared in the production queue as `screenshot`, `captured`, with device and SHA-256 provenance.

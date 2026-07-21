@@ -4,7 +4,7 @@ Status: Current standing register
 
 Canonical source: [NEURO-DIV - System Issue and Corrective Action Register](https://docs.google.com/document/d/1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA/edit) in `My Drive / ChatGPT Projects / NEURO-DIV - agentic communication scaffold (ACS) / 03 Manifests and Data`
 
-Canonical register revision read back: `ALtnJHx-ahk4BRjqrMt0cdkJse6tAuKUDMToNaIHP1i98Gc02Qc1dqQxv3J3D1I2wV2MsOx-KVxQ29zbUhrueHXMEFiBIng06FWKD3Gpxw`
+Canonical register revision read back: `ALtnJHzZhdDZTgrLNzr-nuKbPXaKu0kHp3H5I_NAkbIVppOqs0PRP9EHdfC1vGFCumiovyodJQxJeL7n43yw59MFk2I-BHic2VHfBGyehQ`
 
 ## Purpose
 
@@ -80,13 +80,13 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Verification and read-back: the installed bundle passed `codesign --verify`; its Info.plist passed validation; Launch Services read back bundle identifier `org.neuro-div.command-center`; the Applications bundle and Desktop entry were read back; and an actual app launch successfully dispatched through macOS. Authentication-session reuse is expected browser behavior but was not claimed verified beyond dispatch because an expired owner session may still require identity confirmation.
 - Updated system-process narrative: `AGENTS.md`; `resources/universal-intake-implementation.md`; `resources/agent-coordination.md`; `resources/agent-resources.json`; `apps/acs-command-center/native/macos/command-center-launcher/main.swift`; `apps/acs-command-center/native/macos/command-center-launcher/Info.plist`; and `apps/acs-command-center/native/macos/install-command-center-launcher.zsh`.
 - CCS reference: production item `intake-61208f7f-d429-4842-9380-4dec4513800c`, read back as `captured`.
-- Canonical narrative revision: shared-agent brief revision `AIroW368AYoexFQfl8iKuSLAsUzdb3ozFWsygtNWMnCxMkqc6RYJxYY4i6p4oaVPHvx3gLbb2qN8GuUp_b0dWVXdED4jFLIZv6sFOwUs9A`, read back with the v0.5 correction.
+- Canonical narrative revision: shared-agent brief revision `AIroW35i4v_emu7Pt6qHCnpNuHM2e9rKvkuqRRPqZuY2OluP1eh7XLcZlNyowhsbFVC_djHAmKJEBDrNxMDCrwSIMfU9zqXa2fHIc9RunQ`, read back with the v0.5 correction and completed Mac Shortcut import.
 - Residual boundary: mandatory owner-authentication expiry cannot be bypassed safely. The intended steady-state route is one click with the existing browser session; an expired session may add the minimum platform-required identity confirmation.
 - Reuse candidates: treat entry-point friction as a production acceptance criterion for every high-frequency NEURO-DIV surface; distinguish session reuse from authentication bypass; provide a stable native name, Desktop/Spotlight route, and narrowly bounded spoken open command when supported.
 
 ### NDV-SYS-2026-07-21-003 — `Send to NEURO-DIV` absent from Mac and iPhone source surfaces
 
-- Status: `partially resolved — Mac verified; signed iOS Shortcut awaits Apple-required import and device read-back`.
+- Status: `partially resolved — Mac native service and Share Sheet registration verified; physical iPhone synchronization and routing await device read-back`.
 - Materiality: M2 universal-intake availability and documentation-integrity issue.
 - Owner: Codex / ACS Command Center implementation.
 - Task nature or workstream: route source files, URLs, text, and media directly from macOS Finder and iOS Share Sheets into CCS.
@@ -101,11 +101,12 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Corrective actor: Codex for implementation, installation, evidence correction, and CCS synchronization; the user is required only for Apple's irreducible local `Add Shortcut` confirmation.
 - Corrective action on Mac: extended the installed native CCS application with a registered `Send to NEURO-DIV` service accepting file URLs, URLs, and text; used a private staging directory and atomic queue publication; explicitly started the existing LaunchAgent once per share; retained device-token authentication, SHA-256 deduplication, post-acknowledgment archival, and zero model use.
 - Mac verification and read-back: Launch Services read back service name `Send to NEURO-DIV`; `NSPerformService` returned success; a real repository fixture routed through the service; pending and staging queues emptied after acknowledgment; the original appeared in the processed archive; production CCS item `intake-e21601a6-4369-4924-afa1-ba3441e38b8a` read back as `captured`, source `apple-share-and-capture`, with original filename, Mac device, and SHA-256 provenance.
-- iOS corrective preparation: created and cryptographically signed a versioned `Send to NEURO-DIV` Shortcut accepting common Share Sheet content and targeting the existing iCloud Shortcuts pending folder; opened Apple's local import screen.
-- iOS closure boundary: do not claim installed, synchronized, or visible until the user presses `Add Shortcut` and both the Mac Shortcuts library and physical iPhone Share Sheet are read back. The signed installer is stored locally under `Library/Application Support/NEURO-DIV/Shortcut Installation` and its source is versioned in the repository.
+- Cross-device Shortcut correction: created and cryptographically signed a versioned `Send to NEURO-DIV` Shortcut accepting common Share Sheet content and targeting the existing iCloud Shortcuts pending folder. The user completed Apple's required `Add Shortcut` confirmation; the Mac Shortcuts library read back the name and workflow ID `6B02D98F-67B8-43F9-A7B7-6BFAF95615E9`, and `ShareSheetState.plist` read back the same workflow with the configured input classes.
+- iOS closure boundary: do not claim physical-iPhone synchronization, visibility, or routing until the iPhone Share Sheet and one routed source item are read back. The validation attempt found `iPhone Not Found` in iPhone Mirroring. The signed installer is stored locally under `Library/Application Support/NEURO-DIV/Shortcut Installation` and its source is versioned in the repository.
 - Updated system-process narrative: `AGENTS.md`; `resources/universal-intake-implementation.md`; `resources/agent-coordination.md`; `resources/agent-resources.json`; the native launcher/service sources; and `apps/acs-command-center/native/shortcuts/Send to NEURO-DIV.shortcut.plist` plus its preparation script.
 - CCS reference: production item `intake-ad49165b-d79b-499a-b594-fbd78c710f32`, read back as `captured`.
-- Canonical narrative revision: shared-agent brief revision `AIroW368AYoexFQfl8iKuSLAsUzdb3ozFWsygtNWMnCxMkqc6RYJxYY4i6p4oaVPHvx3gLbb2qN8GuUp_b0dWVXdED4jFLIZv6sFOwUs9A`, read back with the contradictory evidence, Mac verification, Siri launch-only boundary, and open iOS status.
+- Shortcut-import follow-up: production CCS item `intake-6e45e41a-2bac-4ce6-b465-63d30c28a054`, read back as `captured` with the Mac installation evidence and physical-iPhone limitation.
+- Canonical narrative revision: shared-agent brief revision `AIroW35i4v_emu7Pt6qHCnpNuHM2e9rKvkuqRRPqZuY2OluP1eh7XLcZlNyowhsbFVC_djHAmKJEBDrNxMDCrwSIMfU9zqXa2fHIc9RunQ`, read back with the contradictory evidence, Mac verification, completed Mac Shortcut import, Siri launch-only boundary, and open physical-iPhone status.
 - Reuse candidates: every claimed user-facing integration must include a surface-level acceptance test on each applicable device; implementation of a background processor is not evidence that the Share Sheet or context-menu entrance exists; preserve a native service fallback on Mac even when cross-device Shortcuts are available.
 
 ## Linked source registers
