@@ -600,6 +600,22 @@
       "controlAmendmentStatus": "proposed-pending-independent-review",
       "publicationStatus": "not-authorized-not-peer-reviewed"
     },
+    "systemIssueCorrectiveActionRegister": {
+      "status": "current",
+      "repositorySnapshot": "resources/system-issue-corrective-action-register.md",
+      "canonicalDocumentId": "1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA",
+      "canonicalDocumentUrl": "https://docs.google.com/document/d/1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA/edit",
+      "canonicalDocumentRevision": "AIroW34YBsHn1bHEt2UhvaBTvdN5aGv8gml1bgxR7nOgPLdwpb5EXDGTFbBrvlXRNP3QoegJkanO6OgUeXVqMuQRUWZSZEgM19X4hoMuqA",
+      "driveFolder": "03 Manifests and Data",
+      "seedIssueId": "NDV-SYS-2026-07-21-001",
+      "seedIssueStatus": "resolved-monitor-for-recurrence",
+      "productionCcsIntakeId": "intake-705832fa-0ca3-4ee3-b654-296ba0fe9273",
+      "productionCcsReadBackStatus": "captured",
+      "canonicalBriefRevision": "ALtnJHyGEQSNNOeKZRgj0RPneCRS9uVwu8hG-oDgl_jXCTylFNHJ0U4TZR5Q-sODPlfgIPDilhNzxxZcSH4nr63MIaJ14iuG6Uwici70xg",
+      "crossControlReviewCadence": "every-two-weeks-desired",
+      "crossControlReviewAutomationStatus": "not-created-not-scheduled",
+      "automationActivationRequires": "separate-bounded-decision-under-automation-cost-control"
+    },
     "materialDomains": [
       "research",
       "software",
@@ -645,6 +661,7 @@
       "userOnlyDependencyIsFault": false,
       "vendorRemedyEligibilityIsCompensationPromise": false,
       "incidentRegister": "resources/ai-response-integrity-review-2026-07-17.md",
+      "umbrellaSystemIssueRegister": "resources/system-issue-corrective-action-register.md",
       "currentIncident": {
         "id": "NDV-INC-ICLOUD-01",
         "source": "HYBRID",
