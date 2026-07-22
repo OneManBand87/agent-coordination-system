@@ -205,6 +205,9 @@ h1 { margin-bottom: 10px; font-size: clamp(2.3rem, 6vw, 4.9rem); max-width: 760p
 .usage-estimate-result ul { margin: 0; padding-left: 17px; color: #bdccc5; font-size: .7rem; line-height: 1.42; }
 .usage-estimator-error { margin: 10px 0 0; color: #ffd0c9; }
 .usage-estimator-note { display: block; margin-top: 10px; color: #9eb1a8; line-height: 1.45; }
+.usage-estimator-audit { margin-top: 10px; padding: 10px 12px; color: #afc1b9; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; font-size: .7rem; }
+.usage-estimator-audit summary { color: #dce8e2; cursor: pointer; font-weight: 700; }
+.usage-estimator-audit p { margin: 7px 0 0; line-height: 1.45; }
 .usage-policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
 .usage-policy-grid article { padding: 16px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.12); border-radius: 15px; }
 .usage-policy-grid article > div, .usage-policy-grid footer { display: flex; justify-content: space-between; gap: 10px; color: #b2c6bc; font-size: .68rem; }

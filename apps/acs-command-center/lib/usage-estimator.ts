@@ -40,9 +40,45 @@ export type TaskUsageEstimate = {
   reasons: string[];
   reductions: string[];
   calibrationAsOf: string;
+  audit: CalculationAudit;
 };
 
 type Rate = { input: number; cached: number; output: number; cacheWrite?: number };
+
+export type CalculationAudit = {
+  calculationId: string;
+  calculationVersion: "usage-estimator-v2";
+  calibrationAsOf: string;
+  normalizedInputs: Omit<TaskUsageEstimateInput, "recentUsage"> & { completionPasses: number; recentUsage?: TokenUsage };
+  basis: {
+    baseCalibration: { p50: number; p80: number; p95: number; sampleSize: number; confidence: "low" | "medium" | "high" };
+    factors: { scope: number; context: number; reasoning: number; completionPassesSquareRoot: number; combined: number };
+    recentUsageFloor: null | {
+      model: string;
+      rate: Rate;
+      lastPassCost: number;
+      p50: number;
+      p80: number;
+      p95: number;
+    };
+  };
+  formulas: {
+    calibratedBand: string;
+    recentUsageFloor: string;
+    utilityCostRatio: string;
+    decision: string;
+  };
+  intermediateValues: {
+    calibratedUnrounded: { p50: number; p80: number; p95: number };
+    finalUnrounded: { p50: number; p80: number; p95: number };
+    utilityScore: number;
+    referenceCost: number;
+  };
+  rounding: { codex: string; claude: string; applied: string };
+  thresholds: { costRanks: number[]; minimumRatio: number; approvalRatio: number };
+  output: { p50: number; p80: number; p95: number; costRank: number; utilityCostRatio: number; status: TaskUsageEstimate["status"] };
+  limitations: string[];
+};
 
 const CODEX_RATES: Record<string, Rate> = {
   "gpt-5.6-sol": { input: 125, cached: 12.5, output: 750 },
@@ -73,11 +109,26 @@ function round(value: number, platform: UsagePlatform) {
   return platform === "codex" ? Math.round(value * 10) / 10 : Math.round(value * 100) / 100;
 }
 
-export function tokenUsageCost(platform: UsagePlatform, usage: TokenUsage, model?: string) {
+function resolveRate(platform: UsagePlatform, model?: string) {
   const normalizedModel = model?.toLowerCase();
   const rates = platform === "codex" ? CODEX_RATES : CLAUDE_RATES;
-  const fallback = platform === "codex" ? CODEX_RATES["gpt-5.6-sol"] : CLAUDE_RATES["claude-sonnet-5"];
-  const rate = (normalizedModel && rates[normalizedModel]) || fallback;
+  const fallbackModel = platform === "codex" ? "gpt-5.6-sol" : "claude-sonnet-5";
+  const resolvedModel = normalizedModel && rates[normalizedModel] ? normalizedModel : fallbackModel;
+  return { model: resolvedModel, rate: rates[resolvedModel] };
+}
+
+function stableCalculationId(payload: unknown) {
+  const value = JSON.stringify(payload);
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return `usage-${(hash >>> 0).toString(16).padStart(8, "0")}`;
+}
+
+export function tokenUsageCost(platform: UsagePlatform, usage: TokenUsage, model?: string) {
+  const { rate } = resolveRate(platform, model);
   if (platform === "claude") {
     return (
       usage.inputTokens * rate.input +
@@ -101,18 +152,25 @@ function classifyCost(platform: UsagePlatform, p80: number): 1 | 2 | 3 | 4 {
 export function estimateTaskUsage(input: TaskUsageEstimateInput): TaskUsageEstimate {
   const calibration = TASK_CALIBRATION[input.platform][input.taskClass];
   const passes = Math.max(1, Math.min(8, Math.round(input.completionPasses)));
-  const multiplier = scopeFactor[input.scope] * contextFactor[input.contextState] * reasoningFactor[input.reasoningLevel] * Math.sqrt(passes);
+  const passFactor = Math.sqrt(passes);
+  const multiplier = scopeFactor[input.scope] * contextFactor[input.contextState] * reasoningFactor[input.reasoningLevel] * passFactor;
   let p50 = calibration.p50 * multiplier;
   let p80 = calibration.p80 * multiplier;
   let p95 = calibration.p95 * multiplier;
+  const calibratedUnrounded = { p50, p80, p95 };
+  let recentUsageFloor: CalculationAudit["basis"]["recentUsageFloor"] = null;
 
   if (input.recentUsage) {
     const lastPass = tokenUsageCost(input.platform, input.recentUsage, input.model);
-    p50 = Math.max(p50, lastPass * passes);
-    p80 = Math.max(p80, lastPass * passes * 1.25);
-    p95 = Math.max(p95, lastPass * passes * 1.6);
+    const floors = { p50: lastPass * passes, p80: lastPass * passes * 1.25, p95: lastPass * passes * 1.6 };
+    const resolved = resolveRate(input.platform, input.model);
+    recentUsageFloor = { model: resolved.model, rate: resolved.rate, lastPassCost: lastPass, ...floors };
+    p50 = Math.max(p50, floors.p50);
+    p80 = Math.max(p80, floors.p80);
+    p95 = Math.max(p95, floors.p95);
   }
 
+  const finalUnrounded = { p50, p80, p95 };
   p50 = round(p50, input.platform);
   p80 = round(p80, input.platform);
   p95 = round(p95, input.platform);
@@ -148,6 +206,53 @@ export function estimateTaskUsage(input: TaskUsageEstimateInput): TaskUsageEstim
   }
   if (reductions.length === 0) reductions.push("Use the selected bounded scope and stop after verified completion.");
 
+  const normalizedInputs = { ...input, completionPasses: passes };
+  const costRankThresholds = input.platform === "codex" ? [20, 100, 400] : [0.25, 0.75, 2];
+  const auditSeed = {
+    calculationVersion: "usage-estimator-v2",
+    calibrationAsOf: USAGE_CALIBRATION_AS_OF,
+    normalizedInputs,
+    calibration,
+    multiplier,
+    recentUsageFloor,
+  };
+  const audit: CalculationAudit = {
+    calculationId: stableCalculationId(auditSeed),
+    calculationVersion: "usage-estimator-v2",
+    calibrationAsOf: USAGE_CALIBRATION_AS_OF,
+    normalizedInputs,
+    basis: {
+      baseCalibration: calibration,
+      factors: {
+        scope: scopeFactor[input.scope],
+        context: contextFactor[input.contextState],
+        reasoning: reasoningFactor[input.reasoningLevel],
+        completionPassesSquareRoot: passFactor,
+        combined: multiplier,
+      },
+      recentUsageFloor,
+    },
+    formulas: {
+      calibratedBand: "base calibration percentile × scope factor × context factor × reasoning factor × sqrt(completion passes)",
+      recentUsageFloor: "max(calibrated percentile, last-pass cost × completion passes × percentile factor [1, 1.25, 1.6])",
+      utilityCostRatio: "utility score / max(0.25, p80 / reference cost)",
+      decision: "block if ratio < 20 or cost rank > importance; otherwise require approval for rank >= 3, equal rank, or ratio < 40 unless explicitly approved",
+    },
+    intermediateValues: { calibratedUnrounded, finalUnrounded, utilityScore, referenceCost },
+    rounding: {
+      codex: "nearest 0.1 credit",
+      claude: "nearest 0.01 API-equivalent USD",
+      applied: input.platform === "codex" ? "nearest 0.1 credit" : "nearest 0.01 API-equivalent USD",
+    },
+    thresholds: { costRanks: costRankThresholds, minimumRatio: 20, approvalRatio: 40 },
+    output: { p50, p80, p95, costRank, utilityCostRatio, status },
+    limitations: [
+      "Calibration bands are derived from local task records and are not provider guarantees.",
+      "Provider rate-card or plan-accounting changes require a new calibration version.",
+      "The estimate does not prove actual post-run usage; actuals require provider telemetry.",
+    ],
+  };
+
   return {
     platform: input.platform,
     taskClass: input.taskClass,
@@ -163,5 +268,6 @@ export function estimateTaskUsage(input: TaskUsageEstimateInput): TaskUsageEstim
     reasons,
     reductions,
     calibrationAsOf: USAGE_CALIBRATION_AS_OF,
+    audit,
   };
 }

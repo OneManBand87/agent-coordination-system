@@ -165,6 +165,27 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Residual risk: do not treat the Shortcut as working on Mac or iPhone until attachment creation and cross-device visibility are observed.
 - Reuse candidates: remove stale signer output before re-signing; distinguish action-graph installation from behavioral success; require live destination read-back for Apple file handoffs; never infer iPhone synchronization from a Mac install.
 
+### NDV-SYS-2026-07-22-001 — Material calculations lacked a complete reproducible audit trace
+
+- Status: `control and implementation corrected — sustained use remains observational`.
+- Materiality: M2 calculation provenance, cost-governance, and context-continuity issue.
+- Owner: Codex / ACS Command Center implementation.
+- Task nature or workstream: preserve the basis and audit trail for calculations across code, repository controls, canonical Google Drive records, and CCS without creating context or AI-usage overload.
+- Affected systems and programs: ACS operating instructions, one-off AI usage preflight, CCS usage estimator and UI, estimator API and MCP output, repository coordination state, canonical shared brief, canonical usage analysis, and CCS intake.
+- Creation or detection context: on 2026-07-22 the user directed that every relevant calculation retain its basis and audit trail in the useful system of record. Review found that the usage control preserved headline p50/p80/p95 values and formulas but did not return a stable calculation ID, normalized inputs, complete factor basis, decision-relevant unrounded values, rounding rule, or result-level limitations.
+- Observed evidence: the prior `TaskUsageEstimate` output contained percentiles, ranks, ratios, decisions, reasons, reductions, and calibration date but no structured audit object. The positive-evidence narrative rounded the clipboard-workflow effects without preserving the exact denominator interval or intermediate arithmetic.
+- `Deficiency_Source`: `NEURO_DIV_ARCHITECTURE` — the calculation-control and estimator result schema lacked required provenance fields.
+- `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` for the prior incomplete trace; current integrity controls worked by preserving the correction and its reason rather than overwriting history.
+- Root cause or mechanism: result-oriented documentation captured decision outputs but did not define a project-wide calculation-record schema or a context-proportional storage pattern.
+- Corrective actor and action: Codex installed the mandatory Calculation Provenance and Audit Control; added it to repository operating instructions; implemented estimator trace version `usage-estimator-v2`; added a compact CCS disclosure; expanded deterministic tests; documented manual audit `usage-capacity-2026-07-21-clipboard-shortcut-v1`; synchronized the shared brief, usage analysis, repository manifest, and CCS.
+- Verification and closure basis: six focused estimator tests passed; production build, lint, and MCP type-check passed; independent deterministic recomputation reproduced the point capacity, interval, and task-effect percentages; Drive read-back found the audit ID and point capacity in both canonical documents; CCS item `intake-5de72265-cf3e-4ea8-88aa-3dba617a3b10` read back as `captured`.
+- Updated system-process narrative: `AGENTS.md`; `resources/calculation-provenance-and-audit-control.md`; `resources/one-off-ai-usage-preflight-control.md`; `resources/agent-coordination.md`; `resources/agent-resources.json`; `apps/acs-command-center/lib/usage-estimator.ts`; `apps/acs-command-center/app/UsageEstimator.tsx`; and `apps/acs-command-center/tests/usage-estimator.test.mjs`.
+- Canonical shared-brief revision: `AIroW34hSS2Dg8ihfu5oRMebHbmmk2SN4CkXfzyEQv3jflme6zrEW7raKcyfk8kCWUVaQbdKOC_BsH0d4_bH7zxX3Vz1-GUm3Xqs5iNBng`.
+- Canonical usage-analysis revision: `AIroW37uFhkOwxhLbz97_dv6yjTXCDwIlAK7rUh1cNJwBmxZzjv7QhxMH4mq3_bTs36vVN6a2LAiuRMBIWOjmzumFCrU3BXB4Kq58DlfZA`.
+- Canonical system-issue-register revision: `AIroW34m-ZHLR7JZw-fWZZfviW0htBduONQc6KyYp94A_8WE_C64Bf4GuTEyJLCoyAMnJTi387xV0mEz_6d3MmcM0TB7Q87fUwwCalkAuA`.
+- Residual risk: provider accounting and displayed-percentage rounding remain external and partly unknown; actual post-run usage cannot be inferred from approval; deterministic calculation IDs are provenance handles, not cryptographic proof of uniqueness.
+- Reuse candidates: require trace-bearing result types for every material calculator; store one structured trace plus concise linked summaries; test intermediate values and rounding; never create recurring model logging or duplicate narrative ledgers.
+
 ## Linked source registers
 
 - `resources/ai-response-integrity-review-2026-07-17.md` — supplementary adjudicated incident records, including `NDV-INC-ICLOUD-01`, `NDV-INC-EVASION-01`, and `NDV-INC-EVASION-02`.

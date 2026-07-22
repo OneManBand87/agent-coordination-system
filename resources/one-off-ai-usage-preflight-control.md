@@ -38,6 +38,8 @@ Return all of the following before execution:
 - allow, bounded-cost-decision, or block status; and
 - lower-cost alternatives considered first.
 
+Each estimate must also return a compact structured calculation trace conforming to the [Calculation Provenance and Audit Control](calculation-provenance-and-audit-control.md): stable calculation ID; estimator and calibration versions; normalized inputs; base calibration band and sample size; scope, context, reasoning, and pass factors; combined multiplier; recent-usage floor and rate-card basis when used; unrounded and rounded outputs; formulas; thresholds; uncertainty; and the resulting decision. The trace is the canonical calculation-level record; other narratives should link to or summarize it rather than duplicate it.
+
 Codex reports credits under the current provider token rate for input, cached input, and output. Claude reports API-equivalent overage exposure. Claude values must not be described as a percentage of the Pro allowance because Anthropic does not publish a stable token-to-plan conversion.
 
 ## Active gates
@@ -104,7 +106,7 @@ Green means commitments and reserves are covered with at least `1.5x` allocation
 
 ## Positive operating evidence — clipboard workflow
 
-On 2026-07-21 the gate stopped the clipboard-text-to-file administrative task before substantive execution. A subsequent account-status read showed 96% of the weekly allowance remaining, a July 28 reset, and one available reset. Local rate-limit telemetry showed 4% used and approximately 984.4 provider-rate-equivalent credits consumed. Against the task estimate of 41 credits likely, 121 conservative, and 230 stress case, the estimated weekly effect was approximately 0.2%, 0.5%, and 0.9–1.1%, respectively.
+On 2026-07-21 the gate stopped the clipboard-text-to-file administrative task before substantive execution. A subsequent account-status read showed 96% of the weekly allowance remaining, a July 28 reset, and one available reset. Local rate-limit telemetry showed 4% used and approximately 984.4 provider-rate-equivalent credits consumed. The exact audit record is `usage-capacity-2026-07-21-clipboard-shortcut-v1` in the Calculation Provenance and Audit Control. Its point implied capacity is `984.4 / 0.04 = 24,610 credits`; treating the displayed 4% as rounded to the nearest percentage point yields an inferred interval of `21,875.56–28,125.71 credits`. Against the task estimate of 41 credits likely, 121 conservative, and 230 stress case, point effects are `0.1666%`, `0.4917%`, and `0.9346%`; interval effects are `0.1458%–0.1874%`, `0.4301%–0.5531%`, and `0.8178%–1.0514%`, respectively.
 
 This is positive evidence that the gate interrupted execution and enabled an informed bounded decision. It is not proof of sustained effectiveness. The source directive and capacity-design request were read back from CCS intake item `intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d`.
 

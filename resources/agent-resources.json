@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-07-21",
+  "lastVerified": "2026-07-22",
   "canonicalBrief": {
     "name": "NEURO-DIV - Agentic Communication Scaffold (ACS) - Shared Agent Brief - Current",
     "url": "https://docs.google.com/document/d/1luvRe6aZBdCIuJYC6PlGQjBe_u1yxiAWUS5y5EpfQ_Q/edit",
@@ -851,6 +851,38 @@
       "scope": "reversible control installation and application to pending GitHub authentication and push only; not production-effectiveness evidence"
     }
   },
+  "calculationProvenanceAuditControl": {
+    "status": "mandatory-project-wide",
+    "effectiveDate": "2026-07-22",
+    "repositoryControl": "resources/calculation-provenance-and-audit-control.md",
+    "scope": "calculations-that-materially-inform-artifacts-status-estimates-thresholds-allocations-decisions-approvals-or-completion-claims",
+    "requiredFields": [
+      "stable-calculation-id",
+      "calculation-version",
+      "purpose-and-as-of-date",
+      "sourced-inputs-and-units",
+      "evidence-classification",
+      "formula-or-deterministic-algorithm",
+      "decision-relevant-intermediate-values",
+      "rounding-and-uncertainty",
+      "outputs-and-units",
+      "validation-and-limitations",
+      "downstream-use",
+      "durable-references-and-supersession"
+    ],
+    "contextControl": "one-machine-readable-trace-plus-concise-linked-summary",
+    "recurringAiLoggingAllowed": false,
+    "taskPerCalculationAllowed": false,
+    "usageEstimatorTraceVersion": "usage-estimator-v2",
+    "usageEstimatorTraceTestsPassed": 6,
+    "currentManualCalculationId": "usage-capacity-2026-07-21-clipboard-shortcut-v1",
+    "canonicalBriefRevision": "AIroW34hSS2Dg8ihfu5oRMebHbmmk2SN4CkXfzyEQv3jflme6zrEW7raKcyfk8kCWUVaQbdKOC_BsH0d4_bH7zxX3Vz1-GUm3Xqs5iNBng",
+    "analysisRevision": "AIroW37uFhkOwxhLbz97_dv6yjTXCDwIlAK7rUh1cNJwBmxZzjv7QhxMH4mq3_bTs36vVN6a2LAiuRMBIWOjmzumFCrU3BXB4Kq58DlfZA",
+    "productionCcsIntakeId": "intake-5de72265-cf3e-4ea8-88aa-3dba617a3b10",
+    "productionCcsReadBackStatus": "captured",
+    "systemIssueId": "NDV-SYS-2026-07-22-001",
+    "systemIssueRegisterRevision": "AIroW34m-ZHLR7JZw-fWZZfviW0htBduONQc6KyYp94A_8WE_C64Bf4GuTEyJLCoyAMnJTi387xV0mEz_6d3MmcM0TB7Q87fUwwCalkAuA"
+  },
   "oneOffAiUsagePreflightControl": {
     "status": "mandatory-production-v0.5-owner-only-deployed",
     "repositoryControl": "resources/one-off-ai-usage-preflight-control.md",
@@ -868,7 +900,8 @@
       "utility-score",
       "utility-cost-ratio",
       "decision",
-      "lower-cost-alternatives"
+      "lower-cost-alternatives",
+      "structured-calculation-audit"
     ],
     "decisionRule": {
       "blockWhenCostExceedsImportance": true,
@@ -908,7 +941,7 @@
     "sitesVersion": 8,
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
     "productionDeploymentVerified": true,
-    "canonicalBriefRevision": "AIroW36BKmRqt29L7ATJ3-MBslsWkQb2ey-eDGJqzofVj-g467S9BlM2s4Go53NmvxbsaekDKJELSDFe4Uxb0uUeFLUUqM-cAAMigUCp1g",
+    "canonicalBriefRevision": "AIroW34hSS2Dg8ihfu5oRMebHbmmk2SN4CkXfzyEQv3jflme6zrEW7raKcyfk8kCWUVaQbdKOC_BsH0d4_bH7zxX3Vz1-GUm3Xqs5iNBng",
     "capacityAwareJobCosting": {
       "status": "control-current-production-instrumentation-pending",
       "utilityGatePrecedesCapacityGate": true,
@@ -940,15 +973,37 @@
         "result": "correctly-interrupted-for-bounded-capacity-decision",
         "weeklyRemainingPercentObserved": 96,
         "observedProviderRateEquivalentCredits": 984.4,
+        "displayedUsedPercent": 4,
+        "displayRoundingAssumptionPercentInterval": [
+          3.5,
+          4.5
+        ],
+        "pointImpliedCapacityCredits": 24610,
+        "impliedCapacityIntervalCredits": [
+          21875.56,
+          28125.71
+        ],
         "taskEstimateCredits": {
           "p50": 41,
           "p80": 121,
           "p95": 230
         },
+        "pointWindowEffectPercent": {
+          "p50": 0.1666,
+          "p80": 0.4917,
+          "p95": 0.9346
+        },
+        "windowEffectIntervalPercent": {
+          "p50": [0.1458, 0.1874],
+          "p80": [0.4301, 0.5531],
+          "p95": [0.8178, 1.0514]
+        },
+        "calculationId": "usage-capacity-2026-07-21-clipboard-shortcut-v1",
+        "actualPostRunUsageAvailable": false,
         "ccsIntakeId": "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d",
         "sustainedEffectivenessEstablished": false
       },
-      "analysisRevision": "ALtnJHz0gyQ6w0dFItrYJziAF4yNUz2-Q1d4GEMq69W5WJjuAep47FTBuhKPenLfDXodhgE00L9UEUCZhXxRwcb8m33TQjKd1IhokqaDcA"
+      "analysisRevision": "AIroW37uFhkOwxhLbz97_dv6yjTXCDwIlAK7rUh1cNJwBmxZzjv7QhxMH4mq3_bTs36vVN6a2LAiuRMBIWOjmzumFCrU3BXB4Kq58DlfZA"
     }
   },
   "automationCostCadenceProportionalityControl": {

@@ -27,7 +27,7 @@ The web interface runs at `http://localhost:3000`. The MCP server runs at
 
 - `app/` contains the responsive dashboard and API routes.
 - `db/` contains the durable D1 schema, runtime initialization, and state access.
-- `lib/` contains typed seed state, the recurring-work policy, and the calibrated Codex/Claude one-off usage estimator.
+- `lib/` contains typed seed state, the recurring-work policy, and the calibrated Codex/Claude one-off usage estimator. Every estimate includes a compact, versioned calculation trace with inputs, factors, formulas, intermediate values, rounding, thresholds, and a stable calculation ID.
 - `mcp/` exposes standard `search` and `fetch` tools plus dashboard, capture,
   recruiter-ingestion, approval, and usage-preflight tools.
 - `public/command-center-widget.html` is the MCP Apps/ChatGPT widget.

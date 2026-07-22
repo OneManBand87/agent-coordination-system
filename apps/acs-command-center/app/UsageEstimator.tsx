@@ -66,7 +66,7 @@ export function UsageEstimator() {
       <ul>{estimate.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
       <ul>{estimate.reductions.map((reduction) => <li key={reduction}>{reduction}</li>)}</ul>
     </div> : null}
+    {estimate ? <details className="usage-estimator-audit"><summary>Calculation audit basis · {estimate.audit.calculationId}</summary><p>Version {estimate.audit.calculationVersion} · calibration {estimate.audit.calibrationAsOf} · sample size {estimate.audit.basis.baseCalibration.sampleSize}</p><p>Combined factor {estimate.audit.basis.factors.combined.toFixed(4)} = scope {estimate.audit.basis.factors.scope} × context {estimate.audit.basis.factors.context} × reasoning {estimate.audit.basis.factors.reasoning} × √passes {estimate.audit.basis.factors.completionPassesSquareRoot.toFixed(4)}.</p><p>Unrounded p50 / p80 / p95: {estimate.audit.intermediateValues.finalUnrounded.p50.toFixed(4)} / {estimate.audit.intermediateValues.finalUnrounded.p80.toFixed(4)} / {estimate.audit.intermediateValues.finalUnrounded.p95.toFixed(4)}. {estimate.audit.rounding.applied}.</p></details> : null}
     <small className="usage-estimator-note">Claude values measure possible paid overage at API rates; plan-limit percentage remains provider-controlled and must be checked in Claude Settings → Usage. Estimates do not include the minimal cost of reading the original request.</small>
   </div>;
 }
-

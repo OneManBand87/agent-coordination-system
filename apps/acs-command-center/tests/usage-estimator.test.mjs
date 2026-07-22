@@ -63,5 +63,28 @@ test("recent task usage creates a conservative estimate floor", () => {
     explicitCostApproval: true,
   });
   assert.ok(estimate.p80 >= 78.1);
+  assert.equal(estimate.audit.basis.recentUsageFloor.model, "gpt-5.6-sol");
+  assert.equal(estimate.audit.basis.recentUsageFloor.lastPassCost, 31.25);
 });
 
+test("emits a reproducible compact calculation audit", () => {
+  const input = {
+    platform: "codex",
+    taskClass: "bounded-documentation",
+    importanceRank: 3,
+    scope: "small",
+    contextState: "fresh",
+    reasoningLevel: "low",
+    completionPasses: 1,
+  };
+  const first = estimateTaskUsage(input);
+  const second = estimateTaskUsage(input);
+  assert.equal(first.audit.calculationVersion, "usage-estimator-v2");
+  assert.equal(first.audit.calculationId, second.audit.calculationId);
+  assert.deepEqual(first.audit.basis.baseCalibration, { p50: 18, p80: 40, p95: 85, sampleSize: 9, confidence: "medium" });
+  assert.equal(first.audit.basis.factors.combined, 0.405);
+  assert.ok(Math.abs(first.audit.intermediateValues.calibratedUnrounded.p80 - 16.2) < Number.EPSILON * 20);
+  assert.equal(first.audit.output.p80, 16.2);
+  assert.match(first.audit.formulas.calibratedBand, /scope factor/);
+  assert.match(first.audit.limitations.join(" "), /actual post-run usage/i);
+});
