@@ -142,6 +142,29 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Residual risk: any future chained write can recur if downstream content is composed from an anticipated rather than returned identifier.
 - Reuse candidate: never place a revision, URL, file ID, intake ID, commit, or other generated identifier into a downstream canonical record until the originating action completes and the identifier is read back.
 
+### NDV-SYS-2026-07-21-006 — Clipboard text-to-file Shortcut stalls at Apple Notes handoff
+
+- Status: `open — signed Mac candidate installed; physical iPhone and successful attachment creation unverified`.
+- Materiality: M2 cross-device workflow availability and completion-integrity issue.
+- Owner: Codex / ACS Command Center implementation.
+- Task nature or workstream: convert copied text into an embedded file for Apple Notes or another native Apple application on Mac and iPhone.
+- Affected systems and programs: macOS Shortcuts, Apple Notes, iCloud Shortcuts synchronization, iOS Shortcuts and Share Sheet behavior, and the ACS Command Center evidence route.
+- Creation or detection context: the user requested the Mac workflow on iPhone and approved up to 230 Codex credits after the capacity-aware preflight.
+- Detected: 2026-07-21; validation continued into 2026-07-22.
+- Observed facts and evidence: multiple signed Shortcut builds imported on Mac; the Make PDF action completed, while subsequent Copy to Clipboard, Share, and Create Note actions stalled or produced no observable file attachment; Notes remained at four notes; unique verification IDs `913742`, `774299`, and `885144` did not appear; command-line runs did not establish success; no physical-iPhone route was available for read-back.
+- Evidence classification and uncertainty: the failed Mac test outcomes are observed facts. The likely Notes destination, permission, or Apple file-object handoff boundary is an inference; the exact Apple-platform cause remains unknown.
+- `Deficiency_Source`: `HYBRID` — `AI_NATIVE_EXECUTION` for an implementation that has not reached verified behavior, and `EXTERNAL_PLATFORM_OR_ENVIRONMENT` for the unresolved Apple first-run permission/destination and physical-device boundary.
+- `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` if the candidate were represented as working; current integrity controls worked by withholding completion.
+- Root cause or mechanism: unresolved Apple Shortcuts file-object handoff into Notes; the precise mechanism cannot be established without the platform's local first-run interaction and a successful physical-device read-back.
+- Corrective actor and action: Codex fixed stale signed-output reuse by deleting the previous signed artifact before each signing operation; narrowed the candidate to clipboard → PDF → named file → Notes; installed the current signed candidate on Mac; preserved the installer in canonical Drive; and mirrored the blocked status through CCS.
+- Verification and closure basis: remain open until one physical Apple device completes any required Notes-folder or permission selection and a newly created note is read back with the PDF attached; iPhone synchronization and routing require separate physical-device read-back.
+- Updated system-process narrative: `apps/acs-command-center/native/shortcuts/Text to File Attachment.shortcut.plist`, `apps/acs-command-center/native/shortcuts/prepare-text-to-file-attachment.zsh`, `resources/agent-coordination.md`, and `resources/agent-resources.json`.
+- Canonical Drive installer: file `1uNYZakjYP4muUp2kojKqyitrExGgh1ge`, `ACS Command Center - Text to File Attachment Shortcut - Candidate - 2026-07-21.shortcut`.
+- CCS reference: production item `intake-ed0a5de3-2b24-4ed5-8d00-291a93a8ae27`, read back as `captured`.
+- Canonical register revision: `AIroW34fsLIMR_0nm84zqMwBuyyeAKb1Pq-zBiBko5qzxmoeTeIX24LMazeU4Ol2Pwoxo4gjr3PDJNXZxeM-BPLVvMUil8sapGJx_w9-9w`.
+- Residual risk: do not treat the Shortcut as working on Mac or iPhone until attachment creation and cross-device visibility are observed.
+- Reuse candidates: remove stale signer output before re-signing; distinguish action-graph installation from behavioral success; require live destination read-back for Apple file handoffs; never infer iPhone synchronization from a Mac install.
+
 ## Linked source registers
 
 - `resources/ai-response-integrity-review-2026-07-17.md` — supplementary adjudicated incident records, including `NDV-INC-ICLOUD-01`, `NDV-INC-EVASION-01`, and `NDV-INC-EVASION-02`.
