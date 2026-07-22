@@ -14,6 +14,8 @@ REQUIRED_FILES = [
     "resources/integrity-materiality-control.md",
     "resources/maximal-progression-user-attention-control.md",
     "resources/automation-cost-cadence-proportionality-control.md",
+    "resources/calculation-provenance-and-audit-control.md",
+    "resources/execution-self-monitoring-and-failure-disclosure-control.md",
 ]
 
 
@@ -46,7 +48,11 @@ def main() -> int:
             "repository snapshot unless canonical Drive access has been directly verified; read "
             "agent coordination, resource manifest, QTU provisional validation hold, historical "
             "safe harbor, integrity control, "
-            "maximal-progression control, and automation cost/cadence control. "
+            "maximal-progression control, automation cost/cadence control, calculation provenance, "
+            "and event-driven self-monitoring. Independently identify and record material failures "
+            "shown by assumptions, tool results, contradictions, unsupported identifiers, or claims; "
+            "user detection is not required. Review again before closure without exposing private "
+            "chain-of-thought or creating recurring AI work. "
             "Hook event: "
             + event
             + "."

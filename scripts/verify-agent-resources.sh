@@ -21,6 +21,8 @@ resources/qtu-administrative-logistical-safe-harbor.md
 resources/integrity-materiality-control.md
 resources/maximal-progression-user-attention-control.md
 resources/automation-cost-cadence-proportionality-control.md
+resources/calculation-provenance-and-audit-control.md
+resources/execution-self-monitoring-and-failure-disclosure-control.md
 resources/ai-response-integrity-review-2026-07-17.md
 scripts/verify-automation-cost-control.mjs
 skills-lock.json'
@@ -153,6 +155,27 @@ done
 
 if ! rg -Fq 'PCAOB-aligned' resources/integrity-materiality-control.md || ! rg -Fq 'QTU-LCB90 = 0.908739' resources/integrity-materiality-control.md; then
   printf 'integrity control invariants missing\n' >&2
+  exit 1
+fi
+
+for self_monitoring_file in AGENTS.md resources/agent-coordination.md resources/integrity-materiality-control.md; do
+  if ! rg -Fq 'execution-self-monitoring-and-failure-disclosure-control.md' "$self_monitoring_file"; then
+    printf 'Execution self-monitoring control link missing: %s\n' "$self_monitoring_file" >&2
+    exit 1
+  fi
+done
+
+if ! rg -Fqi 'User detection is evidence, not a prerequisite' resources/execution-self-monitoring-and-failure-disclosure-control.md ||
+   ! rg -Fq 'does not require or permit disclosure of private chain-of-thought' resources/execution-self-monitoring-and-failure-disclosure-control.md ||
+   ! rg -Fq 'must not create recurring model polling' resources/execution-self-monitoring-and-failure-disclosure-control.md ||
+   ! rg -Fq 'NDV-SYS-2026-07-21-005' resources/execution-self-monitoring-and-failure-disclosure-control.md ||
+   ! rg -Fq 'event-driven self-monitoring' .codex/hooks/ndv_context_hook.py; then
+  printf 'Execution self-monitoring control invariants missing\n' >&2
+  exit 1
+fi
+
+if ! jq -e '.executionSelfMonitoringFailureDisclosureControl | (.status | startswith("mandatory-project-wide")) and (.userDetectionRequired == false) and (.privateChainOfThoughtDisclosureRequired == false) and (.recurringAiPollingAllowed == false) and (.taskPerCheckpointAllowed == false) and (.anchorIncidentId == "NDV-SYS-2026-07-21-005") and (.controlGapIssueId == "NDV-SYS-2026-07-22-002") and (.productionCcsIntakeId | startswith("intake-")) and (.productionCcsReadBackStatus == "captured")' resources/agent-resources.json >/dev/null; then
+  printf 'Execution self-monitoring metadata mismatch\n' >&2
   exit 1
 fi
 

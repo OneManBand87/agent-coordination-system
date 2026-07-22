@@ -23,6 +23,8 @@ For every material claim or action, an agent must:
 7. require read-back evidence before claiming memory persistence, synchronization, completion, or remediation; and
 8. reopen a matter when recurrence contradicts a prior completion claim.
 
+Agents must also apply the [Execution Self-Monitoring and Failure Disclosure Control](execution-self-monitoring-and-failure-disclosure-control.md). A material failure must be recorded when the agent detects it from its own tool results, assumptions, contradictions, calculations, identifiers, decisions, or claims; user discovery is not required. Preserve the audit-relevant reasoning and evidence, not private chain-of-thought.
+
 Tone, fluency, agreement, apology, and model self-confidence are not evidence.
 
 ## Materiality

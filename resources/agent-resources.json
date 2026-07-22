@@ -645,7 +645,7 @@
       "repositorySnapshot": "resources/system-issue-corrective-action-register.md",
       "canonicalDocumentId": "1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA",
       "canonicalDocumentUrl": "https://docs.google.com/document/d/1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA/edit",
-      "canonicalDocumentRevision": "ALtnJHwEhpJeqBhpoPukZn-A_I9Z6UscvCUx0mhUHDwKZxF-UxQ2h8Kxh8h-SHnv1384wk-lH8jYYmsNepblVUmhZRFnjcDCW3kqNjIEtA",
+      "canonicalDocumentRevision": "AIroW35cjCEwxoZ0RJo0Xkvpa0PGNbiWnlvy3t-snVz9e2zKNf0DOb4AYYX4V2nI8GaAudSbmTxcn-JQH4J7X_qV8r588UkKK8JqZKKGbg",
       "driveFolder": "03 Manifests and Data",
       "seedIssueId": "NDV-SYS-2026-07-21-001",
       "seedIssueStatus": "resolved-monitor-for-recurrence",
@@ -653,10 +653,10 @@
       "productionCcsReadBackStatus": "captured",
       "currentCapacityIssueId": "NDV-SYS-2026-07-21-004",
       "currentCanonicalReferenceIncidentId": "NDV-SYS-2026-07-21-005",
-      "canonicalReferenceIncidentStatus": "corrected-immediately-recurrence-monitoring-open",
-      "canonicalBriefRevision": "AIroW36BKmRqt29L7ATJ3-MBslsWkQb2ey-eDGJqzofVj-g467S9BlM2s4Go53NmvxbsaekDKJELSDFe4Uxb0uUeFLUUqM-cAAMigUCp1g",
-      "currentIssueIds": ["NDV-SYS-2026-07-21-002", "NDV-SYS-2026-07-21-003", "NDV-SYS-2026-07-21-004", "NDV-SYS-2026-07-21-005"],
-      "currentIssueCcsIntakeIds": ["intake-61208f7f-d429-4842-9380-4dec4513800c", "intake-ad49165b-d79b-499a-b594-fbd78c710f32", "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d"],
+      "canonicalReferenceIncidentStatus": "corrected-and-read-back-recurrence-monitoring-open",
+      "canonicalBriefRevision": "AIroW37Um3W1IjyfgApaG67Vt2o8uPzBhPEN-lJNwenEj_K177ZCpylws78ZwvDzOY-Y3YZct5zsU38MoGLum2kBpodIPUaQVXp2u7uaTg",
+      "currentIssueIds": ["NDV-SYS-2026-07-21-002", "NDV-SYS-2026-07-21-003", "NDV-SYS-2026-07-21-004", "NDV-SYS-2026-07-21-005", "NDV-SYS-2026-07-22-001", "NDV-SYS-2026-07-22-002"],
+      "currentIssueCcsIntakeIds": ["intake-61208f7f-d429-4842-9380-4dec4513800c", "intake-ad49165b-d79b-499a-b594-fbd78c710f32", "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d", "intake-5de72265-cf3e-4ea8-88aa-3dba617a3b10", "intake-81776ef6-27f4-4c53-95b8-a6d1b9838678"],
       "crossControlReviewCadence": "every-two-weeks-desired",
       "crossControlReviewAutomationStatus": "not-created-not-scheduled",
       "automationActivationRequires": "separate-bounded-decision-under-automation-cost-control"
@@ -883,6 +883,38 @@
     "productionCcsReadBackStatus": "captured",
     "systemIssueId": "NDV-SYS-2026-07-22-001",
     "systemIssueRegisterRevision": "AIroW35GKuCOJvrE1fBTdChUykB8YTSXVbNXzM-pJz0tPnh5fCrqUEW2j81_Sa1PARgryJ3eLgMFfcIRW3jvDgR81YnZKvsGbrPARo1yyg"
+  },
+  "executionSelfMonitoringFailureDisclosureControl": {
+    "status": "mandatory-project-wide-installed-sustained-effectiveness-unverified",
+    "effectiveDate": "2026-07-22",
+    "repositoryControl": "resources/execution-self-monitoring-and-failure-disclosure-control.md",
+    "scope": "auditable-active-task-execution-and-reasoning-process-outputs",
+    "privateChainOfThoughtDisclosureRequired": false,
+    "eventDrivenCheckpoints": [
+      "before-material-write-external-action-approval-or-completion-claim",
+      "after-tool-error-unexpected-result-contradiction-partial-success-retry-or-changed-assumption",
+      "after-compaction-handoff-interruption-or-resumption",
+      "before-synchronization-remediation-verification-or-closure",
+      "when-earlier-unsupported-state-is-recognized"
+    ],
+    "userDetectionRequired": false,
+    "detectionSources": [
+      "agent-self-detected",
+      "user-detected",
+      "tool-detected",
+      "counterpart-detected",
+      "combined"
+    ],
+    "recurringAiPollingAllowed": false,
+    "taskPerCheckpointAllowed": false,
+    "noFindingUserNotificationRequired": false,
+    "anchorIncidentId": "NDV-SYS-2026-07-21-005",
+    "controlGapIssueId": "NDV-SYS-2026-07-22-002",
+    "sameTaskSelfDetectionEvidence": "initial-canonical-replacement-zero-match-detected-before-completion-and-corrected-from-observed-text",
+    "canonicalBriefRevision": "AIroW37Um3W1IjyfgApaG67Vt2o8uPzBhPEN-lJNwenEj_K177ZCpylws78ZwvDzOY-Y3YZct5zsU38MoGLum2kBpodIPUaQVXp2u7uaTg",
+    "systemIssueRegisterRevision": "AIroW35cjCEwxoZ0RJo0Xkvpa0PGNbiWnlvy3t-snVz9e2zKNf0DOb4AYYX4V2nI8GaAudSbmTxcn-JQH4J7X_qV8r588UkKK8JqZKKGbg",
+    "productionCcsIntakeId": "intake-81776ef6-27f4-4c53-95b8-a6d1b9838678",
+    "productionCcsReadBackStatus": "captured"
   },
   "oneOffAiUsagePreflightControl": {
     "status": "mandatory-production-v0.5-owner-only-deployed",

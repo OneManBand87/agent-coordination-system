@@ -128,17 +128,17 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Residual risk: the percentage display is rounded; provider conversion is not published; thresholds are provisional; CCS does not yet collect and display the capacity ledger automatically.
 - Reuse candidates: apply the portfolio-capacity layer to every hard-window AI plan; preserve positive control evidence separately from deficiencies; cap the cost of administering the cost control itself; never create recurring model polling to measure usage.
 
-### NDV-SYS-2026-07-21-005 — Predicted revision identifier written to canonical brief
+### NDV-SYS-2026-07-21-005 — Fabricated revision identifier written to canonical brief
 
-- Status: `corrected immediately — recurrence monitoring open`.
+- Status: `corrected and read back — recurrence monitoring open`.
 - Materiality: M2 canonical-reference integrity issue.
 - Owner: Codex.
-- Context and observed evidence: after appending `NDV-SYS-2026-07-21-004` to the canonical register, Codex wrote a predicted register revision into the shared brief before reading the actual connector response. The actual register revision was `ALtnJHwik686m6Gze_LIgeh5AzzbSjQB-v1dQVyvXKCBYc5pxxgIgB1QlhK329HcRANb6FXHumIStf3h_9XsbK9VwR3EtM0wgMHof2g-qg`. A Google Docs `replaceAllText` operation changed one occurrence, and the corrected shared brief revision was read back as `AIroW371x6BWzjD-X58md3t4WM78AcUnOWdJESHByYWwC5U_Ejs30_QZ1z5O_D-utquOfLRMwSsvZKZNt6O1uJgmy0IkLbmEALHs90fyuA`.
+- Context and observed evidence: after appending `NDV-SYS-2026-07-21-004` to the canonical register, Codex wrote a fabricated register revision—predicted without observing the connector result—into the shared brief. The actual register revision was `ALtnJHwik686m6Gze_LIgeh5AzzbSjQB-v1dQVyvXKCBYc5pxxgIgB1QlhK329HcRANb6FXHumIStf3h_9XsbK9VwR3EtM0wgMHof2g-qg`. A Google Docs `replaceAllText` operation changed one occurrence, and the corrected shared brief revision was read back as `AIroW371x6BWzjD-X58md3t4WM78AcUnOWdJESHByYWwC5U_Ejs30_QZ1z5O_D-utquOfLRMwSsvZKZNt6O1uJgmy0IkLbmEALHs90fyuA`.
 - `Deficiency_Source`: `AI_NATIVE_EXECUTION`.
 - `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` because the observed-ID-only rule was violated during canonical synchronization.
 - Root cause: the follow-on write was composed before the preceding connector action returned its generated identifier.
 - Corrective action: replaced the unsupported identifier with the observed identifier; separated dependent writes; required returned identifiers before composing downstream references.
-- Verification and closure basis: `replaceAllText` reported `occurrencesChanged = 1`; final canonical read-back remains required before completion.
+- Verification and closure basis: `replaceAllText` reported `occurrencesChanged = 1`; subsequent canonical read-back confirmed the corrected identifier and the incident record. Recurrence monitoring remains open because one successful correction does not establish sustained effectiveness.
 - Residual risk: any future chained write can recur if downstream content is composed from an anticipated rather than returned identifier.
 - Reuse candidate: never place a revision, URL, file ID, intake ID, commit, or other generated identifier into a downstream canonical record until the originating action completes and the identifier is read back.
 
@@ -185,6 +185,26 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Canonical system-issue-register revision: `AIroW35GKuCOJvrE1fBTdChUykB8YTSXVbNXzM-pJz0tPnh5fCrqUEW2j81_Sa1PARgryJ3eLgMFfcIRW3jvDgR81YnZKvsGbrPARo1yyg`.
 - Residual risk: provider accounting and displayed-percentage rounding remain external and partly unknown; actual post-run usage cannot be inferred from approval; deterministic calculation IDs are provenance handles, not cryptographic proof of uniqueness.
 - Reuse candidates: require trace-bearing result types for every material calculator; store one structured trace plus concise linked summaries; test intermediate values and rounding; never create recurring model logging or duplicate narrative ledgers.
+
+### NDV-SYS-2026-07-22-002 — No standing control required agents to log self-detected execution failures
+
+- Status: `control installed with one same-task self-detection — sustained effectiveness unverified`.
+- Materiality: M2 accountability, integrity, and control-learning issue.
+- Owner: Codex / ACS control plane.
+- Task nature or workstream: continuously monitor active task execution for failures an agent detects independently and preserve them without waiting for user discovery.
+- Affected systems and programs: all NEURO-DIV agent work, repository operating instructions, integrity control, Codex project hooks, canonical shared brief, System Issue and Corrective-Action Register, and CCS.
+- Creation or detection context: on 2026-07-22 the user required the fabricated-revision correction to be logged and required a continuing control for failures visible to the agent's own execution or reasoning process but not identified by the user.
+- Observed evidence: `NDV-SYS-2026-07-21-005` documented the fabricated revision after correction, but no explicit standing rule required agents to conduct event-driven self-review throughout a material task, identify failures without a user report, label the detection source, or record the auditable decision path while excluding private chain-of-thought.
+- `Deficiency_Source`: `NEURO_DIV_ARCHITECTURE` — the integrity framework required contradiction handling and remediation but did not expressly make self-detection and self-reporting an active-task duty.
+- `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` for the missing explicit control; effectiveness of the new control remains unverified until future independent self-detections occur before user discovery or downstream propagation.
+- Root cause or mechanism: incident response was primarily triggered by observed output failures and user escalation rather than a defined set of in-task checkpoints and detection questions.
+- Corrective actor and action: Codex installed the mandatory Execution Self-Monitoring and Failure Disclosure Control; added it to `AGENTS.md` and the integrity control; added project-hook reminders; defined checkpoints before material writes and claims, after errors and contradictions, after context transitions, and before closure; required detection-source labels and proportionate durable records; prohibited recurring AI polling and private chain-of-thought disclosure.
+- Same-task self-detection evidence: the first canonical-register correction used repository-snapshot capitalization and punctuation, while the older Google Doc used different text. The batch response showed empty replacement results; Codex detected the zero-change condition during read-back before claiming success, retrieved the actual canonical text, retried with exact observed strings, and read back four `occurrencesChanged = 1` results. Detection source: `agent-self-detected` plus `tool-detected`; downstream propagation: none.
+- Verification and closure basis: the repository verifier passed; the project hook emitted the self-monitoring reminder; canonical Drive read-back confirmed the control, fabricated-revision correction, issue record, and same-task detection evidence; CCS item `intake-81776ef6-27f4-4c53-95b8-a6d1b9838678` read back as `captured`. A future recurrence test remains required for sustained-effectiveness evidence.
+- Updated system-process narrative: `AGENTS.md`; `resources/execution-self-monitoring-and-failure-disclosure-control.md`; `resources/integrity-materiality-control.md`; `.codex/hooks/ndv_context_hook.py`; `resources/agent-coordination.md`; and `resources/agent-resources.json`.
+- Anchor incident: `NDV-SYS-2026-07-21-005`, now explicitly classified as a fabricated revision predicted without origin-system observation.
+- Residual risk: a model may fail to recognize its own error; self-review cannot guarantee access to hidden model internals; only externally inspectable evidence and decision paths can be audited. Independent testing and user/counterpart reports remain necessary corroboration.
+- Reuse candidates: make self-detected failure review a finalization invariant across all agents; distinguish audit-relevant reasoning from private chain-of-thought; preserve no-finding silence to avoid context and usage overload.
 
 ## Linked source registers
 
