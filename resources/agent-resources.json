@@ -875,13 +875,14 @@
     "taskPerCalculationAllowed": false,
     "usageEstimatorTraceVersion": "usage-estimator-v2",
     "usageEstimatorTraceTestsPassed": 6,
+    "usageEstimatorProductionDeploymentStatus": "pending",
     "currentManualCalculationId": "usage-capacity-2026-07-21-clipboard-shortcut-v1",
-    "canonicalBriefRevision": "AIroW34hSS2Dg8ihfu5oRMebHbmmk2SN4CkXfzyEQv3jflme6zrEW7raKcyfk8kCWUVaQbdKOC_BsH0d4_bH7zxX3Vz1-GUm3Xqs5iNBng",
-    "analysisRevision": "AIroW37uFhkOwxhLbz97_dv6yjTXCDwIlAK7rUh1cNJwBmxZzjv7QhxMH4mq3_bTs36vVN6a2LAiuRMBIWOjmzumFCrU3BXB4Kq58DlfZA",
+    "canonicalBriefRevision": "AIroW34UI9q9dtRbcUL5WTL5LCMjixVNmzlnkOTSkwyCbT4HgwZ9Z-6Hh32RruI1ZvKPD1nggDDDUNWME83UAxamy3mVyyJCkyarUQOg6Q",
+    "analysisRevision": "AIroW35-e94EI44taCFXqDy-A8dkheUKkfzq_2-39YPP8yJuqdnSAy09cOujY0NxyaHHxSPnA4mlg0JPfMEUjbF2i-hyzFmFPCPjpqGz6A",
     "productionCcsIntakeId": "intake-5de72265-cf3e-4ea8-88aa-3dba617a3b10",
     "productionCcsReadBackStatus": "captured",
     "systemIssueId": "NDV-SYS-2026-07-22-001",
-    "systemIssueRegisterRevision": "AIroW34m-ZHLR7JZw-fWZZfviW0htBduONQc6KyYp94A_8WE_C64Bf4GuTEyJLCoyAMnJTi387xV0mEz_6d3MmcM0TB7Q87fUwwCalkAuA"
+    "systemIssueRegisterRevision": "AIroW35GKuCOJvrE1fBTdChUykB8YTSXVbNXzM-pJz0tPnh5fCrqUEW2j81_Sa1PARgryJ3eLgMFfcIRW3jvDgR81YnZKvsGbrPARo1yyg"
   },
   "oneOffAiUsagePreflightControl": {
     "status": "mandatory-production-v0.5-owner-only-deployed",
@@ -941,7 +942,7 @@
     "sitesVersion": 8,
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
     "productionDeploymentVerified": true,
-    "canonicalBriefRevision": "AIroW34hSS2Dg8ihfu5oRMebHbmmk2SN4CkXfzyEQv3jflme6zrEW7raKcyfk8kCWUVaQbdKOC_BsH0d4_bH7zxX3Vz1-GUm3Xqs5iNBng",
+    "canonicalBriefRevision": "AIroW34UI9q9dtRbcUL5WTL5LCMjixVNmzlnkOTSkwyCbT4HgwZ9Z-6Hh32RruI1ZvKPD1nggDDDUNWME83UAxamy3mVyyJCkyarUQOg6Q",
     "capacityAwareJobCosting": {
       "status": "control-current-production-instrumentation-pending",
       "utilityGatePrecedesCapacityGate": true,
@@ -1003,7 +1004,7 @@
         "ccsIntakeId": "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d",
         "sustainedEffectivenessEstablished": false
       },
-      "analysisRevision": "AIroW37uFhkOwxhLbz97_dv6yjTXCDwIlAK7rUh1cNJwBmxZzjv7QhxMH4mq3_bTs36vVN6a2LAiuRMBIWOjmzumFCrU3BXB4Kq58DlfZA"
+      "analysisRevision": "AIroW35-e94EI44taCFXqDy-A8dkheUKkfzq_2-39YPP8yJuqdnSAy09cOujY0NxyaHHxSPnA4mlg0JPfMEUjbF2i-hyzFmFPCPjpqGz6A"
     }
   },
   "automationCostCadenceProportionalityControl": {
