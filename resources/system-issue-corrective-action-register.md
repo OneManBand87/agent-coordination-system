@@ -109,6 +109,39 @@ No recurring review, reminder, scheduler, or Codex automation is currently creat
 - Canonical narrative revision: shared-agent brief revision `AIroW35i4v_emu7Pt6qHCnpNuHM2e9rKvkuqRRPqZuY2OluP1eh7XLcZlNyowhsbFVC_djHAmKJEBDrNxMDCrwSIMfU9zqXa2fHIc9RunQ`, read back with the contradictory evidence, Mac verification, completed Mac Shortcut import, Siri launch-only boundary, and open physical-iPhone status.
 - Reuse candidates: every claimed user-facing integration must include a surface-level acceptance test on each applicable device; implementation of a background processor is not evidence that the Share Sheet or context-menu entrance exists; preserve a native service fallback on Mac even when cross-device Shortcuts are available.
 
+### NDV-SYS-2026-07-21-004 — One-off usage gate lacked capacity-aware job costing
+
+- Status: `control design corrected — production telemetry and dashboard implementation pending`.
+- Materiality: M2 cost continuity and project-capacity issue.
+- Owner: Codex / CCS Usage Sentinel implementation.
+- Task nature or workstream: one-off AI usage preflight, weekly provider-capacity allocation, project job costing, and ADHD-accessible deficit reporting.
+- Affected systems and programs: Codex and Work shared usage, CCS Usage Sentinel, local rate-limit telemetry, provider usage menus, project planning, and canonical Drive controls.
+- Creation or detection context: the clipboard-text-to-file administrative task was correctly stopped at the preflight boundary, but the existing control compared absolute estimated credits with utility without incorporating the observed weekly balance, committed work, protective reserves, or administrative-overhead burden.
+- Detected: 2026-07-21.
+- Observed facts: the account displayed 96% weekly usage remaining, a July 28 reset, and one available reset; local telemetry showed 4% used and approximately 984.4 provider-rate-equivalent credits; the task estimate was 41/121/230 credits; the gate stopped before substantive execution; the user directed that successful applications and capacity context become part of the control.
+- `Deficiency_Source`: `NEURO_DIV_ARCHITECTURE` — the existing estimator did not model active-window capacity, planned-work allocations, contingency reserves, administrative overhead, or automatic usage-state intake.
+- `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` for the missing capacity layer; `WORKED_AS_DESIGNED` for the bounded preflight interruption itself.
+- Root cause or mechanism: a task-level utility-cost model was implemented without a portfolio-level, time-window-constrained capacity ledger.
+- Corrective actor and action: Codex added capacity-aware formulas, p80/p95 commitment rules, provisional 15% unplanned-production and 10% reliability reserves, a provisional 5% administrative-overhead cap, deterministic-telemetry preference, screenshot fallback, CCS KPI definitions, and positive-evidence classification.
+- Verification and closure basis: canonical shared brief revision `AIroW37brJU8e1TrmOyz4cdmTbNacNsoziW_nMotGzrPZOGBTn9cRxj0TDA8k3y839eSRYVnfI0NTlTeeCTaMg9A7VlxYTaFQOuF75IFnw`; analysis revision `ALtnJHz0gyQ6w0dFItrYJziAF4yNUz2-Q1d4GEMq69W5WJjuAep47FTBuhKPenLfDXodhgE00L9UEUCZhXxRwcb8m33TQjKd1IhokqaDcA`; CCS item `intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d` read back as `captured`.
+- Updated system-process narrative: `resources/one-off-ai-usage-preflight-control.md`, `resources/agent-coordination.md`, `resources/agent-resources.json`, the canonical shared brief, and the canonical AI Usage Preflight analysis.
+- Residual risk: the percentage display is rounded; provider conversion is not published; thresholds are provisional; CCS does not yet collect and display the capacity ledger automatically.
+- Reuse candidates: apply the portfolio-capacity layer to every hard-window AI plan; preserve positive control evidence separately from deficiencies; cap the cost of administering the cost control itself; never create recurring model polling to measure usage.
+
+### NDV-SYS-2026-07-21-005 — Predicted revision identifier written to canonical brief
+
+- Status: `corrected immediately — recurrence monitoring open`.
+- Materiality: M2 canonical-reference integrity issue.
+- Owner: Codex.
+- Context and observed evidence: after appending `NDV-SYS-2026-07-21-004` to the canonical register, Codex wrote a predicted register revision into the shared brief before reading the actual connector response. The actual register revision was `ALtnJHwik686m6Gze_LIgeh5AzzbSjQB-v1dQVyvXKCBYc5pxxgIgB1QlhK329HcRANb6FXHumIStf3h_9XsbK9VwR3EtM0wgMHof2g-qg`. A Google Docs `replaceAllText` operation changed one occurrence, and the corrected shared brief revision was read back as `AIroW371x6BWzjD-X58md3t4WM78AcUnOWdJESHByYWwC5U_Ejs30_QZ1z5O_D-utquOfLRMwSsvZKZNt6O1uJgmy0IkLbmEALHs90fyuA`.
+- `Deficiency_Source`: `AI_NATIVE_EXECUTION`.
+- `NEURO_DIV_Control_Result`: `CONTROL_DEFICIENCY` because the observed-ID-only rule was violated during canonical synchronization.
+- Root cause: the follow-on write was composed before the preceding connector action returned its generated identifier.
+- Corrective action: replaced the unsupported identifier with the observed identifier; separated dependent writes; required returned identifiers before composing downstream references.
+- Verification and closure basis: `replaceAllText` reported `occurrencesChanged = 1`; final canonical read-back remains required before completion.
+- Residual risk: any future chained write can recur if downstream content is composed from an anticipated rather than returned identifier.
+- Reuse candidate: never place a revision, URL, file ID, intake ID, commit, or other generated identifier into a downstream canonical record until the originating action completes and the identifier is read back.
+
 ## Linked source registers
 
 - `resources/ai-response-integrity-review-2026-07-17.md` — supplementary adjudicated incident records, including `NDV-INC-ICLOUD-01`, `NDV-INC-EVASION-01`, and `NDV-INC-EVASION-02`.

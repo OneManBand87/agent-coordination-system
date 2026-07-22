@@ -630,15 +630,18 @@
       "repositorySnapshot": "resources/system-issue-corrective-action-register.md",
       "canonicalDocumentId": "1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA",
       "canonicalDocumentUrl": "https://docs.google.com/document/d/1KInHd27pOBMH1TWrop2FK6bF_X-UHazTtpNmNrPp9CA/edit",
-      "canonicalDocumentRevision": "ALtnJHzZhdDZTgrLNzr-nuKbPXaKu0kHp3H5I_NAkbIVppOqs0PRP9EHdfC1vGFCumiovyodJQxJeL7n43yw59MFk2I-BHic2VHfBGyehQ",
+      "canonicalDocumentRevision": "ALtnJHwEhpJeqBhpoPukZn-A_I9Z6UscvCUx0mhUHDwKZxF-UxQ2h8Kxh8h-SHnv1384wk-lH8jYYmsNepblVUmhZRFnjcDCW3kqNjIEtA",
       "driveFolder": "03 Manifests and Data",
       "seedIssueId": "NDV-SYS-2026-07-21-001",
       "seedIssueStatus": "resolved-monitor-for-recurrence",
       "productionCcsIntakeId": "intake-705832fa-0ca3-4ee3-b654-296ba0fe9273",
       "productionCcsReadBackStatus": "captured",
-      "canonicalBriefRevision": "AIroW35i4v_emu7Pt6qHCnpNuHM2e9rKvkuqRRPqZuY2OluP1eh7XLcZlNyowhsbFVC_djHAmKJEBDrNxMDCrwSIMfU9zqXa2fHIc9RunQ",
-      "currentIssueIds": ["NDV-SYS-2026-07-21-002", "NDV-SYS-2026-07-21-003"],
-      "currentIssueCcsIntakeIds": ["intake-61208f7f-d429-4842-9380-4dec4513800c", "intake-ad49165b-d79b-499a-b594-fbd78c710f32"],
+      "currentCapacityIssueId": "NDV-SYS-2026-07-21-004",
+      "currentCanonicalReferenceIncidentId": "NDV-SYS-2026-07-21-005",
+      "canonicalReferenceIncidentStatus": "corrected-immediately-recurrence-monitoring-open",
+      "canonicalBriefRevision": "AIroW36BKmRqt29L7ATJ3-MBslsWkQb2ey-eDGJqzofVj-g467S9BlM2s4Go53NmvxbsaekDKJELSDFe4Uxb0uUeFLUUqM-cAAMigUCp1g",
+      "currentIssueIds": ["NDV-SYS-2026-07-21-002", "NDV-SYS-2026-07-21-003", "NDV-SYS-2026-07-21-004", "NDV-SYS-2026-07-21-005"],
+      "currentIssueCcsIntakeIds": ["intake-61208f7f-d429-4842-9380-4dec4513800c", "intake-ad49165b-d79b-499a-b594-fbd78c710f32", "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d"],
       "crossControlReviewCadence": "every-two-weeks-desired",
       "crossControlReviewAutomationStatus": "not-created-not-scheduled",
       "automationActivationRequires": "separate-bounded-decision-under-automation-cost-control"
@@ -890,7 +893,48 @@
     "sitesVersion": 8,
     "productionUrl": "https://acs-command-center.onemanband87.chatgpt.site",
     "productionDeploymentVerified": true,
-    "canonicalBriefRevision": "ALtnJHzQDU4a1enw6W5kdVrT6zDtWq2fO1AanXG3DpdN68shpXx5PGs1mRdE-s3yZGlKzEoOj51dAiwAYK3TqnAGL9Cp2AHpAAWgqdy21w"
+    "canonicalBriefRevision": "AIroW36BKmRqt29L7ATJ3-MBslsWkQb2ey-eDGJqzofVj-g467S9BlM2s4Go53NmvxbsaekDKJELSDFe4Uxb0uUeFLUUqM-cAAMigUCp1g",
+    "capacityAwareJobCosting": {
+      "status": "control-current-production-instrumentation-pending",
+      "utilityGatePrecedesCapacityGate": true,
+      "telemetryPreference": "existing-deterministic-provider-rate-limit-events",
+      "telemetryFallback": "current-usage-menu-screenshot-or-bounded-screen-share-read",
+      "recurringLlmPollingAllowed": false,
+      "normalCommitmentReserveBasis": "p80",
+      "criticalOrHighVarianceReserveBasis": "p95",
+      "provisionalUnplannedProductionReservePercent": 15,
+      "provisionalReliabilityReservePercent": 10,
+      "provisionalAdministrativeOverheadCapPercent": 5,
+      "thresholdValidationStatus": "provisional-policy-parameters-not-empirically-validated",
+      "dashboardMetrics": [
+        "usable-weekly-headroom-after-reserves",
+        "project-p80-or-p95-allocation",
+        "allocation-coverage",
+        "actual-versus-planned-burn",
+        "administrative-overhead-ratio",
+        "reset-date-and-provider-reset",
+        "project-and-aggregate-deficit-status"
+      ],
+      "coverageStatusThresholds": {
+        "greenMinimum": 1.5,
+        "amberMinimum": 1.0,
+        "redBelow": 1.0
+      },
+      "positiveEvidence": {
+        "task": "clipboard-text-to-file-cross-device-workflow",
+        "result": "correctly-interrupted-for-bounded-capacity-decision",
+        "weeklyRemainingPercentObserved": 96,
+        "observedProviderRateEquivalentCredits": 984.4,
+        "taskEstimateCredits": {
+          "p50": 41,
+          "p80": 121,
+          "p95": 230
+        },
+        "ccsIntakeId": "intake-3f7b92bf-5fc7-4d65-9a8d-32528269323d",
+        "sustainedEffectivenessEstablished": false
+      },
+      "analysisRevision": "ALtnJHz0gyQ6w0dFItrYJziAF4yNUz2-Q1d4GEMq69W5WJjuAep47FTBuhKPenLfDXodhgE00L9UEUCZhXxRwcb8m33TQjKd1IhokqaDcA"
+    }
   },
   "automationCostCadenceProportionalityControl": {
     "status": "mandatory",
